@@ -21,6 +21,8 @@
     [AVOSCloud setApplicationId:@""
                       clientKey:@""];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [[ConnectionManager sharedInstance]startScanForDevice];
     return YES;
 }
 
