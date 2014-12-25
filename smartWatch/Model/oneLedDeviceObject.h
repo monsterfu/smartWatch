@@ -39,22 +39,15 @@
 -(void)syncCurrentTime;
 
 
-//开关灯
--(void)open:(BOOL)status;
+//查询固件更新历史断点续传信息
+-(void)inquireHistoryInfo;
 
-//设置色温
--(void)setHue:(UIColor*)color;
 
-//设置亮度
--(void)setBrightness:(UIColor*)color;
 
-//首次连接设置默认色值等
--(void)setDefaultValue;
+//查询设备是否已经注册
+-(void)inquireDeviceRegisterInfo;
 
-//设置情景模式默认色值
--(void)setDefaultSceneValue:(colorSetObject*)colorset;
-
-//设置色彩
--(void)setCurrentColor:(UIColor*)color brightness:(float)brightness hue:(float)hue;
+//传送用户信息
+-(void)sendUserInfoRegisterInfo;
 
 @end

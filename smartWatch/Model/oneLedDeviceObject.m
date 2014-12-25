@@ -95,6 +95,7 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
     return device;
 }
 
+//同步时间
 -(void)syncCurrentTime
 {
     NSDate* currentDate = [NSDate date];
@@ -102,14 +103,13 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     comps = [calendar components:unitFlags fromDate:currentDate];
-    long weekNumber = [comps weekday]; //获取星期对应的长整形字符串
-    long day=[comps day];//获取日期对应的长整形字符串
-    long year=[comps year];//获取年对应的长整形字符串
-    long month=[comps month];//获取月对应的长整形字符串
-    long hour=[comps hour];//获取小时对应的长整形字符串
-    long minute=[comps minute];//获取月对应的长整形字符串
-    long second=[comps second];//获取秒对应的长整形字符串
-    
+    long weekNumber = [comps weekday];
+    long day=[comps day];
+    long year=[comps year];
+    long month=[comps month];
+    long hour=[comps hour];
+    long minute=[comps minute];
+    long second=[comps second];
     
     unsigned char command[11] = {0xc0,0x0a,year/100,year%100,month,day,weekNumber,hour,minute,second};
     unsigned short code = CRC16(command,10);
@@ -118,56 +118,35 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
-//开关灯
--(void)open:(BOOL)status
+//查询固件更新历史断点续传信息
+-(void)inquireHistoryInfo
 {
-    if (status) {
-        unsigned char command[9] = {0x55,0x04,0x00,0x01,0x01,0x22,0xDC,0xAA};
-        NSData* lookdata = [[NSData alloc]initWithBytes:command length:8];
-        [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
-    }else{
-        unsigned char command[12] = {0x55,0x08,0x00,0x01,0x00,0x00, 0x00,0x00,0x00,0x00, 0xFF,0xAA};
-        NSData* lookdata = [[NSData alloc]initWithBytes:command length:12];
-        [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
-    }
+    unsigned char command[3] = {0xc1,0x02};
+    unsigned short code = CRC16(command,2);
+    command[2] = code;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:3];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
-//设置色温
--(void)setHue:(UIColor*)color
+//查询设备是否已经注册
+-(void)inquireDeviceRegisterInfo
 {
-    
+    unsigned char command[4] = {0xc3,0x03,0x01};
+    unsigned short code = CRC16(command,3);
+    command[3] = code;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
-//设置亮度
--(void)setBrightness:(UIColor*)color
+//传送用户信息
+-(void)sendUserInfoRegisterInfo
 {
-    
+    unsigned char command[4] = {0xc3,0x03,0x01};
+    unsigned short code = CRC16(command,3);
+    command[3] = code;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
-
--(void)setDefaultValue
-{
-    NSData* colorData = [self.colorset dataCommondWithDefaultValue];
-    NSLog(@"setColor , data :%@", colorData);
-    [_peripheral writeValue:colorData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
-}
--(void)setDefaultSceneValue:(colorSetObject*)colorset
-{
-    NSData* colorData = [colorset dataCommondWithDefaultValue];
-    NSLog(@"setColor , data :%@", colorData);
-    [_peripheral writeValue:colorData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
-}
-//设置色彩
--(void)setCurrentColor:(UIColor*)color brightness:(float)brightness hue:(float)hue
-{
-    NSData* colorData = [self.colorset dataCommondWithColor:color brightness:brightness hue:hue];
-    NSLog(@"setColor , data :%@", colorData);
-    [_peripheral writeValue:colorData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
-}
-
-#pragma mark --
-
-
-
 #pragma mark ---
 #pragma mark ---  Encode
 
