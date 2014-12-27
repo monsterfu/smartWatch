@@ -26,7 +26,7 @@
 -(void)setDefaultValue
 {
     for (_device in self.deviceArray) {
-        [_device setDefaultSceneValue:self.colorSet];
+//        [_device setDefaultSceneValue:self.colorSet];
     }
 }
 

@@ -237,7 +237,7 @@ static ConnectionManager *sharedConnectionManager;
             _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
             _deviceObject.characteristic = aChar;
             _deviceObject.connected = YES;
-            [_deviceObject setDefaultValue];
+            [_deviceObject syncCurrentTime];
         }
         if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_TEST2_UUID]]) {
             
