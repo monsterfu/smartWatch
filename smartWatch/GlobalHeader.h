@@ -12,6 +12,7 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "CorePlot-CocoaTouch.h"
 
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"
@@ -32,7 +33,7 @@
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
 
 
-
+#define BCD_CO(x)    (x/10)*16 + (x%10)
 
 #define KEY_DEVICELIST_INFO   @"key_devicelist_info"         //设备列表
 

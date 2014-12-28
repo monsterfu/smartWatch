@@ -27,6 +27,8 @@
 }
 @property(nonatomic,assign)id<ConnectionManagerDelegate> delegate;
 @property(nonatomic,strong)CBCentralManager *manager;
+@property (strong, nonatomic) CBPeripheralManager       *peripheralManager;
+@property (strong, nonatomic) CBMutableCharacteristic   *transferCharacteristic;
 
 @property(nonatomic,retain)NSMutableArray* addedDeviceArray;
 @property(nonatomic,retain)NSMutableArray* existDeviceArray;

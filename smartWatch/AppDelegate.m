@@ -18,9 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [AVOSCloud setApplicationId:@""
-                      clientKey:@""];
-    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    [AVOSCloud setApplicationId:@""
+//                      clientKey:@""];
+//    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     [[ConnectionManager sharedInstance]startScanForDevice];
     return YES;

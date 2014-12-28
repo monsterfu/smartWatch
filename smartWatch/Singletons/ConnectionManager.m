@@ -8,9 +8,9 @@
 
 #import "ConnectionManager.h"
 
-#define TRANSFER_SERVICE_TEST_UUID                       @"F1ED"
-#define TRANSFER_CHARACTERISTIC_TEST1_UUID                @"FFE1"
-#define TRANSFER_CHARACTERISTIC_TEST2_UUID                @"FFE2"
+#define TRANSFER_SERVICE_UUID                              @"FFE0"
+#define TRANSFER_CHARACTERISTIC_RESPONSE_UUID                   @"FFE1"
+#define TRANSFER_CHARACTERISTIC_COMMAND_UUID                    @"FFE2"
 
 @implementation ConnectionManager
 @synthesize manager;
@@ -31,6 +31,7 @@ static ConnectionManager *sharedConnectionManager;
     {
         _delegate = delegate;
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
         
         _addedDeviceArray = [NSMutableArray array];
         
@@ -80,6 +81,64 @@ static ConnectionManager *sharedConnectionManager;
     [manager stopScan];
 }
 
+#pragma mark - ble delegates
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripherals
+{
+    // Opt out from any other state
+    if (peripherals.state != CBPeripheralManagerStatePoweredOn) {
+        return;
+    }
+    
+    // We're in CBPeripheralManagerStatePoweredOn state...
+    NSLog(@"self.peripheralManager powered on.");
+    
+    // Start with the CBMutableCharacteristic
+    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_RESPONSE_UUID] properties:CBCharacteristicPropertyWriteWithoutResponse
+                                                                          value:nil
+                                                                    permissions:CBAttributePermissionsReadable|CBAttributePermissionsWriteable];
+    // Then the service
+    CBMutableService *transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]
+                                                                       primary:YES];
+    
+    // Add the characteristic to the service
+    transferService.characteristics = @[self.transferCharacteristic];
+    
+    // And add it to the peripheral manager
+    [self.peripheralManager addService:transferService];
+    
+    [self.peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]] }];
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests
+{
+    NSLog(@"didReceiveWriteRequests");
+    CBATTRequest* request = (CBATTRequest*)[requests objectAtIndex:0];
+    _deviceObject = [_deviceManagerDictionary objectForKey:[request.central.identifier UUIDString]];
+    if (_deviceObject) {
+        CBATTRequest* request = [requests objectAtIndex:0];
+        int someInt = 0;
+        [request.value getBytes:&someInt length:2];
+    }
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveReadRequest:(CBATTRequest *)request
+{
+    NSLog(@"didReceiveReadRequest :%@",request);
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)arg_peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
+{
+    NSLog(@"central:%@,characteristic:%@,%d,%@",central,characteristic.UUID,characteristic.properties,characteristic.value);
+    
+    uint8_t val = 2;
+    NSData* valData = [NSData dataWithBytes:(void*)&val length:sizeof(val)];
+    [arg_peripheral updateValue:valData forCharacteristic:characteristic onSubscribedCentrals:@[central]];
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
+{
+    NSLog(@"Central unsubscribed from characteristic");
+}
 
 #pragma mark - center delegate
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central{
@@ -128,7 +187,7 @@ static ConnectionManager *sharedConnectionManager;
     if (!connectable) {
         return;
     }
-    if (![[args_peripheral name] isEqualToString:@"LED DEMO SGP"]) {
+    if ([[args_peripheral name] hasPrefix:@"SmartAM"]) {
         NSLog(@"Discovered unknown device, %@,%@", [args_peripheral name],[args_peripheral.identifier UUIDString]);
 //        return;
     }
@@ -206,13 +265,9 @@ static ConnectionManager *sharedConnectionManager;
     
     for(CBService *service in args_peripheral.services){
         NSLog(@"Service found with UUID: %@",service.UUID);
-//        [args_peripheral discoverCharacteristics:nil forService:service];
-        if ([service.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_SERVICE_TEST_UUID]]) {
+        if ([service.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]]) {
             [args_peripheral discoverCharacteristics:nil forService:service];
         }
-//        else if ([service.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_SERVICE_COMMONDCHANNEL2_UUID]]) {
-//            [args_peripheral discoverCharacteristics:nil forService:service];
-//        }
     }
     
 }
@@ -227,48 +282,16 @@ static ConnectionManager *sharedConnectionManager;
     
     for (CBCharacteristic *aChar in service.characteristics)
     {
-        NSLog(@"Characteristic test FOUND: %@ %@ %u",aChar.value,aChar.UUID,aChar.properties);
-//        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"CCC1"]]) {
-        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_TEST1_UUID]]) {
-        
-//        unsigned char command[] = {0x55,0x08,0x00,0x01,0x01,0x01,0x21,0x01,0x01,0x01,0xD9,0xAA};
-//        [args_peripheral writeValue:[[NSData alloc] initWithBytes:&command length:12] forCharacteristic:aChar type:CBCharacteristicWriteWithoutResponse];
-        
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_RESPONSE_UUID]]) {
+            [args_peripheral setNotifyValue:YES forCharacteristic:aChar];
+        }
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_COMMAND_UUID]]) {
             _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
             _deviceObject.characteristic = aChar;
             _deviceObject.connected = YES;
             [_deviceObject syncCurrentTime];
         }
-        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_TEST2_UUID]]) {
-            
-            //        unsigned char command[] = {0x55,0x08,0x00,0x01,0x01,0x01,0x21,0x01,0x01,0x01,0xD9,0xAA};
-            //        [args_peripheral writeValue:[[NSData alloc] initWithBytes:&command length:12] forCharacteristic:aChar type:CBCharacteristicWriteWithoutResponse];
-            
-            _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
-            _deviceObject.characteristic2 = aChar;
-        }
-    
-        
     }
-    
-//    if ([service.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_SERVICE_COMMONDCHANNEL_UUID]])
-//    {
-//        for (CBCharacteristic *aChar in service.characteristics)
-//        {
-//            unsigned char command[17] = {0x55,0x04,0x00,0x01,0x01,0xF9,0xFF,0xAA};
-//            
-//            [_perpheralConnecting writeValue:[[NSData alloc] initWithBytes:&command length:8] forCharacteristic:aChar type:CBCharacteristicWriteWithoutResponse];
-//        }
-//    }
-//    if ([service.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_SERVICE_READTEMPCHANNEL_UUID]])
-//    {
-//        for (CBCharacteristic *aChar in service.characteristics)
-//        {
-//            unsigned char command[17] = {0x55,0x04,0x00,0x01,0x01,0xF9,0xFF,0xAA};
-//            
-//            [_perpheralConnecting writeValue:[[NSData alloc] initWithBytes:&command length:8] forCharacteristic:aChar type:CBCharacteristicWriteWithoutResponse];
-//        }
-//    }
 }
 
 - (void) peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:
@@ -296,10 +319,6 @@ static ConnectionManager *sharedConnectionManager;
         NSLog(@"didUpdateNotificationStateForCharacteristic error:%@",error);
     }
     NSLog(@"characteristic.UUID:%@  value:%@, characteristic.properties:%d,characteristic:%@",characteristic.UUID,characteristic.value,characteristic.properties,characteristic);
-//    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_COMMONDCHANNEL_UUID]]) {
-//        [_characteristicDictionary setObject:characteristic forKey:[args_peripheral.identifier UUIDString]];
-//         [args_peripheral readValueForCharacteristic:characteristic];
-//    }
 }
 
 @end

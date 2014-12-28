@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		644B41C61A4E77B000661111 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644B41C51A4E77B000661111 /* libCorePlot-CocoaTouch.a */; };
+		64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */; };
+		64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC831A501D7500BC2069 /* SportsMainViewController.m */; };
+		64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */; };
+		64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */; };
 		B114F5801A3EBC5B00A123A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F57F1A3EBC5B00A123A9 /* main.m */; };
 		B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F5821A3EBC5B00A123A9 /* AppDelegate.m */; };
-		B114F5861A3EBC5B00A123A9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F5851A3EBC5B00A123A9 /* FirstViewController.m */; };
-		B114F5891A3EBC5B00A123A9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F5881A3EBC5B00A123A9 /* SecondViewController.m */; };
 		B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B114F58A1A3EBC5B00A123A9 /* Main.storyboard */; };
 		B114F58E1A3EBC5B00A123A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B114F58D1A3EBC5B00A123A9 /* Images.xcassets */; };
 		B114F5911A3EBC5B00A123A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B114F58F1A3EBC5B00A123A9 /* LaunchScreen.xib */; };
@@ -125,15 +127,19 @@
 		644B41C31A4E77B000661111 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		644B41C41A4E77B000661111 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		644B41C51A4E77B000661111 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		64E8DC7F1A501D4B00BC2069 /* SleepMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMainViewController.h; sourceTree = "<group>"; };
+		64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMainViewController.m; sourceTree = "<group>"; };
+		64E8DC821A501D7500BC2069 /* SportsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportsMainViewController.h; path = Sports/SportsMainViewController.h; sourceTree = "<group>"; };
+		64E8DC831A501D7500BC2069 /* SportsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportsMainViewController.m; path = Sports/SportsMainViewController.m; sourceTree = "<group>"; };
+		64E8DC851A501DA700BC2069 /* HeartRateMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeartRateMainViewController.h; path = HeartRate/HeartRateMainViewController.h; sourceTree = "<group>"; };
+		64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeartRateMainViewController.m; path = HeartRate/HeartRateMainViewController.m; sourceTree = "<group>"; };
+		64E8DC891A501E3500BC2069 /* SettingMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingMainViewController.h; path = Setting/SettingMainViewController.h; sourceTree = "<group>"; };
+		64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingMainViewController.m; path = Setting/SettingMainViewController.m; sourceTree = "<group>"; };
 		B114F57A1A3EBC5B00A123A9 /* smartWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B114F57E1A3EBC5B00A123A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B114F57F1A3EBC5B00A123A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B114F5811A3EBC5B00A123A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B114F5821A3EBC5B00A123A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B114F5841A3EBC5B00A123A9 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		B114F5851A3EBC5B00A123A9 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		B114F5871A3EBC5B00A123A9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		B114F5881A3EBC5B00A123A9 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		B114F58B1A3EBC5B00A123A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B114F58D1A3EBC5B00A123A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B114F5901A3EBC5B00A123A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -280,6 +286,42 @@
 			path = CorePlotHeaders;
 			sourceTree = "<group>";
 		};
+		64E8DC7A1A501CC600BC2069 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				64E8DC821A501D7500BC2069 /* SportsMainViewController.h */,
+				64E8DC831A501D7500BC2069 /* SportsMainViewController.m */,
+			);
+			name = Sports;
+			sourceTree = "<group>";
+		};
+		64E8DC7E1A501D3900BC2069 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				64E8DC7F1A501D4B00BC2069 /* SleepMainViewController.h */,
+				64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		64E8DC881A501DAF00BC2069 /* HeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				64E8DC851A501DA700BC2069 /* HeartRateMainViewController.h */,
+				64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */,
+			);
+			name = HeartRate;
+			sourceTree = "<group>";
+		};
+		64E8DC8C1A501E4100BC2069 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				64E8DC891A501E3500BC2069 /* SettingMainViewController.h */,
+				64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		B114F5711A3EBC5B00A123A9 = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +343,10 @@
 		B114F57C1A3EBC5B00A123A9 /* smartWatch */ = {
 			isa = PBXGroup;
 			children = (
+				64E8DC7A1A501CC600BC2069 /* Sports */,
+				64E8DC7E1A501D3900BC2069 /* Sleep */,
+				64E8DC881A501DAF00BC2069 /* HeartRate */,
+				64E8DC8C1A501E4100BC2069 /* Setting */,
 				B1CD406E1A4C05CE00A8CFA5 /* Model */,
 				B1CD40671A4C056300A8CFA5 /* viewControllers */,
 				B1CD40621A4C051600A8CFA5 /* categoryClass */,
@@ -309,10 +355,6 @@
 				B1CD40591A4C02A300A8CFA5 /* GlobalHeader.h */,
 				B114F5811A3EBC5B00A123A9 /* AppDelegate.h */,
 				B114F5821A3EBC5B00A123A9 /* AppDelegate.m */,
-				B114F5841A3EBC5B00A123A9 /* FirstViewController.h */,
-				B114F5851A3EBC5B00A123A9 /* FirstViewController.m */,
-				B114F5871A3EBC5B00A123A9 /* SecondViewController.h */,
-				B114F5881A3EBC5B00A123A9 /* SecondViewController.m */,
 				B114F58A1A3EBC5B00A123A9 /* Main.storyboard */,
 				B114F58D1A3EBC5B00A123A9 /* Images.xcassets */,
 				B114F58F1A3EBC5B00A123A9 /* LaunchScreen.xib */,
@@ -465,6 +507,7 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5PG8FSFRLG;
 					};
 					B114F5951A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
@@ -516,16 +559,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B114F5891A3EBC5B00A123A9 /* SecondViewController.m in Sources */,
+				64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */,
+				64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */,
 				B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */,
 				B1CD40661A4C051600A8CFA5 /* UIColor+getColor.m in Sources */,
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
 				B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */,
 				B1CD406C1A4C056300A8CFA5 /* CommonNavigationController.m in Sources */,
+				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
+				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
 				B1CD40771A4C05CE00A8CFA5 /* SceneArrayDeviceObject.m in Sources */,
 				B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */,
-				B114F5861A3EBC5B00A123A9 /* FirstViewController.m in Sources */,
 				B114F5801A3EBC5B00A123A9 /* main.m in Sources */,
 				B1CD406D1A4C056300A8CFA5 /* CommonTabbarViewController.m in Sources */,
 			);
@@ -649,17 +694,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -667,17 +717,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

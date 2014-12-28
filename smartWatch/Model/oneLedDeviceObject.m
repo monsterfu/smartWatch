@@ -67,7 +67,7 @@ static unsigned char auchCRCLo[]={
     0x43, 0x83, 0x41, 0x81, 0x80, 0x40
 };
 
-unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
+unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned char* first,unsigned char* second)
 {
     unsigned char uchCRCHi = 0xFF ;
     unsigned char uchCRCLo = 0xFF ;
@@ -78,6 +78,9 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
         uchCRCHi = uchCRCLo ^ auchCRCHi[uIndex];
         uchCRCLo = auchCRCLo[uIndex];
     }
+    NSLog(@"%d -- %d", uchCRCHi << 8,uchCRCLo);
+    *first = uchCRCHi;
+    *second = uchCRCLo;
     return (uchCRCHi << 8 | uchCRCLo) ;
 };
 
@@ -101,50 +104,65 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen)
     NSDate* currentDate = [NSDate date];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];//设置成中国阳历
     NSDateComponents *comps = [[NSDateComponents alloc] init];
-    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:currentDate];
-    long weekNumber = [comps weekday];
-    long day=[comps day];
-    long year=[comps year];
-    long month=[comps month];
-    long hour=[comps hour];
-    long minute=[comps minute];
-    long second=[comps second];
+    long weekNumber = 0;
+    if ([comps weekday] == 1) {
+        weekNumber = BCD_CO(6);
+    }else{
+        weekNumber = BCD_CO([comps weekday]-2);
+    }
     
-    unsigned char command[11] = {0xc0,0x0a,year/100,year%100,month,day,weekNumber,hour,minute,second};
-    unsigned short code = CRC16(command,10);
-    command[10] = code;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:11];
+    long day= BCD_CO([comps day]);
+    long year= BCD_CO([comps year]);
+    long month= BCD_CO([comps month]);
+    long hour= BCD_CO([comps hour]);
+    long minute= BCD_CO([comps minute]);
+    long second = BCD_CO([comps second]);
+    
+    unsigned char command[12] = {0xc0,0x0a,year/100,year%100,month,day,weekNumber,hour,minute,second};
+    unsigned char crc1, crc2;
+    CRC16(command,10,&crc1,&crc2);
+    command[10] = crc1;
+    command[11] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:12];
+    NSLog(@"lookData:%@",lookdata);
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 //查询固件更新历史断点续传信息
 -(void)inquireHistoryInfo
 {
-    unsigned char command[3] = {0xc1,0x02};
-    unsigned short code = CRC16(command,2);
-    command[2] = code;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:3];
+    unsigned char command[4] = {0xc1,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 //查询设备是否已经注册
 -(void)inquireDeviceRegisterInfo
 {
-    unsigned char command[4] = {0xc3,0x03,0x01};
-    unsigned short code = CRC16(command,3);
-    command[3] = code;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    unsigned char command[5] = {0xc3,0x03,0x01};
+    unsigned char crc1, crc2;
+    CRC16(command,3,&crc1,&crc2);
+    command[3] = crc1;
+    command[4] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:5];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 //传送用户信息
 -(void)sendUserInfoRegisterInfo
 {
-    unsigned char command[4] = {0xc3,0x03,0x01};
-    unsigned short code = CRC16(command,3);
-    command[3] = code;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    unsigned char command[5] = {0xc3,0x03,0x01};
+    unsigned char crc1, crc2;
+    CRC16(command,3,&crc1,&crc2);
+    command[3] = crc1;
+    command[4] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:5];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
 #pragma mark ---
