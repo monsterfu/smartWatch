@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		644B41C61A4E77B000661111 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644B41C51A4E77B000661111 /* libCorePlot-CocoaTouch.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 647E08111A51A8CF00B8E308 /* longSitModel.m */; };
 		64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */; };
 		64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC831A501D7500BC2069 /* SportsMainViewController.m */; };
 		64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */; };
@@ -129,6 +130,8 @@
 		644B41C31A4E77B000661111 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		644B41C41A4E77B000661111 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		644B41C51A4E77B000661111 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		647E08101A51A8CF00B8E308 /* longSitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = longSitModel.h; sourceTree = "<group>"; };
+		647E08111A51A8CF00B8E308 /* longSitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = longSitModel.m; sourceTree = "<group>"; };
 		64E8DC7F1A501D4B00BC2069 /* SleepMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMainViewController.h; sourceTree = "<group>"; };
 		64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMainViewController.m; sourceTree = "<group>"; };
 		64E8DC821A501D7500BC2069 /* SportsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportsMainViewController.h; path = Sports/SportsMainViewController.h; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 				B14EC9C61A51498500027033 /* personInfoModel.m */,
 				B14EC9C81A5162F000027033 /* AlarmModel.h */,
 				B14EC9C91A5162F000027033 /* AlarmModel.m */,
+				647E08101A51A8CF00B8E308 /* longSitModel.h */,
+				647E08111A51A8CF00B8E308 /* longSitModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
 				B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */,
 				B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */,
+				647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */,
 				B1CD406C1A4C056300A8CFA5 /* CommonNavigationController.m in Sources */,
 				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,

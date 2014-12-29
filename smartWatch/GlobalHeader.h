@@ -23,6 +23,7 @@
 //model
 #import "personInfoModel.h"
 #import "AlarmModel.h"
+#import "longSitModel.h"
 #import "oneLedDeviceObject.h"
 #import "SceneArrayDeviceObject.h"
 

@@ -123,6 +123,21 @@ struct user_info
 //闹钟设置
 -(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm;
 
-//久坐提醒
+//久坐提醒使能
 -(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able;
+//久坐提醒设置
+-(void)sendCommandSetting_sendLongTimeSitRemind:(longSitModel*)longModel;
+//防丢报警
+-(void)sendCommandSetting_sendAntiLost;
+//装置设定-查询固件版本
+-(void)sendCommandSetting_requestVision;
+//装置设定-查询设备电量
+-(void)sendCommandSetting_requestBattery;
+//装置设定-使能飞行模式
+-(void)sendCommandSetting_sendFlightMode;
+//装置设定-设备重置
+-(void)sendCommandSetting_sendDeviceReset;
+//信息推送
+-(void)sendCommandSetting_sendDevicePushEnable:(BOOL)enable;
+
 @end

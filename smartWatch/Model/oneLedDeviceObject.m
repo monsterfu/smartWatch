@@ -429,6 +429,109 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     NSData* lookdata = [[NSData alloc]initWithBytes:command length:5];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
+//久坐提醒设置
+-(void)sendCommandSetting_sendLongTimeSitRemind:(longSitModel*)longModel
+{
+    //CD 0C INT WM HS0 MS0 HE0 ME0 HS1 MS1 HE1 ME1 CRC16
+    unsigned char wmChar = [longModel createInfo];
+    
+    NSUInteger shour1 = BCD_CO(longModel.startHour1);
+    NSUInteger smin1 = BCD_CO(longModel.startMin1);
+    
+    NSUInteger ehour1 = BCD_CO(longModel.endHour1);
+    NSUInteger emin1 = BCD_CO(longModel.endMin1);
+    
+    NSUInteger shour2 = BCD_CO(longModel.startHour2);
+    NSUInteger smin2 = BCD_CO(longModel.startMin2);
+    
+    NSUInteger ehour2 = BCD_CO(longModel.endHour2);
+    NSUInteger emin2 = BCD_CO(longModel.endMin2);
+    
+    unsigned char command[15] = {0xcd,0x0c,longModel.remindGap,wmChar,shour1,smin1,ehour1,emin1,shour2,smin2,ehour2,emin2};
+    unsigned char crc1, crc2;
+    CRC16(command,13,&crc1,&crc2);
+    command[13] = crc1;
+    command[14] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:15];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//防丢报警
+-(void)sendCommandSetting_sendAntiLost
+{
+    //CE 02 CRC16
+    unsigned char command[4] = {0xce,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//装置设定-查询固件版本
+-(void)sendCommandSetting_requestVision
+{
+    //CE 02 CRC16
+    unsigned char command[4] = {0xcf,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//装置设定-查询设备电量
+-(void)sendCommandSetting_requestBattery
+{
+    //CE 02 CRC16
+    unsigned char command[4] = {0xd0,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//装置设定-使能飞行模式
+-(void)sendCommandSetting_sendFlightMode
+{
+    //CE 02 CRC16
+    unsigned char command[4] = {0xd1,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//装置设定-设备重置
+-(void)sendCommandSetting_sendDeviceReset
+{
+    //CE 02 CRC16
+    unsigned char command[4] = {0xd2,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+//信息推送
+-(void)sendCommandSetting_sendDevicePushEnable:(BOOL)enable
+{
+    //D3 03 XX CRC16
+    NSUInteger enableInd = 0;
+    if (enable) {
+        enableInd = 1;
+    }
+    unsigned char command[5] = {0xd3,0x03,enableInd};
+    unsigned char crc1, crc2;
+    CRC16(command,3,&crc1,&crc2);
+    command[3] = crc1;
+    command[4] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:5];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
 #pragma mark ---
 #pragma mark ---  Encode
 
