@@ -131,7 +131,7 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
 }
 
 //查询固件更新历史断点续传信息
--(void)inquireHistoryInfo
+-(void)sendCommandgjgx_requestVisionHistoryInfo
 {
     unsigned char command[4] = {0xc1,0x02};
     unsigned char crc1, crc2;
@@ -141,9 +141,34 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
 }
+-(void)sendCommandgjgx_sendVisionInfo
+{
+    unsigned char command[12] = {0xc1,0x0a};
+    
+    
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+-(void)sendCommandgjgx_requestVisionSendFinished
+{
+    unsigned char command[4] = {0xc2,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+
 
 //查询设备是否已经注册
--(void)inquireDeviceRegisterInfo
+-(void)sendCommandyhzc_requestDeviceWhetherRegistered
 {
     unsigned char command[5] = {0xc3,0x03,0x01};
     unsigned char crc1, crc2;
@@ -155,9 +180,248 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
 }
 
 //传送用户信息
--(void)sendUserInfoRegisterInfo
+-(void)sendCommandyhzc_sendRegisterInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index
 {
-    unsigned char command[5] = {0xc3,0x03,0x01};
+    //C3 length PN data CRC16
+    NSData* personData = [person registerDataWithIndex:index];
+    NSUInteger personDataLen = BCD_CO(personData.length);
+    NSUInteger indexBCD = BCD_CO(index);
+    
+    unsigned char command[3] = {0xc3,personDataLen,indexBCD};
+    NSData* midData = [[NSData alloc]initWithBytes:command length:3];
+    
+    NSMutableData* desData = [NSMutableData dataWithData:midData];
+    [desData appendData:personData];
+    
+    unsigned char* comChar = (unsigned char*)desData.bytes;
+    
+    
+    unsigned char crc1, crc2;
+    CRC16(comChar,desData.length,&crc1,&crc2);
+    
+    NSData* crc1Data = [[NSData alloc]initWithBytes:&crc1 length:1];
+    NSData* crc2Data = [[NSData alloc]initWithBytes:&crc2 length:1];
+    
+    [desData appendData:crc1Data];
+    [desData appendData:crc2Data];
+    
+    [_peripheral writeValue:desData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+//传送用户信息完毕
+-(void)sendCommandyhzc_sendRegisterInfoFinished
+{
+    unsigned char command[5] = {0xc3,0x03,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,3,&crc1,&crc2);
+    command[3] = crc1;
+    command[4] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:5];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+/**
+ *  用户登录
+ */
+//发送用户信息
+-(void)sendCommandyhdl_sendUserInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index
+{
+    //C4 length PN data CRC16
+    NSData* personData = [person loginDataWithIndex:index];
+    NSUInteger personDataLen = BCD_CO(personData.length);
+    NSUInteger indexBCD = BCD_CO(index);
+    
+    unsigned char command[3] = {0xc4,personDataLen,indexBCD};
+    NSData* midData = [[NSData alloc]initWithBytes:command length:3];
+    
+    NSMutableData* desData = [NSMutableData dataWithData:midData];
+    [desData appendData:personData];
+    
+    unsigned char* comChar = (unsigned char*)desData.bytes;
+    
+    
+    unsigned char crc1, crc2;
+    CRC16(comChar,desData.length,&crc1,&crc2);
+    
+    NSData* crc1Data = [[NSData alloc]initWithBytes:&crc1 length:1];
+    NSData* crc2Data = [[NSData alloc]initWithBytes:&crc2 length:1];
+    
+    [desData appendData:crc1Data];
+    [desData appendData:crc2Data];
+    
+    [_peripheral writeValue:desData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//传送用户信息完毕
+-(void)sendCommandyhdl_sendUserInfoFinished
+{
+    unsigned char command[4] = {0xc4,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+
+/**
+ *  运动历史记录
+ */
+//同步命令
+-(void)sendCommandydxx_requestHistoryInfo
+{
+    unsigned char command[4] = {0xc5,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+//逐条ack
+-(void)sendCommandydxx_requestPerAck
+{
+    unsigned char command[4] = {0xff,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+
+/**
+ *  睡眠历史记录同步
+ */
+//同步命令
+-(void)sendCommandsmxx_requestHistoryInfo
+{
+    unsigned char command[4] = {0xc6,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//逐条ack
+-(void)sendCommandsmxx_requestPerAck
+{
+    unsigned char command[4] = {0xff,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+/**
+ *  心率历史记录同步
+ */
+//同步命令
+-(void)sendCommandxlxx_requestHistoryInfo
+{
+    unsigned char command[4] = {0xc7,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//逐条ack
+-(void)sendCommandxlxx_requestPerAck
+{
+    unsigned char command[4] = {0xff,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+
+/**
+ *  设置
+ */
+
+//个人信息
+-(void)sendCommandSetting_sendPersonInfo:(personInfoModel*)person
+{
+    //CA 06 height weight age sex CRC16
+    NSUInteger height = BCD_CO(person.height);
+    NSUInteger weight = BCD_CO(person.weight);
+    NSUInteger age = BCD_CO(person.age);
+    NSUInteger sex = BCD_CO(person.sex);
+    
+    unsigned char command[8] = {0xca,0x06,height,weight,age,sex};
+    unsigned char crc1, crc2;
+    CRC16(command,6,&crc1,&crc2);
+    command[6] = crc1;
+    command[7] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:8];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+//单位设置
+-(void)sendCommandSetting_sendUnitWithHeightUnit:(EnumHeightUnit_Enum)heightUnit weightUnit:(EnumWeightUnit_Enum)weightUnit lengthUnit:(EnumLengthUnit_Enum)lengthUnit
+{
+    NSUInteger height = BCD_CO(heightUnit);
+    NSUInteger weight = BCD_CO(weightUnit);
+    NSUInteger length = BCD_CO(lengthUnit);
+    //CB 05 U0 U1 U2 CRC16
+    unsigned char command[7] = {0xcb,0x05,height,weight,length};
+    unsigned char crc1, crc2;
+    CRC16(command,5,&crc1,&crc2);
+    command[5] = crc1;
+    command[6] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:7];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+//闹钟查询
+-(void)sendCommandSetting_requestAlarmInfo
+{
+    //CC 02 CRC16
+    unsigned char command[4] = {0xcc,0x02};
+    unsigned char crc1, crc2;
+    CRC16(command,2,&crc1,&crc2);
+    command[2] = crc1;
+    command[3] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+//闹钟设置
+-(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm
+{
+    //CC 05 WM AH AM CRC16
+    unsigned char wmChar = [alarm createInfo];
+    
+    NSUInteger hour = BCD_CO(alarm.hour);
+    NSUInteger min = BCD_CO(alarm.min);
+    
+    unsigned char command[7] = {0xcc,0x05,wmChar,hour,min};
+    unsigned char crc1, crc2;
+    CRC16(command,5,&crc1,&crc2);
+    command[5] = crc1;
+    command[6] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:7];
+    [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+}
+
+
+//久坐提醒
+-(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able
+{
+    //CD 03 XX CRC16 (使能与关闭) ￼XX: 01–打开 02 – 关闭
+    NSUInteger sitEnable = 1;
+    if (!able) {
+        sitEnable = 2;
+    }
+    unsigned char command[5] = {0xcd,0x03,sitEnable};
     unsigned char crc1, crc2;
     CRC16(command,3,&crc1,&crc2);
     command[3] = crc1;

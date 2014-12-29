@@ -21,7 +21,8 @@
 #import "ConnectionManager.h"
 
 //model
-
+#import "personInfoModel.h"
+#import "AlarmModel.h"
 #import "oneLedDeviceObject.h"
 #import "SceneArrayDeviceObject.h"
 
