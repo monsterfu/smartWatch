@@ -14,6 +14,8 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "CorePlot-CocoaTouch.h"
 
+
+#import "NSString+longTimeGapIndex.h"
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"
 #import "CommonNavigationController.h"
@@ -23,7 +25,6 @@
 //model
 #import "personInfoModel.h"
 #import "AlarmModel.h"
-#import "longSitModel.h"
 #import "oneLedDeviceObject.h"
 #import "SceneArrayDeviceObject.h"
 
@@ -41,6 +42,15 @@
 
 #define KEY_SCENELIST_INFO    @"key_scenelist_info"         //情景列表
 
+/**
+ *  久坐提醒
+ */
+#define KEY_LONGSIT_STARTTIMEONE        @"KEY_LONGSIT_STARTTIMEONE"
+#define KEY_LONGSIT_STARTTIMETWO        @"KEY_LONGSIT_STARTTIMETWO"
+#define KEY_LONGSIT_ENDTIMEONE          @"KEY_LONGSIT_ENDTIMEONE"
+#define KEY_LONGSIT_ENDTIMETWO          @"KEY_LONGSIT_ENDTIMETWO"
+#define KEY_longSitRemindGap            @"KEY_longSitRemindGap"
+#define KEY_longSitRemindOpen           @"KEY_longSitRemindOpen"
 
 #define NSNotificationCenter_AppWillDetemin                 @"NSNotificationCenter_AppWillDetemin" //APP退出
 

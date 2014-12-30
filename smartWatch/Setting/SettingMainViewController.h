@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
+
 
 @interface SettingMainViewController : UIViewController
+{
+    NSArray* _titleArray;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 
 @end

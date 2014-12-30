@@ -28,6 +28,10 @@
 		B114F5B31A3EBD5F00A123A9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */; };
 		B14EC9C71A51498500027033 /* personInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14EC9C61A51498500027033 /* personInfoModel.m */; };
 		B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B14EC9C91A5162F000027033 /* AlarmModel.m */; };
+		B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A49691A528A7100507DE1 /* LongSitViewController.m */; };
+		B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */; };
+		B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */; };
+		B19A49741A52A51800507DE1 /* UnitSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A49731A52A51800507DE1 /* UnitSelectViewController.m */; };
 		B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CD40571A4C024900A8CFA5 /* ConnectionManager.m */; };
 		B1CD405B1A4C047100A8CFA5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CD405A1A4C047100A8CFA5 /* CoreBluetooth.framework */; };
 		B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CD405F1A4C04BA00A8CFA5 /* MBProgressHUD.m */; };
@@ -162,6 +166,14 @@
 		B14EC9C61A51498500027033 /* personInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = personInfoModel.m; sourceTree = "<group>"; };
 		B14EC9C81A5162F000027033 /* AlarmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmModel.h; sourceTree = "<group>"; };
 		B14EC9C91A5162F000027033 /* AlarmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmModel.m; sourceTree = "<group>"; };
+		B19A49681A528A7100507DE1 /* LongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitViewController.h; path = Setting/LongSitViewController.h; sourceTree = "<group>"; };
+		B19A49691A528A7100507DE1 /* LongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongSitViewController.m; path = Setting/LongSitViewController.m; sourceTree = "<group>"; };
+		B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitGapSelectViewController.h; path = Setting/LongSitGapSelectViewController.h; sourceTree = "<group>"; };
+		B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongSitGapSelectViewController.m; path = Setting/LongSitGapSelectViewController.m; sourceTree = "<group>"; };
+		B19A496E1A52A05700507DE1 /* NSString+longTimeGapIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+longTimeGapIndex.h"; path = "../NSString+longTimeGapIndex/NSString+longTimeGapIndex.h"; sourceTree = "<group>"; };
+		B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+longTimeGapIndex.m"; path = "../NSString+longTimeGapIndex/NSString+longTimeGapIndex.m"; sourceTree = "<group>"; };
+		B19A49721A52A51800507DE1 /* UnitSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitSelectViewController.h; path = Setting/UnitSelectViewController.h; sourceTree = "<group>"; };
+		B19A49731A52A51800507DE1 /* UnitSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitSelectViewController.m; path = Setting/UnitSelectViewController.m; sourceTree = "<group>"; };
 		B1CD40561A4C024900A8CFA5 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		B1CD40571A4C024900A8CFA5 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		B1CD40591A4C02A300A8CFA5 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
@@ -327,6 +339,12 @@
 			children = (
 				64E8DC891A501E3500BC2069 /* SettingMainViewController.h */,
 				64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */,
+				B19A49721A52A51800507DE1 /* UnitSelectViewController.h */,
+				B19A49731A52A51800507DE1 /* UnitSelectViewController.m */,
+				B19A49681A528A7100507DE1 /* LongSitViewController.h */,
+				B19A49691A528A7100507DE1 /* LongSitViewController.m */,
+				B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */,
+				B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -406,6 +424,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B19A49711A52A05F00507DE1 /* NSString+longTimeGapIndex */ = {
+			isa = PBXGroup;
+			children = (
+				B19A496E1A52A05700507DE1 /* NSString+longTimeGapIndex.h */,
+				B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */,
+			);
+			name = "NSString+longTimeGapIndex";
+			path = "UIColor+getColor";
+			sourceTree = "<group>";
+		};
 		B1CD40551A4C024900A8CFA5 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +457,7 @@
 		B1CD40621A4C051600A8CFA5 /* categoryClass */ = {
 			isa = PBXGroup;
 			children = (
+				B19A49711A52A05F00507DE1 /* NSString+longTimeGapIndex */,
 				B1CD40631A4C051600A8CFA5 /* UIColor+getColor */,
 			);
 			path = categoryClass;
@@ -579,16 +608,20 @@
 				B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */,
 				B1CD40661A4C051600A8CFA5 /* UIColor+getColor.m in Sources */,
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
+				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
 				B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */,
 				B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */,
+				B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */,
 				647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */,
 				B1CD406C1A4C056300A8CFA5 /* CommonNavigationController.m in Sources */,
 				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
+				B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
 				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
 				B14EC9C71A51498500027033 /* personInfoModel.m in Sources */,
 				B1CD40771A4C05CE00A8CFA5 /* SceneArrayDeviceObject.m in Sources */,
 				B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */,
+				B19A49741A52A51800507DE1 /* UnitSelectViewController.m in Sources */,
 				B114F5801A3EBC5B00A123A9 /* main.m in Sources */,
 				B1CD406D1A4C056300A8CFA5 /* CommonTabbarViewController.m in Sources */,
 			);
@@ -719,7 +752,7 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,7 +779,7 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

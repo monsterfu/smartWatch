@@ -33,6 +33,9 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign)NSUInteger endMin2;
 
 @property(nonatomic,assign)longSitRemindGapEnum_Enum remindGap;
+
+@property(nonatomic,assign)BOOL open;
+
 @property(nonatomic,assign)BOOL monday;
 @property(nonatomic,assign)BOOL tuesday;
 @property(nonatomic,assign)BOOL wednesday;
