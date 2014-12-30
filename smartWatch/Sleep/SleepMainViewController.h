@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 
-@interface SleepMainViewController : UIViewController
+
+@interface SleepMainViewController : UIViewController<ConnectionManagerDelegate>
+
+
+
+- (IBAction)IsRegisterButtonTouch:(UIButton *)sender;
+- (IBAction)resetButtonTouch:(UIButton *)sender;
 
 @end

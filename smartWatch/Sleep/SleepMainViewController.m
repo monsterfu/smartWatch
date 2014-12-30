@@ -34,4 +34,17 @@
 }
 */
 
+- (IBAction)IsRegisterButtonTouch:(UIButton *)sender {
+    [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_requestDeviceWhetherRegistered];
+}
+
+- (IBAction)resetButtonTouch:(UIButton *)sender {
+     [[ConnectionManager sharedInstance].deviceObject sendCommandSetting_sendDeviceReset];
+}
+
+#pragma mark - ConnectionManagerDelegate
+- (void) didReciveCommandResponseData:(NSData*)data
+{
+    
+}
 @end

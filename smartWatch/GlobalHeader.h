@@ -12,7 +12,7 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "CorePlot-CocoaTouch.h"
+//#import "CorePlot-CocoaTouch.h"
 
 
 #import "NSString+longTimeGapIndex.h"
@@ -42,6 +42,13 @@
 
 #define KEY_SCENELIST_INFO    @"key_scenelist_info"         //情景列表
 
+
+/**
+ *  首次登陆
+ */
+#define KEY_First_Use                  @"key_first_use"
+
+
 /**
  *  久坐提醒
  */
@@ -51,6 +58,14 @@
 #define KEY_LONGSIT_ENDTIMETWO          @"KEY_LONGSIT_ENDTIMETWO"
 #define KEY_longSitRemindGap            @"KEY_longSitRemindGap"
 #define KEY_longSitRemindOpen           @"KEY_longSitRemindOpen"
+
+/**
+ *  单位
+ */
+#define KEY_HeightUnit                  @"KEY_HeightUnit"
+#define KEY_WeightUnit                  @"KEY_WeightUnit"
+#define KEY_LengthUnit                  @"KEY_LengthUnit"
+
 
 #define NSNotificationCenter_AppWillDetemin                 @"NSNotificationCenter_AppWillDetemin" //APP退出
 

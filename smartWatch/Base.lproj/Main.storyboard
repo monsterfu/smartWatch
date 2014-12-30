@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nEJ-um-VLy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nEJ-um-VLy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--运动-->
@@ -35,13 +35,84 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7Q-oB-yIn">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="查询是否注册">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="72" width="100" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="IsRegisterButtonTouch:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cv0-Bt-GjK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mi-nu-4fg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="恢复出厂设置">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="110" width="100" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="resetButtonTouch:" destination="9pv-A4-QxB" eventType="touchUpInside" id="nq8-At-ZVE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVN-Jc-jQo">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="148" width="100" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ik-L2-Afj">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="186" width="100" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EI-q2-PVX">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="224" width="100" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="l7Q-oB-yIn"/>
+                                <exclude reference="0mi-nu-4fg"/>
+                                <exclude reference="PVN-Jc-jQo"/>
+                                <exclude reference="0ik-L2-Afj"/>
+                                <exclude reference="1EI-q2-PVX"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="l7Q-oB-yIn"/>
+                                <include reference="0mi-nu-4fg"/>
+                                <include reference="PVN-Jc-jQo"/>
+                                <include reference="0ik-L2-Afj"/>
+                                <include reference="1EI-q2-PVX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="睡眠" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="-1736"/>
+            <point key="canvasLocation" x="757.5" y="-1736"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -162,13 +233,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Yum-Kd-4BR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yjo-UO-kFm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jAS-zk-muN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="GMD-xU-zqP" style="IBUITableViewCellStyleDefault" id="TU3-8D-vhE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="unitSelectCellIdentifier" textLabel="GMD-xU-zqP" style="IBUITableViewCellStyleDefault" id="TU3-8D-vhE">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TU3-8D-vhE" id="dfg-Th-9m0">
@@ -187,6 +259,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="31Q-3z-c9o" id="bqf-xC-RD6"/>
+                                    <outlet property="delegate" destination="31Q-3z-c9o" id="0DN-fx-Oe9"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -424,13 +500,13 @@
                                 <exclude reference="R2S-fC-oBC"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0QG-kJ-T0q"/>
+                                <exclude reference="Ck1-we-a6H"/>
+                                <exclude reference="kJg-VU-Qwj"/>
                                 <exclude reference="08o-ZN-NBe"/>
                                 <exclude reference="6oM-24-Dts"/>
                                 <exclude reference="XWV-aG-VLb"/>
                                 <exclude reference="gDE-qD-F25"/>
-                                <exclude reference="0QG-kJ-T0q"/>
-                                <exclude reference="Ck1-we-a6H"/>
-                                <exclude reference="kJg-VU-Qwj"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -439,13 +515,13 @@
                                 <include reference="R2S-fC-oBC"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0QG-kJ-T0q"/>
+                                <include reference="Ck1-we-a6H"/>
+                                <include reference="kJg-VU-Qwj"/>
                                 <include reference="08o-ZN-NBe"/>
                                 <include reference="6oM-24-Dts"/>
                                 <include reference="XWV-aG-VLb"/>
                                 <include reference="gDE-qD-F25"/>
-                                <include reference="0QG-kJ-T0q"/>
-                                <include reference="Ck1-we-a6H"/>
-                                <include reference="kJg-VU-Qwj"/>
                             </mask>
                         </variation>
                     </view>
@@ -468,6 +544,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UHj-0I-NQN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NzY-Kj-5HN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-ly-BkJ">

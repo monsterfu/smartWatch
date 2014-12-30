@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 
 @interface UnitSelectViewController : UIViewController
 {
     NSArray* _heightUnitArray;
     NSArray* _weightUnitArray;
     NSArray* _lengthUnitArray;
+    
+    EnumHeightUnit_Enum _heightUnit;
+    EnumWeightUnit_Enum _weightUnit;
+    EnumLengthUnit_Enum _lengthUnit;
 }
 @end

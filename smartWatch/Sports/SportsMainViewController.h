@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
 
-@interface SportsMainViewController : UIViewController<CPTPlotDataSource>
+@interface SportsMainViewController : UIViewController//<CPTPlotDataSource>
 {
-    CPTXYGraph                  *graph;             //画板
-    CPTScatterPlot              *dataSourceLinePlot;//线
+//    CPTXYGraph                  *graph;             //画板
+//    CPTScatterPlot              *dataSourceLinePlot;//线
     NSMutableArray              *dataForPlot1;      //坐标数组
     NSTimer                     *timer1;            //定时器
     int                         j;

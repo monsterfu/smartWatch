@@ -11,11 +11,12 @@
 
 @class oneLedDeviceObject;
 
-@protocol ConnectionManagerDelegate
+@protocol ConnectionManagerDelegate <NSObject>
 - (void) didDiscoverDevice:(oneLedDeviceObject*)device;
 - (void) didDisconnectWithDevice:(oneLedDeviceObject*)device;
 - (void) didConnectWithDevice:(oneLedDeviceObject*)device;
-//- (void) didUpdateTemperature:(CGFloat)temp;
+- (void) didReciveCommandResponseData:(NSData*)data;
+- (void) didReciveCommandSuccessResponse;
 @end
 
 @interface ConnectionManager : NSObject<CBCentralManagerDelegate,CBPeripheralDelegate>
@@ -23,8 +24,8 @@
     NSTimer* checkRssiTimer;
     CBUUID* _batteryUUID;
     NSUInteger _indexRSSI;
-    oneLedDeviceObject* _deviceObject;
 }
+@property(nonatomic,retain)oneLedDeviceObject* deviceObject;
 @property(nonatomic,assign)id<ConnectionManagerDelegate> delegate;
 @property(nonatomic,strong)CBCentralManager *manager;
 @property (strong, nonatomic) CBPeripheralManager       *peripheralManager;

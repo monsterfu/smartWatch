@@ -20,6 +20,10 @@
     _heightUnitArray = @[@"Feet",@"Cm"];
     _weightUnitArray = @[@"Kg",@"Lb",@"St"];
     _lengthUnitArray = @[@"Km",@"Mile"];
+    
+    _heightUnit = [USER_DEFAULT integerForKey:KEY_HeightUnit];
+    _weightUnit = [USER_DEFAULT integerForKey:KEY_WeightUnit];
+    _lengthUnit = [USER_DEFAULT integerForKey:KEY_LengthUnit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +45,17 @@
     // Return the number of sections.
     return 3;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"身高单位";
+    }else if(section == 1){
+        return @"体重单位";
+    }else{
+        return @"长度单位";
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) {
@@ -54,13 +69,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"minSelectCellIdentifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"unitSelectCellIdentifier" forIndexPath:indexPath];
     if (indexPath.section == 0) {
         cell.textLabel.text = [_heightUnitArray objectAtIndex:indexPath.row];
+        if (indexPath.row == _heightUnit-1) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }else if(indexPath.section == 1){
         cell.textLabel.text = [_weightUnitArray objectAtIndex:indexPath.row];
+        if (indexPath.row == _weightUnit-1) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }else{
         cell.textLabel.text = [_lengthUnitArray objectAtIndex:indexPath.row];
+        if (indexPath.row == _lengthUnit-1) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }
     return cell;
 }

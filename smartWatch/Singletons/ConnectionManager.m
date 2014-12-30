@@ -307,10 +307,18 @@ static ConnectionManager *sharedConnectionManager;
         NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
         return;
     }
-    NSLog(@"Characteristic value : %@ with ID %@",  [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding], characteristic.UUID);
     NSLog(@"Characteristic value : %@ with ID %@",  characteristic.value, characteristic.UUID);
-//    [_selectedDevFob addReadingWithRawData:characteristic.value person:_selectedPerson];
-//    [self.delegate didUpdateTemperature:[_selectedDevFob.temperature floatValue]];
+    
+    Byte* byteValue = (Byte*)characteristic.value.bytes;
+    if (byteValue[0] == 0xff&&byteValue[1] == 0x02) {
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandSuccessResponse)]) {
+            [self.delegate didReciveCommandSuccessResponse];
+        }
+    }else{
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandResponseData:)]) {
+            [self.delegate didReciveCommandResponseData:characteristic.value];
+        }
+    }
 }
 
 -(void)peripheral:(CBPeripheral *)args_peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
