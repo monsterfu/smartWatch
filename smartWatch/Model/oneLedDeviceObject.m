@@ -102,7 +102,7 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
 -(void)syncCurrentTime
 {
     NSDate* currentDate = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];//设置成中国阳历
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//设置成中国阳历
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:currentDate];

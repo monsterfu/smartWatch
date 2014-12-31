@@ -15,7 +15,7 @@
 @implementation LongSitViewController
 -(void)viewDidAppear:(BOOL)animated
 {
-    [_tableView reloadData];
+    _gapCell.detailTextLabel.text = [NSString longTimeGapIndex:_longsitModelData.remindGap];
 }
 
 - (void)viewDidLoad {
@@ -41,7 +41,7 @@
     
     _longsitModelData = [[longSitModel alloc]init];
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];//设置成中国阳历
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//设置成中国阳历
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:_startOneDate];
@@ -108,6 +108,7 @@
     }else if (indexPath.section == 0&&indexPath.row == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"longSitGapCellIdentifier"];
         cell.detailTextLabel.text = [NSString longTimeGapIndex:_longsitModelData.remindGap];
+        _gapCell = cell;
     }else if (indexPath.section == 1&&indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"longSitTimeCellIdentifier" forIndexPath:indexPath];
         _startOneButton = (UIButton*)[cell viewWithTag:2];
@@ -145,7 +146,7 @@
         _endTwoDate = sender.date;
     }
     
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];//设置成中国阳历
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//设置成中国阳历
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:sender.date];

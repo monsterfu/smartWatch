@@ -11,9 +11,13 @@
 
 
 @interface SleepMainViewController : UIViewController<ConnectionManagerDelegate>
+{
+    
+    CPTXYGraph *barChart;
+}
 
 
-
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 - (IBAction)IsRegisterButtonTouch:(UIButton *)sender;
 - (IBAction)resetButtonTouch:(UIButton *)sender;
 

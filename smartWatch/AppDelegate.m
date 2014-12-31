@@ -14,6 +14,12 @@
 
 @implementation AppDelegate
 
+/*
+    smartAM
+    创建时间:2014-12-31 16:15:13
+    APP ID:1103881779
+    APP KEY:sorkSPekuu2CfTnl
+ */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -21,6 +27,7 @@
 //    [AVOSCloud setApplicationId:@""
 //                      clientKey:@""];
 //    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //AppKey: 54a39ac6fd98c51fed000762
     
     [[ConnectionManager sharedInstance]startScanForDevice];
     
@@ -31,8 +38,24 @@
         [USER_DEFAULT setInteger:1 forKey:KEY_WeightUnit];
         [USER_DEFAULT setInteger:1 forKey:KEY_LengthUnit];
     }
+    [UMSocialData setAppKey:@"54a39ac6fd98c51fed000762"];
+    [UMSocialQQHandler setQQWithAppId:@"1103881779" appKey:@"sorkSPekuu2CfTnl" url:@"http://www.umeng.com/social"];
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

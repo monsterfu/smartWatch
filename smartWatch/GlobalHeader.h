@@ -12,7 +12,10 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreGraphics/CoreGraphics.h>
-//#import "CorePlot-CocoaTouch.h"
+#import "CorePlot-CocoaTouch.h"
+#import "UMSocial.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
 
 
 #import "NSString+longTimeGapIndex.h"

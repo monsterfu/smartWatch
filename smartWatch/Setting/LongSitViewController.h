@@ -24,6 +24,8 @@
     NSDate* _endOneDate;
     NSDate* _endTwoDate;
     
+    UITableViewCell* _gapCell;
+    
     LongSitGapSelectViewController* _gapSelectViewController;
 }
 
