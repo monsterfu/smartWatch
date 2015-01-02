@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
     _startOneDate = [USER_DEFAULT objectForKey:KEY_LONGSIT_STARTTIMEONE];
     _startTwoDate = [USER_DEFAULT objectForKey:KEY_LONGSIT_STARTTIMETWO];

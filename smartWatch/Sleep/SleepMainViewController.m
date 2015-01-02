@@ -38,9 +38,14 @@
     hostingView.hostedGraph = barChart;
     
     // Border
+    barChart.plotAreaFrame.borderLineStyle = [CPTLineStyle lineStyle];
+    CPTMutableLineStyle* LineStyle = [CPTMutableLineStyle lineStyle];
+    LineStyle.lineWidth = 10.0f ;
+    LineStyle.lineColor = [CPTColor colorWithGenericGray:0.4];
     barChart.plotAreaFrame.borderLineStyle = nil;
-    barChart.plotAreaFrame.cornerRadius    = 0.0f;
-    barChart.plotAreaFrame.masksToBorder   = NO;
+    
+    barChart.plotAreaFrame.cornerRadius    = 10.0f;
+    barChart.plotAreaFrame.masksToBorder   = YES;
     
     // Paddings
     barChart.paddingLeft   = 0.0f;
@@ -48,10 +53,11 @@
     barChart.paddingTop    = 0.0f;
     barChart.paddingBottom = 0.0f;
     
-    barChart.plotAreaFrame.paddingLeft   = 70.0;
+    barChart.plotAreaFrame.paddingLeft   = 40.0;
     barChart.plotAreaFrame.paddingTop    = 20.0;
-    barChart.plotAreaFrame.paddingRight  = 20.0;
+    barChart.plotAreaFrame.paddingRight  = 40.0;
     barChart.plotAreaFrame.paddingBottom = 80.0;
+    
     
     // Graph title
     NSString *lineOne = @"Graph Title";
@@ -92,19 +98,23 @@
     // Add plot space for horizontal bar charts
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)barChart.defaultPlotSpace;
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(300.0f)];
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(16.0f)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(45.0f)];
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)barChart.axisSet;
-    CPTXYAxis *x  = axisSet.xAxis;
-//    x.axisLineStyle               = nil;
-//    x.majorTickLineStyle          = nil;
-    x.minorTickLineStyle          = nil;
-    x.majorIntervalLength         = CPTDecimalFromString(@"5");
+    CPTXYAxis *x = axisSet.xAxis;
+    x.majorIntervalLength         = CPTDecimalFromString(@"15");
     x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
-    // Define some custom labels for the data elements
-    x.labelRotation  = M_PI / 4;
-    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+    CPTMutableLineStyle* majorGridLineStyle = [CPTMutableLineStyle lineStyle ];
+    majorGridLineStyle.lineWidth = 0.2f ;
+    majorGridLineStyle.lineColor = [CPTColor colorWithGenericGray:0.4];
+    x.tickDirection = CPTSignNegative;
+    x.majorGridLineStyle = majorGridLineStyle ;
+    x.majorTickLength = 0;
+//    x.majorTickLineStyle = [CPTLineStyle lineStyle];
+    
+    x.axisLineStyle = [CPTLineStyle lineStyle];
+    
     NSArray *customTickLocations = [NSArray arrayWithObjects:[NSDecimalNumber numberWithInt:1], [NSDecimalNumber numberWithInt:5], [NSDecimalNumber numberWithInt:10], [NSDecimalNumber numberWithInt:15], nil];
     NSArray *xAxisLabels         = [NSArray arrayWithObjects:@"Label A", @"Label B", @"Label C", @"Label D", @"Label E", nil];
     NSUInteger labelLocation     = 0;
@@ -112,8 +122,8 @@
     for ( NSNumber *tickLocation in customTickLocations ) {
         CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[xAxisLabels objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
         newLabel.tickLocation = [tickLocation decimalValue];
-        newLabel.offset       = x.labelOffset + x.majorTickLength;
-        newLabel.rotation     = M_PI / 4;
+//        newLabel.offset       = x.labelOffset + x.majorTickLength;
+//        newLabel.rotation     = M_PI / 4;
         [customLabels addObject:newLabel];
     }
     
@@ -126,30 +136,31 @@
     y.majorIntervalLength         = CPTDecimalFromString(@"50");
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
-    CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle ];
-    majorGridLineStyle.lineWidth = 1.0f ;
+    majorGridLineStyle = [CPTMutableLineStyle lineStyle ];
+    majorGridLineStyle.lineWidth = 0.2f ;
     majorGridLineStyle.lineColor = [CPTColor colorWithGenericGray:0.4];
-    // 轴标签方向： CPSignNone －无，同 CPSignNegative ， CPSignPositive －反向 , 在 y 轴的右边， CPSignNegative －正向，在 y 轴的左边
     y.tickDirection = CPTSignNegative;
     y.majorGridLineStyle = majorGridLineStyle ;
     y.majorTickLength = 0;
     y.majorTickLineStyle = [CPTLineStyle lineStyle];
     
-    // First bar plot
-    CPTBarPlot *barPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor darkGrayColor] horizontalBars:NO];
-    barPlot.baseValue  = CPTDecimalFromString(@"0");
-    barPlot.dataSource = self;
-    barPlot.barOffset  = CPTDecimalFromFloat(-0.25f);
-    barPlot.identifier = @"Bar Plot 1";
-    [barChart addPlot:barPlot toPlotSpace:plotSpace];
     
-    // Second bar plot
-    barPlot                 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
-    barPlot.dataSource      = self;
-    barPlot.baseValue       = CPTDecimalFromString(@"0");
-    barPlot.barOffset       = CPTDecimalFromFloat(0.25f);
-    barPlot.barCornerRadius = 2.0f;
-    barPlot.identifier      = @"Bar Plot 2";
+    // First bar plot
+    CPTBarPlot *barPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor orangeColor] horizontalBars:NO];
+    barPlot.baseValue  = CPTDecimalFromString(@"0");
+    barPlot.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:75.0/255 green:193.0/255 blue:210.0/255 alpha:1.0 ]];
+    barPlot.dataSource = self;
+    
+    barPlot.barOffset  = CPTDecimalFromFloat(1.25f);
+    barPlot.identifier = @"Bar Plot 1";
+    
+    CPTMutableLineStyle *lineStyle = [barPlot.lineStyle mutableCopy];
+    lineStyle.lineWidth = 1.f;
+    lineStyle.lineColor = [CPTColor clearColor];
+    barPlot.lineStyle = lineStyle;
+    //设置透明实现添加动画
+    dataSourceLinePlot.opacity = 0.0f;
+    
     [barChart addPlot:barPlot toPlotSpace:plotSpace];
 }
 
@@ -182,7 +193,7 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return 16;
+    return 5;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
@@ -192,11 +203,11 @@
     if ( [plot isKindOfClass:[CPTBarPlot class]] ) {
         switch ( fieldEnum ) {
             case CPTBarPlotFieldBarLocation:
-                num = (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:index];
+                num = (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:index*4];
                 break;
                 
             case CPTBarPlotFieldBarTip:
-                num = (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:(index + 1) * (index + 1)];
+                num = (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:(index + 12) * (index + 12)];
                 if ( [plot.identifier isEqual:@"Bar Plot 2"] ) {
                     num = [num decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"10"]];
                 }

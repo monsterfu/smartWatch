@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
 
-@interface SportsMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate>
+@interface SportsMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate,CPTBarPlotDelegate>
 {
     CPTXYGraph                  *graph;             //画板
     CPTScatterPlot              *dataSourceLinePlot;//线
@@ -17,10 +17,11 @@
     NSTimer                     *timer1;            //定时器
     int                         j;
     int                         r;
-    
+    CPTBorderedLayer * _label;
+    NSMutableArray  * _labelArray;
 }
 @property (retain, nonatomic) NSMutableArray *dataForPlot1;
-
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 - (IBAction)shareTest:(UIBarButtonItem *)sender;
 
 

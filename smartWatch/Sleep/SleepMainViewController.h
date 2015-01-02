@@ -10,10 +10,11 @@
 #import "GlobalHeader.h"
 
 
-@interface SleepMainViewController : UIViewController<ConnectionManagerDelegate>
+@interface SleepMainViewController : UIViewController<ConnectionManagerDelegate,CPTPlotDataSource>
 {
     
     CPTXYGraph *barChart;
+    CPTScatterPlot *dataSourceLinePlot;//线
 }
 
 

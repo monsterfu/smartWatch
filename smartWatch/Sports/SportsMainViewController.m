@@ -19,24 +19,28 @@
     [super viewDidLoad];
    
     self.title = @"活动";
-    
+    _labelArray = [NSMutableArray array];
     UIButton* testButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     testButton.frame = CGRectMake(100, 100, 100, 30);
     [testButton addTarget:self action:@selector(testButtonTouched) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:testButton];
     // Do any additional setup after loading the view.
     
-    graph = [[CPTXYGraph alloc] initWithFrame:CGRectMake(0, 150, DEVICE_WIDTH, DEVICE_WIDTH)];
+    graph  = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
 
     //给画板添加一个主题
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
     [graph applyTheme:theme];
     
     //创建主画板视图添加画板
-    CPTGraphHostingView *hostingView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(0, 150, DEVICE_WIDTH, DEVICE_WIDTH)];
+    CPTGraphHostingView *hostingView = (CPTGraphHostingView *)_graphHostingView;
     hostingView.hostedGraph = graph;
     
     [self.view addSubview:hostingView];
+    
+    graph.plotAreaFrame.borderLineStyle = nil;
+    graph.plotAreaFrame.cornerRadius    = 0.0f;
+    graph.plotAreaFrame.masksToBorder   = NO;
     
     //设置留白
     graph.paddingLeft = 0;
@@ -46,12 +50,12 @@
     
     graph.plotAreaFrame.paddingLeft = 45.0 ;
     graph.plotAreaFrame.paddingTop = 40.0 ;
-    graph.plotAreaFrame.paddingRight = 5.0 ;
-    graph.plotAreaFrame.paddingBottom = 80.0 ;
+    graph.plotAreaFrame.paddingRight = 30.0 ;
+    graph.plotAreaFrame.paddingBottom = 50.0 ;
     
     //设置坐标范围
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = YES;
+    plotSpace.allowsUserInteraction = NO;
     
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(200.0)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(200.0)];
@@ -60,7 +64,9 @@
     //设置坐标刻度大小
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) graph.axisSet ;
     CPTXYAxis *x = axisSet.xAxis ;
-    x. minorTickLineStyle = nil ;
+    x.axisLineStyle               = nil;
+    x.majorTickLineStyle          = nil;
+    x.minorTickLineStyle          = nil;
     // 大刻度线间距： 50 单位
     x. majorIntervalLength = CPTDecimalFromString (@"50");
     // 坐标原点： 0
@@ -74,7 +80,7 @@
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle ];
-    majorGridLineStyle.lineWidth = 1.0f ;
+    majorGridLineStyle.lineWidth = 0.2f ;
     majorGridLineStyle.lineColor = [CPTColor colorWithGenericGray:0.4];
     // 轴标签方向： CPSignNone －无，同 CPSignNegative ， CPSignPositive －反向 , 在 y 轴的右边， CPSignNegative －正向，在 y 轴的左边
     y.tickDirection = CPTSignNegative;
@@ -82,11 +88,10 @@
     y.majorTickLength = 0;
     y.majorTickLineStyle = [CPTLineStyle lineStyle];
     
-    
-    //创建绿色区域
+    //创建绿色线
     dataSourceLinePlot = [[CPTScatterPlot alloc] init];
     dataSourceLinePlot.identifier = @"Green Plot";
-    
+    dataSourceLinePlot.delegate = self;
     //设置绿色区域边框的样式
     CPTMutableLineStyle *lineStyle = [dataSourceLinePlot.dataLineStyle mutableCopy];
     lineStyle.lineWidth = 1.f;
@@ -127,7 +132,7 @@
     //    [timer1 fire];
     for (NSInteger index = 0; index < 10; index ++) {
         NSString *xp = [NSString stringWithFormat:@"%d",j];
-        NSString *yp = [NSString stringWithFormat:@"%d",(rand()%100)];
+        NSString *yp = [NSString stringWithFormat:@"%d",(rand()%100 + rand()%100)];
         NSMutableDictionary *point1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:xp, @"x", yp, @"y", nil];
         [dataForPlot1 insertObject:point1 atIndex:0];
         j = j + 20;
@@ -184,12 +189,24 @@
 }
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
 {
-    if ( [(NSString *)plot.identifier isEqualToString:@"Green Plot"] ) {
-        CPTTextLayer* layer = [[CPTTextLayer alloc]initWithFrame:CGRectMake(0, 0, 30, 60)];
-        [layer setText:@"ssssss"];
-        return layer;
-    }
-    return nil;
+    NSNumber* num=[[dataForPlot1 objectAtIndex:index] valueForKey:@"y"];
+    
+    _label = [[CPTBorderedLayer alloc]initWithFrame:CGRectMake(50, 10, 20, 50)];
+    
+    UIImage *loadImage=[UIImage imageNamed:@"icon_info.png"];
+    CGImageRef cgimage=loadImage.CGImage;
+    [_label setFill:[CPTFill fillWithImage:[CPTImage imageWithCGImage:cgimage]]];
+    [_labelArray addObject:_label];
+    return _label;
+}
+
+-(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx
+{
+    NSLog(@"%d idx was selected!",idx);
+    _label = [_labelArray objectAtIndex:idx];
+    BOOL hidden = (_label.hidden)?(NO):(YES);
+    [_label setHidden:hidden];
+    
 }
 #endif
 
