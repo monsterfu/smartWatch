@@ -39,8 +39,8 @@ typedef enum : NSUInteger {
 @property(nonatomic, assign)EnumWeightUnit_Enum weightUnit;
 @property(nonatomic, assign)EnumLengthUnit_Enum lengthUnit;
 
-+(personInfoModel*)initWithUserName:(NSString*)userName pw:(NSString*)pw height:(NSUInteger)height weight:(NSUInteger)weight age:(NSUInteger)age sex:(NSUInteger)sex;
-+(personInfoModel*)initWithUserName:(NSString*)userName pw:(NSString*)pw;
++(personInfoModel*)createWithUserName:(NSString*)userName pw:(NSString*)pw height:(NSUInteger)height weight:(NSUInteger)weight age:(NSUInteger)age sex:(NSUInteger)sex;
++(personInfoModel*)createWithUserName:(NSString*)userName pw:(NSString*)pw;
 
 -(NSData*)registerDataWithIndex:(NSUInteger)index;
 -(NSData*)loginDataWithIndex:(NSUInteger)index;

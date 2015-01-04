@@ -289,7 +289,9 @@ static ConnectionManager *sharedConnectionManager;
             _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
             _deviceObject.characteristic = aChar;
             _deviceObject.connected = YES;
-            [_deviceObject syncCurrentTime];
+            if (self.delegate&&[self.delegate respondsToSelector:@selector(didConnectWithDevice:)]) {
+                [self.delegate didConnectWithDevice:_deviceObject];
+            }
         }
     }
 }
@@ -311,12 +313,12 @@ static ConnectionManager *sharedConnectionManager;
     
     Byte* byteValue = (Byte*)characteristic.value.bytes;
     if (byteValue[0] == 0xff&&byteValue[1] == 0x02) {
-        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandSuccessResponse)]) {
-            [self.delegate didReciveCommandSuccessResponse];
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandSuccessResponseWithCmd:)]) {
+            [self.delegate didReciveCommandSuccessResponseWithCmd:_command];
         }
     }else{
-        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandResponseData:)]) {
-            [self.delegate didReciveCommandResponseData:characteristic.value];
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(didReciveCommandResponseData:cmd:)]) {
+            [self.delegate didReciveCommandResponseData:characteristic.value cmd:_command];
         }
     }
 }

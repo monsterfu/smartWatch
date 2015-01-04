@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		644AAC521A56F24E00A93375 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 644AAC4F1A56F24E00A93375 /* ProgressHUD.bundle */; };
+		644AAC531A56F24E00A93375 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC511A56F24E00A93375 /* ProgressHUD.m */; };
+		644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */; };
 		647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 647E08111A51A8CF00B8E308 /* longSitModel.m */; };
+		6492BA3A1A5934EC002B10D5 /* login_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA351A5934EC002B10D5 /* login_22.png */; };
+		6492BA3B1A5934EC002B10D5 /* login_22hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA361A5934EC002B10D5 /* login_22hl.png */; };
+		6492BA3C1A5934EC002B10D5 /* login_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA371A5934EC002B10D5 /* login_close.png */; };
+		6492BA3D1A5934EC002B10D5 /* login_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA381A5934EC002B10D5 /* login_logo.png */; };
+		6492BA3E1A5934EC002B10D5 /* login_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA391A5934EC002B10D5 /* login_open.png */; };
+		6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492BA411A59379A002B10D5 /* LoginViewController.m */; };
+		6492BA451A594661002B10D5 /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492BA441A594661002B10D5 /* registerViewController.m */; };
 		64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */; };
 		64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC831A501D7500BC2069 /* SportsMainViewController.m */; };
 		64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */; };
@@ -86,8 +96,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		644AAC4F1A56F24E00A93375 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		644AAC501A56F24E00A93375 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		644AAC511A56F24E00A93375 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		644AAC541A56F9DF00A93375 /* WeekNumSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeekNumSelectViewController.h; path = Setting/WeekNumSelectViewController.h; sourceTree = "<group>"; };
+		644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekNumSelectViewController.m; path = Setting/WeekNumSelectViewController.m; sourceTree = "<group>"; };
 		647E08101A51A8CF00B8E308 /* longSitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = longSitModel.h; sourceTree = "<group>"; };
 		647E08111A51A8CF00B8E308 /* longSitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = longSitModel.m; sourceTree = "<group>"; };
+		6492BA351A5934EC002B10D5 /* login_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_22.png; sourceTree = "<group>"; };
+		6492BA361A5934EC002B10D5 /* login_22hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_22hl.png; sourceTree = "<group>"; };
+		6492BA371A5934EC002B10D5 /* login_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_close.png; sourceTree = "<group>"; };
+		6492BA381A5934EC002B10D5 /* login_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_logo.png; sourceTree = "<group>"; };
+		6492BA391A5934EC002B10D5 /* login_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_open.png; sourceTree = "<group>"; };
+		6492BA401A59379A002B10D5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Login/LoginViewController.h; sourceTree = "<group>"; };
+		6492BA411A59379A002B10D5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Login/LoginViewController.m; sourceTree = "<group>"; };
+		6492BA431A594661002B10D5 /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = registerViewController.h; path = Login/registerViewController.h; sourceTree = "<group>"; };
+		6492BA441A594661002B10D5 /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = registerViewController.m; path = Login/registerViewController.m; sourceTree = "<group>"; };
 		64E8DC7F1A501D4B00BC2069 /* SleepMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMainViewController.h; sourceTree = "<group>"; };
 		64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMainViewController.m; sourceTree = "<group>"; };
 		64E8DC821A501D7500BC2069 /* SportsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportsMainViewController.h; path = Sports/SportsMainViewController.h; sourceTree = "<group>"; };
@@ -318,6 +342,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		644AAC4E1A56F24E00A93375 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				644AAC4F1A56F24E00A93375 /* ProgressHUD.bundle */,
+				644AAC501A56F24E00A93375 /* ProgressHUD.h */,
+				644AAC511A56F24E00A93375 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		6492BA341A5934EC002B10D5 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				6492BA351A5934EC002B10D5 /* login_22.png */,
+				6492BA361A5934EC002B10D5 /* login_22hl.png */,
+				6492BA371A5934EC002B10D5 /* login_close.png */,
+				6492BA381A5934EC002B10D5 /* login_logo.png */,
+				6492BA391A5934EC002B10D5 /* login_open.png */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		6492BA3F1A593776002B10D5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				6492BA401A59379A002B10D5 /* LoginViewController.h */,
+				6492BA411A59379A002B10D5 /* LoginViewController.m */,
+				6492BA431A594661002B10D5 /* registerViewController.h */,
+				6492BA441A594661002B10D5 /* registerViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		64E8DC7A1A501CC600BC2069 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +421,8 @@
 				B19A49691A528A7100507DE1 /* LongSitViewController.m */,
 				B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */,
 				B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */,
+				644AAC541A56F9DF00A93375 /* WeekNumSelectViewController.h */,
+				644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -390,6 +449,7 @@
 		B114F57C1A3EBC5B00A123A9 /* smartWatch */ = {
 			isa = PBXGroup;
 			children = (
+				6492BA3F1A593776002B10D5 /* Login */,
 				B1376E231A56772600AEC110 /* Image */,
 				64E8DC7A1A501CC600BC2069 /* Sports */,
 				64E8DC7E1A501D3900BC2069 /* Sleep */,
@@ -454,6 +514,7 @@
 		B1376E231A56772600AEC110 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6492BA341A5934EC002B10D5 /* login */,
 				B1376E241A56772600AEC110 /* icon_feedback@2x.png */,
 				B1376E251A56772600AEC110 /* icon_info@2x.png */,
 			);
@@ -635,6 +696,7 @@
 		B1CD405C1A4C04BA00A8CFA5 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				644AAC4E1A56F24E00A93375 /* ProgressHUD */,
 				B1376E281A568D2900AEC110 /* CorePlotHeaders */,
 				B15612101A53E28F00D54D70 /* TencentOpenAPI */,
 				B15612151A53E28F00D54D70 /* Wechat */,
@@ -749,7 +811,7 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = H6NR6KPK2Z;
+						DevelopmentTeam = 5PG8FSFRLG;
 					};
 					B114F5951A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
@@ -784,9 +846,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15611FE1A53D23900D54D70 /* UMShareEditViewController.xib in Resources */,
+				6492BA3D1A5934EC002B10D5 /* login_logo.png in Resources */,
 				B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */,
 				B15611FC1A53D23900D54D70 /* UMSCommentInputController.xib in Resources */,
 				B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */,
+				6492BA3C1A5934EC002B10D5 /* login_close.png in Resources */,
 				B15611FB1A53D23900D54D70 /* UMSCommentDetailController.xib in Resources */,
 				B156121D1A53E28F00D54D70 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				B1376E261A56772600AEC110 /* icon_feedback@2x.png in Resources */,
@@ -794,11 +858,15 @@
 				B15611FD1A53D23900D54D70 /* UMSCommentInputControlleriPad.xib in Resources */,
 				B15611FF1A53D23900D54D70 /* UMShareEditViewControlleriPad.xib in Resources */,
 				B114F5911A3EBC5B00A123A9 /* LaunchScreen.xib in Resources */,
+				6492BA3E1A5934EC002B10D5 /* login_open.png in Resources */,
+				6492BA3B1A5934EC002B10D5 /* login_22hl.png in Resources */,
 				B15611F91A53D23900D54D70 /* UMSocialLocalizable.strings in Resources */,
 				B114F58E1A3EBC5B00A123A9 /* Images.xcassets in Resources */,
+				644AAC521A56F24E00A93375 /* ProgressHUD.bundle in Resources */,
 				B15612011A53D23900D54D70 /* UMSnsAccountViewController.xib in Resources */,
 				B15612021A53D23900D54D70 /* UMSShareListController.xib in Resources */,
 				B15612031A53D23900D54D70 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				6492BA3A1A5934EC002B10D5 /* login_22.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,10 +892,13 @@
 				B1376E7C1A569AD500AEC110 /* AlarmListViewController.m in Sources */,
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
 				B15611CE1A53898900D54D70 /* sleepOneDayInfoModel.m in Sources */,
+				6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */,
 				B1376E791A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld in Sources */,
 				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
 				B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */,
+				6492BA451A594661002B10D5 /* registerViewController.m in Sources */,
 				B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */,
+				644AAC531A56F24E00A93375 /* ProgressHUD.m in Sources */,
 				B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */,
 				B15611D41A539D0200D54D70 /* heartRateOneDayInfoModel.m in Sources */,
 				B15611DD1A53C6D100D54D70 /* SportsListViewController.m in Sources */,
@@ -836,6 +907,7 @@
 				B15611D11A538B6100D54D70 /* sportOneDayInfoModel.m in Sources */,
 				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
 				B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */,
+				644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
 				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
 				B14EC9C71A51498500027033 /* personInfoModel.m in Sources */,
@@ -984,7 +1056,7 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1017,7 +1089,7 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = smartWatch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

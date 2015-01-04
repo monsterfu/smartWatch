@@ -92,6 +92,53 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSIndexPath *selectionIndexPath;
+    if (indexPath.section == 0) {
+        selectionIndexPath = [NSIndexPath indexPathForRow:_heightUnit-1 inSection:0];
+    }else if (indexPath.section == 1) {
+        selectionIndexPath = [NSIndexPath indexPathForRow:_weightUnit-1 inSection:1];
+    }else if (indexPath.section == 2) {
+        selectionIndexPath = [NSIndexPath indexPathForRow:_lengthUnit-1 inSection:2];
+    }
+    
+    UITableViewCell *checkedCell = [tableView cellForRowAtIndexPath:selectionIndexPath];
+    checkedCell.accessoryType = UITableViewCellAccessoryNone;
+    
+    [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    // Deselect the row.
+    //                _detailInfo.sex = [NSNumber numberWithBool:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        _heightUnit = indexPath.row + 1;
+    }else if (indexPath.section == 1) {
+        _weightUnit = indexPath.row + 1;
+    }else if (indexPath.section == 2) {
+        _lengthUnit = indexPath.row + 1;
+    }
+}
+- (IBAction)saveButtonTouched:(UIBarButtonItem *)sender {
+    [[ConnectionManager sharedInstance]setDelegate:self];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandSetting_sendUnitWithHeightUnit:_heightUnit weightUnit:_weightUnit lengthUnit:_lengthUnit cmd:ConnectionManagerCommadEnum_SZ_dwsz];
+    [ProgressHUD show:@"设置中"];
+}
+
+#pragma mark - ConnectionManager Delegate
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd
+{
+    [USER_DEFAULT removeObjectForKey:KEY_HeightUnit];
+    [USER_DEFAULT removeObjectForKey:KEY_WeightUnit];
+    [USER_DEFAULT removeObjectForKey:KEY_LengthUnit];
+    [USER_DEFAULT setInteger:_heightUnit forKey:KEY_HeightUnit];
+    [USER_DEFAULT setInteger:_weightUnit forKey:KEY_WeightUnit];
+    [USER_DEFAULT setInteger:_lengthUnit forKey:KEY_LengthUnit];
+    [USER_DEFAULT synchronize];
+    
+    [ProgressHUD showSuccess:@"设置成功"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

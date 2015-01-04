@@ -16,7 +16,7 @@
 #define DATA_LENGTH         (15)
 
 
-+(personInfoModel*)initWithUserName:(NSString*)userName pw:(NSString*)pw height:(NSUInteger)height weight:(NSUInteger)weight age:(NSUInteger)age sex:(NSUInteger)sex
++(personInfoModel*)createWithUserName:(NSString*)userName pw:(NSString*)pw height:(NSUInteger)height weight:(NSUInteger)weight age:(NSUInteger)age sex:(NSUInteger)sex
 {
     personInfoModel* personInfo = [[personInfoModel alloc]init];
     personInfo.userName = userName;
@@ -32,7 +32,7 @@
 }
 
 
-+(personInfoModel*)initWithUserName:(NSString*)userName pw:(NSString*)pw
++(personInfoModel*)createWithUserName:(NSString*)userName pw:(NSString*)pw
 {
     personInfoModel* personInfo = [[personInfoModel alloc]init];
     personInfo.userName = userName;
@@ -47,31 +47,22 @@
 -(NSData*)registerDataWithIndex:(NSUInteger)index
 {
     NSData* nameData = [_userName dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData* nameMutableData = [NSMutableData dataWithData:nameData];
+    [nameMutableData appendBytes:0x00 length:32- nameData.length];
     NSData* pwData = [_passWord dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData* pwMutableData = [NSMutableData dataWithData:pwData];
+    [pwMutableData appendBytes:0x00 length:32- pwData.length];
     
-    unsigned char height = BCD_CO(_height);
-    NSData* heiData = [[NSData alloc]initWithBytes:&height length:1];
+    NSData* heiData = [[NSData alloc]initWithBytes:&_height length:1];
+    NSData* weiData = [[NSData alloc]initWithBytes:&_weight length:1];
+    NSData* ageData = [[NSData alloc]initWithBytes:&_age length:1];
+    NSData* sexData = [[NSData alloc]initWithBytes:&_sex length:1];
+    NSData* heightUnitData = [[NSData alloc]initWithBytes:&_heightUnit length:1];
+    NSData* weightUnitData = [[NSData alloc]initWithBytes:&_weightUnit length:1];
+    NSData* lengthUnitData = [[NSData alloc]initWithBytes:&_lengthUnit length:1];
     
-    unsigned char weight = BCD_CO(_weight);
-    NSData* weiData = [[NSData alloc]initWithBytes:&weight length:1];
-    
-    unsigned char age = BCD_CO(_age);
-    NSData* ageData = [[NSData alloc]initWithBytes:&age length:1];
-    
-    unsigned char sex = BCD_CO(_sex);
-    NSData* sexData = [[NSData alloc]initWithBytes:&sex length:1];
-    
-    unsigned char heightUnit = BCD_CO(_heightUnit);
-    NSData* heightUnitData = [[NSData alloc]initWithBytes:&heightUnit length:1];
-    
-    unsigned char weightUnit = BCD_CO(_weightUnit);
-    NSData* weightUnitData = [[NSData alloc]initWithBytes:&weightUnit length:1];
-    
-    unsigned char lengthUnit = BCD_CO(_lengthUnit);
-    NSData* lengthUnitData = [[NSData alloc]initWithBytes:&lengthUnit length:1];
-    
-    NSMutableData* destData = [NSMutableData dataWithData:nameData];
-    [destData appendData:pwData];
+    NSMutableData* destData = [NSMutableData dataWithData:nameMutableData];
+    [destData appendData:pwMutableData];
     [destData appendData:heiData];
     [destData appendData:weiData];
     [destData appendData:ageData];
@@ -80,8 +71,18 @@
     [destData appendData:weightUnitData];
     [destData appendData:lengthUnitData];
     
-    NSRange curRange = NSMakeRange(index*DATA_LENGTH, DATA_LENGTH);
-    return [destData subdataWithRange:curRange];
+    NSData* finData = nil;
+    if (destData.length >= index*DATA_LENGTH+DATA_LENGTH) {
+        NSRange curRange = NSMakeRange(index*DATA_LENGTH, DATA_LENGTH);
+        finData = [destData subdataWithRange:curRange];
+    }else if (destData.length < index*DATA_LENGTH+DATA_LENGTH && destData.length > index*DATA_LENGTH) {
+        NSRange curRange = NSMakeRange(index*DATA_LENGTH, destData.length - index*DATA_LENGTH);
+        finData = [destData subdataWithRange:curRange];
+    }else{
+        return nil;
+    }
+    NSLog(@"finData:%@",finData);
+    return finData;
 }
 
 -(NSData*)loginDataWithIndex:(NSUInteger)index
@@ -89,17 +90,10 @@
     NSData* nameData = [_userName dataUsingEncoding:NSUTF8StringEncoding];
     NSData* pwData = [_passWord dataUsingEncoding:NSUTF8StringEncoding];
     
-    unsigned char height = BCD_CO(_height);
-    NSData* heiData = [[NSData alloc]initWithBytes:&height length:1];
-    
-    unsigned char weight = BCD_CO(_weight);
-    NSData* weiData = [[NSData alloc]initWithBytes:&weight length:1];
-    
-    unsigned char age = BCD_CO(_age);
-    NSData* ageData = [[NSData alloc]initWithBytes:&age length:1];
-    
-    unsigned char sex = BCD_CO(_sex);
-    NSData* sexData = [[NSData alloc]initWithBytes:&sex length:1];
+    NSData* heiData = [[NSData alloc]initWithBytes:&_height length:1];
+    NSData* weiData = [[NSData alloc]initWithBytes:&_weight length:1];
+    NSData* ageData = [[NSData alloc]initWithBytes:&_age length:1];
+    NSData* sexData = [[NSData alloc]initWithBytes:&_sex length:1];
     
     unsigned char heightUnit = BCD_CO(1);
     NSData* heightUnitData = [[NSData alloc]initWithBytes:&heightUnit length:1];
@@ -120,7 +114,17 @@
     [destData appendData:weightUnitData];
     [destData appendData:lengthUnitData];
     
-    NSRange curRange = NSMakeRange(index*DATA_LENGTH, DATA_LENGTH);
-    return [destData subdataWithRange:curRange];
+    NSData* finData = nil;
+    if (destData.length >= index*DATA_LENGTH+DATA_LENGTH) {
+        NSRange curRange = NSMakeRange(index*DATA_LENGTH, DATA_LENGTH);
+        finData = [destData subdataWithRange:curRange];
+    }else if (destData.length < index*DATA_LENGTH+DATA_LENGTH && destData.length > index*DATA_LENGTH) {
+        NSRange curRange = NSMakeRange(index*DATA_LENGTH, destData.length - index*DATA_LENGTH);
+        finData = [destData subdataWithRange:curRange];
+    }else{
+        return nil;
+    }
+    NSLog(@"finData:%@",finData);
+    return finData;
 }
 @end

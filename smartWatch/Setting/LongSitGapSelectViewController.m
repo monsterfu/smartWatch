@@ -53,7 +53,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _longsitModelData.remindGap = indexPath.row;
+    _longsitModelData.remindGap = indexPath.row + 1;
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

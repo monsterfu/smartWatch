@@ -13,4 +13,5 @@
 @interface NSString (longTimeGapIndex)
 
 +(NSString*)longTimeGapIndex:(longSitRemindGapEnum_Enum)gapEnum;
+
 @end

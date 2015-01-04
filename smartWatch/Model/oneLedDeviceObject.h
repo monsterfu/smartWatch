@@ -48,65 +48,65 @@ struct user_info
 +(oneLedDeviceObject*) createDeviceObjectWithName:(NSString*)name identifier:(NSString*)identifier;
 
 //同步时间
--(void)syncCurrentTime;
+-(void)syncCurrentTime:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  固件更新
  */
 //查询固件更新历史断点续传信息
--(void)sendCommandgjgx_requestVisionHistoryInfo;
+-(void)sendCommandgjgx_requestVisionHistoryInfo:(ConnectionManagerCommadEnum)cmd;
 //传送固件信息
--(void)sendCommandgjgx_sendVisionInfo;
+-(void)sendCommandgjgx_sendVisionInfo:(ConnectionManagerCommadEnum)cmd;
 //传送完成
--(void)sendCommandgjgx_requestVisionSendFinished;
+-(void)sendCommandgjgx_requestVisionSendFinished:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  用户注册
  */
 //查询设备是否已经注册
--(void)sendCommandyhzc_requestDeviceWhetherRegistered;
+-(void)sendCommandyhzc_requestDeviceWhetherRegistered:(ConnectionManagerCommadEnum)cmd;
 //传送用户信息
--(void)sendCommandyhzc_sendRegisterInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index;
+-(void)sendCommandyhzc_sendRegisterInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index cmd:(ConnectionManagerCommadEnum)cmd;
 //传送用户信息完毕
--(void)sendCommandyhzc_sendRegisterInfoFinished;
+-(void)sendCommandyhzc_sendRegisterInfoFinished:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  用户登录
  */
 //发送用户信息
--(void)sendCommandyhdl_sendUserInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index;
+-(void)sendCommandyhdl_sendUserInfoWithPerson:(personInfoModel*)person index:(NSUInteger)index cmd:(ConnectionManagerCommadEnum)cmd;
 //传送用户信息完毕
--(void)sendCommandyhdl_sendUserInfoFinished;
+-(void)sendCommandyhdl_sendUserInfoFinished:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  运动历史记录
  */
 //同步命令
--(void)sendCommandydxx_requestHistoryInfo;
+-(void)sendCommandydxx_requestHistoryInfo:(ConnectionManagerCommadEnum)cmd;
 //逐条ack
--(void)sendCommandydxx_requestPerAck;
+-(void)sendCommandydxx_requestPerAck:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  睡眠历史记录同步
  */
 //同步命令
--(void)sendCommandsmxx_requestHistoryInfo;
+-(void)sendCommandsmxx_requestHistoryInfo:(ConnectionManagerCommadEnum)cmd;
 //逐条ack
--(void)sendCommandsmxx_requestPerAck;
+-(void)sendCommandsmxx_requestPerAck:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
  *  心率历史记录同步
  */
 //同步命令
--(void)sendCommandxlxx_requestHistoryInfo;
+-(void)sendCommandxlxx_requestHistoryInfo:(ConnectionManagerCommadEnum)cmd;
 //逐条ack
--(void)sendCommandxlxx_requestPerAck;
+-(void)sendCommandxlxx_requestPerAck:(ConnectionManagerCommadEnum)cmd;
 
 
 /**
@@ -114,30 +114,30 @@ struct user_info
  */
 
 //个人信息
--(void)sendCommandSetting_sendPersonInfo:(personInfoModel*)person;
+-(void)sendCommandSetting_sendPersonInfo:(personInfoModel*)person cmd:(ConnectionManagerCommadEnum)cmd;
 //单位设置
--(void)sendCommandSetting_sendUnitWithHeightUnit:(EnumHeightUnit_Enum)heightUnit weightUnit:(EnumWeightUnit_Enum)weightUnit lengthUnit:(EnumLengthUnit_Enum)lengthUnit;
+-(void)sendCommandSetting_sendUnitWithHeightUnit:(EnumHeightUnit_Enum)heightUnit weightUnit:(EnumWeightUnit_Enum)weightUnit lengthUnit:(EnumLengthUnit_Enum)lengthUnit cmd:(ConnectionManagerCommadEnum)cmd;
 
 //闹钟查询
--(void)sendCommandSetting_requestAlarmInfo;
+-(void)sendCommandSetting_requestAlarmInfo:(ConnectionManagerCommadEnum)cmd;;
 //闹钟设置
--(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm;
+-(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm cmd:(ConnectionManagerCommadEnum)cmd;;
 
 //久坐提醒使能
--(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able;
+-(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able cmd:(ConnectionManagerCommadEnum)cmd;;
 //久坐提醒设置
--(void)sendCommandSetting_sendLongTimeSitRemind:(longSitModel*)longModel;
+-(void)sendCommandSetting_sendLongTimeSitRemind:(longSitModel*)longModel cmd:(ConnectionManagerCommadEnum)cmd;;
 //防丢报警
--(void)sendCommandSetting_sendAntiLost;
+-(void)sendCommandSetting_sendAntiLost:(ConnectionManagerCommadEnum)cmd;;
 //装置设定-查询固件版本
--(void)sendCommandSetting_requestVision;
+-(void)sendCommandSetting_requestVision:(ConnectionManagerCommadEnum)cmd;;
 //装置设定-查询设备电量
--(void)sendCommandSetting_requestBattery;
+-(void)sendCommandSetting_requestBattery:(ConnectionManagerCommadEnum)cmd;;
 //装置设定-使能飞行模式
--(void)sendCommandSetting_sendFlightMode;
+-(void)sendCommandSetting_sendFlightMode:(ConnectionManagerCommadEnum)cmd;;
 //装置设定-设备重置
--(void)sendCommandSetting_sendDeviceReset;
+-(void)sendCommandSetting_sendDeviceReset:(ConnectionManagerCommadEnum)cmd;;
 //信息推送
--(void)sendCommandSetting_sendDevicePushEnable:(BOOL)enable;
+-(void)sendCommandSetting_sendDevicePushEnable:(BOOL)enable cmd:(ConnectionManagerCommadEnum)cmd;;
 
 @end

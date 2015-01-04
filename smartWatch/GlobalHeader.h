@@ -18,18 +18,22 @@
 #import "UMSocialWechatHandler.h"
 
 
+#import "ConnectionManager.h"
 #import "NSString+longTimeGapIndex.h"
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"
 #import "CommonNavigationController.h"
 #import "thirdParty/MBProgressHUD.h"
-#import "ConnectionManager.h"
+#import "ProgressHUD.h"
 
 //model
 #import "personInfoModel.h"
 #import "AlarmModel.h"
 #import "oneLedDeviceObject.h"
 #import "SceneArrayDeviceObject.h"
+
+//viewController
+#import "WeekNumSelectViewController.h"
 
 #define IS_IPAD ([[UIDevice currentDevice] respondsToSelector:@selector(userInterfaceIdiom)] && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -50,18 +54,26 @@
  *  首次登陆
  */
 #define KEY_First_Use                  @"key_first_use"
+#define KEY_Auto_Login                 @"KEY_Auto_Login"
+
+
+/**
+ *  用户信息
+ */
+#define KEY_UserModel_default           @"KEY_UserModel_default"
 
 
 /**
  *  久坐提醒
  */
-#define KEY_LONGSIT_STARTTIMEONE        @"KEY_LONGSIT_STARTTIMEONE"
-#define KEY_LONGSIT_STARTTIMETWO        @"KEY_LONGSIT_STARTTIMETWO"
-#define KEY_LONGSIT_ENDTIMEONE          @"KEY_LONGSIT_ENDTIMEONE"
-#define KEY_LONGSIT_ENDTIMETWO          @"KEY_LONGSIT_ENDTIMETWO"
+#define KEY_LONGSIT_ALL                 @"KEY_LONGSIT_ALL"
+#define KEY_LONGSIT_STARTDATE1          @"KEY_LONGSIT_STARTDATE1"
+#define KEY_LONGSIT_STARTDATE2          @"KEY_LONGSIT_STARTDATE2"
+#define KEY_LONGSIT_ENDDATE1            @"KEY_LONGSIT_ENDDATE1"
+#define KEY_LONGSIT_ENDDATE2            @"KEY_LONGSIT_ENDDATE2"
 #define KEY_longSitRemindGap            @"KEY_longSitRemindGap"
 #define KEY_longSitRemindOpen           @"KEY_longSitRemindOpen"
-
+#define KEY_longSitRemindWeekNum        @"KEY_longSitRemindWeekNum"
 /**
  *  单位
  */

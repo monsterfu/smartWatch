@@ -10,7 +10,7 @@
 #import "GlobalHeader.h"
 #import "LongSitGapSelectViewController.h"
 
-@interface LongSitViewController : UIViewController
+@interface LongSitViewController : UIViewController<ConnectionManagerDelegate>
 {
     UIButton* _startOneButton;
     UIButton* _endOneButton;
@@ -19,19 +19,23 @@
     
     UIButton* _selectButton;
     
-    NSDate* _startOneDate;
-    NSDate* _startTwoDate;
-    NSDate* _endOneDate;
-    NSDate* _endTwoDate;
+    BOOL _remindOpen;
     
     UITableViewCell* _gapCell;
+    UITableViewCell* _weekNumCell;
     
     LongSitGapSelectViewController* _gapSelectViewController;
+    WeekNumSelectViewController* _weekSelectViewController;
 }
 
 @property(nonatomic, retain)longSitModel* longsitModelData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePickerView;
 - (IBAction)datePickerChanged:(UIDatePicker *)sender;
+- (IBAction)saveButtonTouch:(UIBarButtonItem *)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *longsitSwitch;
+
+- (IBAction)enableLongSitSet:(UISwitch *)sender;
 
 @end
