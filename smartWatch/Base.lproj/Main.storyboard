@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEJ-um-VLy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wW7-ln-CT0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--运动趋势-->
@@ -223,7 +223,7 @@
                     <navigationItem key="navigationItem" id="LRp-ag-PLh"/>
                     <connections>
                         <outlet property="tableView" destination="fDp-gJ-o0h" id="udJ-XZ-o90"/>
-                        <segue destination="vos-rK-Kt7" kind="push" id="qgh-Ln-aOM"/>
+                        <segue destination="vos-rK-Kt7" kind="push" identifier="sportDetailIdentifier" id="qgh-Ln-aOM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2S-5Q-cps" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1208,6 +1208,7 @@
                         <outlet property="passWordField" destination="obj-Ka-9hB" id="GPo-gJ-Ixc"/>
                         <outlet property="userNameField" destination="wMb-B4-oDo" id="Fmp-fW-PaW"/>
                         <segue destination="0kI-IS-TG3" kind="modal" identifier="registerPushIdentifier" id="TKN-tk-2pY"/>
+                        <segue destination="nEJ-um-VLy" kind="modal" identifier="replaceIdentifier" modalTransitionStyle="flipHorizontal" id="UZn-dU-AWv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0R-Ye-xhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1217,7 +1218,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1633" y="-317"/>
+            <point key="canvasLocation" x="-1121" y="11"/>
         </scene>
         <!--注册-->
         <scene sceneID="149-P0-YsR">
@@ -1365,7 +1366,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1259" y="-341"/>
+            <point key="canvasLocation" x="-1191" y="-837"/>
         </scene>
         <!--Common Navigation Controller-->
         <scene sceneID="zaI-XE-70R">

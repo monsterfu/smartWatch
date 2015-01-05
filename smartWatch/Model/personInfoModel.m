@@ -7,6 +7,7 @@
 //
 
 #import "personInfoModel.h"
+#import "GlobalHeader.h"
 
 
 @implementation personInfoModel
@@ -46,12 +47,15 @@
 
 -(NSData*)registerDataWithIndex:(NSUInteger)index
 {
+    unsigned char command[32] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+    NSData* restData = [[NSData alloc]initWithBytes:command length:32];
+    
     NSData* nameData = [_userName dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableData* nameMutableData = [NSMutableData dataWithData:nameData];
-    [nameMutableData appendBytes:0x00 length:32- nameData.length];
+    [nameMutableData appendBytes:restData.bytes length:32- nameData.length];
     NSData* pwData = [_passWord dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableData* pwMutableData = [NSMutableData dataWithData:pwData];
-    [pwMutableData appendBytes:0x00 length:32- pwData.length];
+    [pwMutableData appendBytes:restData.bytes length:32- pwData.length];
     
     NSData* heiData = [[NSData alloc]initWithBytes:&_height length:1];
     NSData* weiData = [[NSData alloc]initWithBytes:&_weight length:1];
@@ -87,8 +91,16 @@
 
 -(NSData*)loginDataWithIndex:(NSUInteger)index
 {
+    unsigned char command[32] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+    NSData* restData = [[NSData alloc]initWithBytes:command length:32];
+    
     NSData* nameData = [_userName dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData* nameMutableData = [NSMutableData dataWithData:nameData];
+    [nameMutableData appendBytes:restData.bytes length:32- nameData.length];
     NSData* pwData = [_passWord dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableData* pwMutableData = [NSMutableData dataWithData:pwData];
+    [pwMutableData appendBytes:restData.bytes length:32- pwData.length];
+    
     
     NSData* heiData = [[NSData alloc]initWithBytes:&_height length:1];
     NSData* weiData = [[NSData alloc]initWithBytes:&_weight length:1];
@@ -104,8 +116,8 @@
     unsigned char lengthUnit = BCD_CO(1);
     NSData* lengthUnitData = [[NSData alloc]initWithBytes:&lengthUnit length:1];
     
-    NSMutableData* destData = [NSMutableData dataWithData:nameData];
-    [destData appendData:pwData];
+    NSMutableData* destData = [NSMutableData dataWithData:nameMutableData];
+    [destData appendData:pwMutableData];
     [destData appendData:heiData];
     [destData appendData:weiData];
     [destData appendData:ageData];
@@ -126,5 +138,28 @@
     }
     NSLog(@"finData:%@",finData);
     return finData;
+}
+
+#pragma mark --
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_userName forKey:KEY_PersonInfoModel_username];
+    [aCoder encodeObject:_passWord forKey:KEY_PersonInfoModel_psw];
+    [aCoder encodeInteger:_height forKey:KEY_PersonInfoModel_height];
+    [aCoder encodeInteger:_weight forKey:KEY_PersonInfoModel_weight];
+    [aCoder encodeInteger:_age forKey:KEY_PersonInfoModel_age];
+    [aCoder encodeInteger:_sex forKey:KEY_PersonInfoModel_sex];
+}
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super init]){
+        _userName  = [aDecoder decodeObjectForKey:KEY_PersonInfoModel_username];
+        _passWord  = [aDecoder decodeObjectForKey:KEY_PersonInfoModel_psw];
+        _height  = [aDecoder decodeIntegerForKey:KEY_PersonInfoModel_height];
+        _weight  = [aDecoder decodeIntegerForKey:KEY_PersonInfoModel_weight];
+        _age = [aDecoder decodeIntegerForKey:KEY_PersonInfoModel_age];
+        _sex = [aDecoder decodeIntegerForKey:KEY_PersonInfoModel_sex];
+    }
+    return self;
 }
 @end

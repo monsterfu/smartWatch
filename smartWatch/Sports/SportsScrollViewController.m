@@ -8,6 +8,8 @@
 
 #import "SportsScrollViewController.h"
 
+#define TABController_Height    (40)
+
 @interface SportsScrollViewController ()
 
 @end
@@ -17,6 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    _circleViewController = [storyBoard instantiateViewControllerWithIdentifier:@"SportsCircleID"];
+    _detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"SportsDetailID"];
+    
+    [_circleViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height), 0, TABController_Height)];
+    [_detailViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height), 0, TABController_Height + DEVICE_HEIGHT)];
+    
+    [_scrollView setContentSize:CGSizeMake(0, DEVICE_HEIGHT*2)];
+    
+    [_scrollView addSubview:_circleViewController.view];
+    [_scrollView addSubview:_detailViewController.view];
+    [_scrollView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {

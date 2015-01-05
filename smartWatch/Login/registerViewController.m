@@ -129,9 +129,12 @@
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
             if (byteValue[2] == 0x03) {
-                [ProgressHUD show:@"设备注册成功,并自动登录中"];
-                _loginDataIdx = 0;
-                [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_loginDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
+                [ProgressHUD showSuccess:@"设备注册成功,请登陆"];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+//                _loginDataIdx = 0;
+//                [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_loginDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
             }else{
                 [ProgressHUD showError:@"设备注册失败"];
             }
@@ -162,6 +165,19 @@
                 }
             }else if (byteValue[2] == 0x02) {
                 [ProgressHUD showSuccess:@"设备尚未注册,请进行注册"];
+            }
+        }
+        
+    }
+    if (cmd == ConnectionManagerCommadEnum_YHDL_fswc) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
+            if (byteValue[2] == 0x05) {
+                [ProgressHUD showSuccess:@"登陆成功"];
+            }else if (byteValue[2] == 0x06) {
+                [ProgressHUD showSuccess:@"用户名错误"];
+            }else if (byteValue[2] == 0x07) {
+                [ProgressHUD showSuccess:@"密码错误"];
             }
         }
         

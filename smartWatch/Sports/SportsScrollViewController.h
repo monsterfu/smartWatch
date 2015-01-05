@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
+#import "SportsCircleViewController.h"
+#import "SportsDetailViewController.h"
 
 @interface SportsScrollViewController : UIViewController
-
+{
+    SportsCircleViewController *_circleViewController;
+    SportsDetailViewController *_detailViewController;
+}
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

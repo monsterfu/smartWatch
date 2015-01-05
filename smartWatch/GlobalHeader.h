@@ -62,7 +62,12 @@
  *  用户信息
  */
 #define KEY_UserModel_default           @"KEY_UserModel_default"
-
+#define KEY_PersonInfoModel_username    @"KEY_personInfoModel_username"
+#define KEY_PersonInfoModel_psw         @"KEY_PersonInfoModel_psw"
+#define KEY_PersonInfoModel_height      @"KEY_PersonInfoModel_height"
+#define KEY_PersonInfoModel_weight      @"KEY_PersonInfoModel_weight"
+#define KEY_PersonInfoModel_age         @"KEY_PersonInfoModel_age"
+#define KEY_PersonInfoModel_sex         @"KEY_PersonInfoModel_sex"
 
 /**
  *  久坐提醒

@@ -136,6 +136,27 @@
 }
 - (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
 {
+    if (cmd == ConnectionManagerCommadEnum_YHDL_fswc) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
+            if (byteValue[2] == 0x05) {
+                [ProgressHUD showSuccess:@"登陆成功"];
+                
+                [USER_DEFAULT removeObjectForKey:KEY_UserModel_default];
+                NSData* aDate = [NSKeyedArchiver archivedDataWithRootObject:_personModel];
+                [USER_DEFAULT setObject:aDate forKey:KEY_UserModel_default];
+                [USER_DEFAULT setBool:YES forKey:KEY_Auto_Login];
+                [USER_DEFAULT synchronize];
+                
+                [self performSegueWithIdentifier:@"replaceIdentifier" sender:nil];
+            }else if (byteValue[2] == 0x06) {
+                [ProgressHUD showSuccess:@"用户名错误"];
+            }else if (byteValue[2] == 0x07) {
+                [ProgressHUD showSuccess:@"密码错误"];
+            }
+        }
+        
+    }
     if (cmd == ConnectionManagerCommadEnum_YHDL_fsxx) {
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
@@ -157,7 +178,9 @@
                 if ([USER_DEFAULT boolForKey:KEY_Auto_Login]) {
                     [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_sendDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
                 }else{
+#if 0
                     [[ConnectionManager sharedInstance].deviceObject sendCommandSetting_sendDeviceReset:ConnectionManagerCommadEnum_ZZSZ_sbcz];
+#endif
                 }
             }else if (byteValue[2] == 0x02) {
                 [ProgressHUD showSuccess:@"设备尚未注册,请进行注册"];
