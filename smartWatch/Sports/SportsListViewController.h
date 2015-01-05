@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 
 @interface SportsListViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

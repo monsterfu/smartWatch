@@ -27,19 +27,15 @@
 
 -(void)viewDidLayoutSubviews
 {
-    CGRect oldframe = self.tabBar.frame;
-    oldframe.origin.y = DEVICE_HEIGHT - TABBAR_HEIGHT;
-    oldframe.size.height = TABBAR_HEIGHT;
     
-    [self.tabBar setFrame:oldframe];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    [self.tabBar setBackgroundColor:[UIColor getColor:@"AFE25B"]];
-    [self.tabBar setTintColor:[UIColor whiteColor]];
-    [self.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    [self.tabBar setTintColor:[UIColor getColor:@"46a719"]];
+    [self.tabBar setSelectedImageTintColor:[UIColor getColor:@"46a719"]];
 }
 
 - (void)didReceiveMemoryWarning

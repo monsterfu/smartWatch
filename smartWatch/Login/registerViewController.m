@@ -21,6 +21,7 @@
     [ConnectionManager sharedInstance].delegate = self;
     _loginDataIdx = 0;
     _regisierDataIdx = 0;
+    [_tableView setEmptyFootView];
 }
 
 - (void)didReceiveMemoryWarning {

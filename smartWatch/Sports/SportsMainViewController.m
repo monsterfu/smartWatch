@@ -15,15 +15,21 @@
 
 @implementation SportsMainViewController
 
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [self.navigationController.tabBarController.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:NO];
+//}
+//- (void)viewDidDisappear:(BOOL)animated
+//{
+//    [self.navigationController.tabBarController.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController setNavigationBarHidden:YES];
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     self.title = @"活动";
     _labelArray = [NSMutableArray array];
-    UIButton* testButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    testButton.frame = CGRectMake(100, 100, 100, 30);
-    [testButton addTarget:self action:@selector(testButtonTouched) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:testButton];
     // Do any additional setup after loading the view.
     
     graph  = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
@@ -35,7 +41,7 @@
     //创建主画板视图添加画板
     CPTGraphHostingView *hostingView = (CPTGraphHostingView *)_graphHostingView;
     hostingView.hostedGraph = graph;
-    
+    hostingView.backgroundColor = [UIColor getColor:@"dbdbdb"];
     [self.view addSubview:hostingView];
     
     graph.plotAreaFrame.borderLineStyle = nil;
@@ -146,10 +152,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)testButtonTouched
-{
-     [[ConnectionManager sharedInstance]startScanForDevice];
-}
 
 /*
 #pragma mark - Navigation
@@ -195,7 +197,7 @@
     
     UIImage *loadImage=[UIImage imageNamed:@"icon_info.png"];
     CGImageRef cgimage=loadImage.CGImage;
-    [_label setFill:[CPTFill fillWithImage:[CPTImage imageWithCGImage:cgimage]]];
+//    [_label setFill:[CPTFill fillWithImage:[CPTImage imageWithCGImage:cgimage]]];
     [_labelArray addObject:_label];
     return _label;
 }

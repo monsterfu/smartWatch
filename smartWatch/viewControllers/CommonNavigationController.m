@@ -35,8 +35,7 @@
         self.navigationBar.barTintColor = [UIColor getColor:@"46a719"];
         self.navigationBar.translucent = NO;
     }
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    //
+//    self.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,
                                                                      nil]];
     

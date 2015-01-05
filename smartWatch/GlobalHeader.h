@@ -22,6 +22,7 @@
 #import "NSString+longTimeGapIndex.h"
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"
+#import "UITableView+emptyFootView.h"
 #import "CommonNavigationController.h"
 #import "thirdParty/MBProgressHUD.h"
 #import "ProgressHUD.h"

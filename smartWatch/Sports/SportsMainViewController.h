@@ -22,6 +22,17 @@
 }
 @property (retain, nonatomic) NSMutableArray *dataForPlot1;
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
+
+//
+@property (weak, nonatomic) IBOutlet UILabel *stepNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kcalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *midLabel;
+
+
+
+
+
 - (IBAction)shareTest:(UIBarButtonItem *)sender;
 
 

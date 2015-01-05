@@ -29,11 +29,10 @@
 //    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //AppKey: 54a39ac6fd98c51fed000762
     
-    [[ConnectionManager sharedInstance]startScanForDevice];
+//    [[ConnectionManager sharedInstance]startScanForDevice];
     
     if ([USER_DEFAULT boolForKey:KEY_First_Use] == NO) {
         [USER_DEFAULT setBool:YES forKey:KEY_First_Use];
-        
         [USER_DEFAULT setInteger:2 forKey:KEY_HeightUnit];
         [USER_DEFAULT setInteger:1 forKey:KEY_WeightUnit];
         [USER_DEFAULT setInteger:1 forKey:KEY_LengthUnit];

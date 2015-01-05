@@ -63,7 +63,6 @@
         
     }else if (indexPath.section == 2){
         cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row+6];
-        
     }
     return cell;
 }
