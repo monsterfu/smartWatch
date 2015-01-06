@@ -47,8 +47,9 @@
 #define BCD_CO(x)    (x/10)*16 + (x%10)
 
 #define KEY_DEVICELIST_INFO   @"key_devicelist_info"         //设备列表
-
 #define KEY_SCENELIST_INFO    @"key_scenelist_info"         //情景列表
+
+//#define Debug_JumpToMain
 
 
 /**

@@ -63,6 +63,7 @@
 
 
 - (IBAction)loginButtonTouch:(UIButton *)sender {
+#ifdef Debug_JumpToMain
     if (_userNameField.text.length < 8) {
         [ProgressHUD showError:@"用户名过短!"];
         return;
@@ -75,6 +76,9 @@
     _personModel.userName = _userNameField.text;
     _personModel.passWord = _passWordField.text;
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_sendDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
+#else
+    [self performSegueWithIdentifier:@"replaceIdentifier" sender:nil];
+#endif
 
 }
 

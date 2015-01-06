@@ -8,7 +8,7 @@
 
 #import "SportsScrollViewController.h"
 
-#define TABController_Height    (40)
+#define TABController_Height    (0)
 
 @interface SportsScrollViewController ()
 

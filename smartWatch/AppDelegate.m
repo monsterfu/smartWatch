@@ -28,9 +28,9 @@
 //                      clientKey:@""];
 //    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     //AppKey: 54a39ac6fd98c51fed000762
-    
+#ifdef Debug_JumpToMain
     [[ConnectionManager sharedInstance]startScanForDevice];
-    
+#endif
     if ([USER_DEFAULT boolForKey:KEY_First_Use] == NO) {
         [USER_DEFAULT setBool:YES forKey:KEY_First_Use];
         [USER_DEFAULT setInteger:2 forKey:KEY_HeightUnit];
