@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="HeartRateDataReadingModel" representedClassName="HeartRateDataReadingModel" syncable="YES">
+        <attribute name="heartRate" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="mode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <relationship name="personHeartRate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonDetaiInfo" inverseName="heartRate" inverseEntity="PersonDetaiInfo" syncable="YES"/>
+    </entity>
+    <entity name="PersonDetaiInfo" representedClassName="PersonDetaiInfo" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="heightUnit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lengthUnit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weightUnit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="heartRate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeartRateDataReadingModel" inverseName="personHeartRate" inverseEntity="HeartRateDataReadingModel" syncable="YES"/>
+        <relationship name="sleep" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SleepDataReadingModel" inverseName="personSleep" inverseEntity="SleepDataReadingModel" syncable="YES"/>
+        <relationship name="sport" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SportDataReadingModel" inverseName="personSport" inverseEntity="SportDataReadingModel" syncable="YES"/>
+    </entity>
+    <entity name="SleepDataReadingModel" representedClassName="SleepDataReadingModel" syncable="YES">
+        <attribute name="activeTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="inSleepTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalSleepTime" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="wakeUpNum" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="personSleep" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonDetaiInfo" inverseName="sleep" inverseEntity="PersonDetaiInfo" syncable="YES"/>
+    </entity>
+    <entity name="SportDataReadingModel" representedClassName="SportDataReadingModel" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="kcal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalKcal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalStepNum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="personSport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersonDetaiInfo" inverseName="sport" inverseEntity="PersonDetaiInfo" syncable="YES"/>
+    </entity>
+    <fetchRequest name="heartFetchRequest" entity="HeartRateDataReadingModel"/>
+    <fetchRequest name="personFetchRequest" entity="PersonDetaiInfo"/>
+    <fetchRequest name="sleepFetchRequest" entity="SleepDataReadingModel"/>
+    <fetchRequest name="sportFetchRequest" entity="SportDataReadingModel"/>
+    <elements>
+        <element name="HeartRateDataReadingModel" positionX="-182" positionY="-117" width="128" height="103"/>
+        <element name="PersonDetaiInfo" positionX="-423" positionY="44" width="128" height="238"/>
+        <element name="SleepDataReadingModel" positionX="-180" positionY="36" width="128" height="133"/>
+        <element name="SportDataReadingModel" positionX="-180" positionY="225" width="128" height="133"/>
+    </elements>
+</model>

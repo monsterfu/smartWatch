@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
+
+@protocol SportsCircleViewControllerDelegate <NSObject>
+
+-(void)pushMoreButtonTouch;
+-(void)syncButtonTouch;
+@end
+
 
 @interface SportsCircleViewController : UIViewController
 
 
-
+@property (nonatomic,retain)PersonDetaiInfo* personInfo;
+@property (nonatomic, weak) id<SportsCircleViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *circleImgView;
 

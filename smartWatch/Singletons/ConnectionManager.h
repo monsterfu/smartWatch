@@ -32,6 +32,8 @@ typedef enum : NSUInteger {
     //心率
     ConnectionManagerCommadEnum_SL_lsjl,        //心率历史记录
     
+    //ACK
+    ConnectionManagerCommadEnum_ACK,            //逐条ACK
     //设置
     ConnectionManagerCommadEnum_SZ_grxx,        //个人信息
     ConnectionManagerCommadEnum_SZ_dwsz,        //单位设置

@@ -37,8 +37,15 @@
 		B114F5B31A3EBD5F00A123A9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */; };
 		B1376E261A56772600AEC110 /* icon_feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E241A56772600AEC110 /* icon_feedback@2x.png */; };
 		B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E251A56772600AEC110 /* icon_info@2x.png */; };
-		B1376E791A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1376E771A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld */; };
 		B1376E7C1A569AD500AEC110 /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1376E7B1A569AD500AEC110 /* AlarmListViewController.m */; };
+		B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EA51A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld */; };
+		B13A7EA91A5CD06A000C490B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13A7EA81A5CD06A000C490B /* CoreData.framework */; };
+		B13A7EB81A5CD56C000C490B /* SleepDataReadingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EB71A5CD56C000C490B /* SleepDataReadingModel.m */; };
+		B13A7EBB1A5CD56C000C490B /* PersonDetaiInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EBA1A5CD56C000C490B /* PersonDetaiInfo.m */; };
+		B13A7EBE1A5CD56C000C490B /* SportDataReadingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EBD1A5CD56C000C490B /* SportDataReadingModel.m */; };
+		B13A7EC11A5CD56C000C490B /* HeartRateDataReadingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EC01A5CD56C000C490B /* HeartRateDataReadingModel.m */; };
+		B13A7EC51A5CD98F000C490B /* NSDate+JBCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EC41A5CD98F000C490B /* NSDate+JBCommon.m */; };
+		B13A7EC81A5D251B000C490B /* registerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EC71A5D251B000C490B /* registerDetailViewController.m */; };
 		B13D68E61A5A799E0083916B /* kcal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B13D68E01A5A799E0083916B /* kcal@2x.png */; };
 		B13D68E71A5A799E0083916B /* kcalsmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B13D68E11A5A799E0083916B /* kcalsmall@2x.png */; };
 		B13D68E81A5A799E0083916B /* km@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B13D68E21A5A799E0083916B /* km@2x.png */; };
@@ -251,9 +258,22 @@
 		B1376E741A568D2900AEC110 /* NSCoderExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCoderExtensions.h; sourceTree = "<group>"; };
 		B1376E751A568D2900AEC110 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		B1376E761A568D2900AEC110 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
-		B1376E781A56937C00AEC110 /* smartWatchAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartWatchAppModel.xcdatamodel; sourceTree = "<group>"; };
 		B1376E7A1A569AD500AEC110 /* AlarmListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmListViewController.h; path = Setting/AlarmListViewController.h; sourceTree = "<group>"; };
 		B1376E7B1A569AD500AEC110 /* AlarmListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmListViewController.m; path = Setting/AlarmListViewController.m; sourceTree = "<group>"; };
+		B13A7EA61A5CCB63000C490B /* smartWatchAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = smartWatchAppModel.xcdatamodel; sourceTree = "<group>"; };
+		B13A7EA81A5CD06A000C490B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B13A7EB61A5CD56C000C490B /* SleepDataReadingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepDataReadingModel.h; sourceTree = "<group>"; };
+		B13A7EB71A5CD56C000C490B /* SleepDataReadingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepDataReadingModel.m; sourceTree = "<group>"; };
+		B13A7EB91A5CD56C000C490B /* PersonDetaiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetaiInfo.h; sourceTree = "<group>"; };
+		B13A7EBA1A5CD56C000C490B /* PersonDetaiInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetaiInfo.m; sourceTree = "<group>"; };
+		B13A7EBC1A5CD56C000C490B /* SportDataReadingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportDataReadingModel.h; sourceTree = "<group>"; };
+		B13A7EBD1A5CD56C000C490B /* SportDataReadingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportDataReadingModel.m; sourceTree = "<group>"; };
+		B13A7EBF1A5CD56C000C490B /* HeartRateDataReadingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateDataReadingModel.h; sourceTree = "<group>"; };
+		B13A7EC01A5CD56C000C490B /* HeartRateDataReadingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateDataReadingModel.m; sourceTree = "<group>"; };
+		B13A7EC31A5CD98F000C490B /* NSDate+JBCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JBCommon.h"; sourceTree = "<group>"; };
+		B13A7EC41A5CD98F000C490B /* NSDate+JBCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JBCommon.m"; sourceTree = "<group>"; };
+		B13A7EC61A5D251B000C490B /* registerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = registerDetailViewController.h; path = Login/registerDetailViewController.h; sourceTree = "<group>"; };
+		B13A7EC71A5D251B000C490B /* registerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = registerDetailViewController.m; path = Login/registerDetailViewController.m; sourceTree = "<group>"; };
 		B13D68E01A5A799E0083916B /* kcal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kcal@2x.png"; sourceTree = "<group>"; };
 		B13D68E11A5A799E0083916B /* kcalsmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kcalsmall@2x.png"; sourceTree = "<group>"; };
 		B13D68E21A5A799E0083916B /* km@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "km@2x.png"; sourceTree = "<group>"; };
@@ -379,6 +399,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13A7EA91A5CD06A000C490B /* CoreData.framework in Frameworks */,
 				B156120F1A53D2FC00D54D70 /* libz.dylib in Frameworks */,
 				B156121C1A53E28F00D54D70 /* TencentOpenAPI.framework in Frameworks */,
 				B156120D1A53D2F400D54D70 /* libstdc++.dylib in Frameworks */,
@@ -441,6 +462,8 @@
 				6492BA411A59379A002B10D5 /* LoginViewController.m */,
 				6492BA431A594661002B10D5 /* registerViewController.h */,
 				6492BA441A594661002B10D5 /* registerViewController.m */,
+				B13A7EC61A5D251B000C490B /* registerDetailViewController.h */,
+				B13A7EC71A5D251B000C490B /* registerDetailViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -506,7 +529,6 @@
 		B114F5711A3EBC5B00A123A9 = {
 			isa = PBXGroup;
 			children = (
-				B1376E771A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld */,
 				B114F57C1A3EBC5B00A123A9 /* smartWatch */,
 				B114F5991A3EBC5B00A123A9 /* smartWatchTests */,
 				B114F57B1A3EBC5B00A123A9 /* Products */,
@@ -525,6 +547,7 @@
 		B114F57C1A3EBC5B00A123A9 /* smartWatch */ = {
 			isa = PBXGroup;
 			children = (
+				B13A7EA41A5CCB63000C490B /* Data storage */,
 				B1376E231A56772600AEC110 /* Image */,
 				6492BA3F1A593776002B10D5 /* Login */,
 				64E8DC7A1A501CC600BC2069 /* Sports */,
@@ -550,6 +573,7 @@
 		B114F57D1A3EBC5B00A123A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B13A7EA81A5CD06A000C490B /* CoreData.framework */,
 				B156120E1A53D2FC00D54D70 /* libz.dylib */,
 				B156120C1A53D2F400D54D70 /* libstdc++.dylib */,
 				B156120A1A53D2E300D54D70 /* libsqlite3.dylib */,
@@ -683,6 +707,31 @@
 			path = CorePlotHeaders;
 			sourceTree = "<group>";
 		};
+		B13A7EA41A5CCB63000C490B /* Data storage */ = {
+			isa = PBXGroup;
+			children = (
+				B13A7EA51A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld */,
+				B13A7EBF1A5CD56C000C490B /* HeartRateDataReadingModel.h */,
+				B13A7EC01A5CD56C000C490B /* HeartRateDataReadingModel.m */,
+				B13A7EBC1A5CD56C000C490B /* SportDataReadingModel.h */,
+				B13A7EBD1A5CD56C000C490B /* SportDataReadingModel.m */,
+				B13A7EB91A5CD56C000C490B /* PersonDetaiInfo.h */,
+				B13A7EBA1A5CD56C000C490B /* PersonDetaiInfo.m */,
+				B13A7EB61A5CD56C000C490B /* SleepDataReadingModel.h */,
+				B13A7EB71A5CD56C000C490B /* SleepDataReadingModel.m */,
+			);
+			path = "Data storage";
+			sourceTree = "<group>";
+		};
+		B13A7EC21A5CD98F000C490B /* NSDate+JBCommon */ = {
+			isa = PBXGroup;
+			children = (
+				B13A7EC31A5CD98F000C490B /* NSDate+JBCommon.h */,
+				B13A7EC41A5CD98F000C490B /* NSDate+JBCommon.m */,
+			);
+			path = "NSDate+JBCommon";
+			sourceTree = "<group>";
+		};
 		B13D68EC1A5A82C40083916B /* UITableView+footView */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +846,7 @@
 		B1CD40621A4C051600A8CFA5 /* categoryClass */ = {
 			isa = PBXGroup;
 			children = (
+				B13A7EC21A5CD98F000C490B /* NSDate+JBCommon */,
 				B13D68EC1A5A82C40083916B /* UITableView+footView */,
 				B19A49711A52A05F00507DE1 /* NSString+longTimeGapIndex */,
 				B1CD40631A4C051600A8CFA5 /* UIColor+getColor */,
@@ -934,7 +984,7 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 5PG8FSFRLG;
+						DevelopmentTeam = H6NR6KPK2Z;
 					};
 					B114F5951A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1043,11 +1093,14 @@
 				B13D68F71A5A8CFC0083916B /* SportsDetailViewController.m in Sources */,
 				B1CD40661A4C051600A8CFA5 /* UIColor+getColor.m in Sources */,
 				B1376E7C1A569AD500AEC110 /* AlarmListViewController.m in Sources */,
+				B13A7EBE1A5CD56C000C490B /* SportDataReadingModel.m in Sources */,
+				B13A7EC81A5D251B000C490B /* registerDetailViewController.m in Sources */,
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
 				B15611CE1A53898900D54D70 /* sleepOneDayInfoModel.m in Sources */,
 				6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */,
-				B1376E791A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld in Sources */,
+				B13A7EC51A5CD98F000C490B /* NSDate+JBCommon.m in Sources */,
 				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
+				B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */,
 				B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */,
 				6492BA451A594661002B10D5 /* registerViewController.m in Sources */,
 				B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */,
@@ -1056,6 +1109,7 @@
 				B15611D41A539D0200D54D70 /* heartRateOneDayInfoModel.m in Sources */,
 				B15611DD1A53C6D100D54D70 /* SportsListViewController.m in Sources */,
 				647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */,
+				B13A7EB81A5CD56C000C490B /* SleepDataReadingModel.m in Sources */,
 				B1CD406C1A4C056300A8CFA5 /* CommonNavigationController.m in Sources */,
 				B15611D11A538B6100D54D70 /* sportOneDayInfoModel.m in Sources */,
 				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
@@ -1064,11 +1118,13 @@
 				644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
 				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
+				B13A7EC11A5CD56C000C490B /* HeartRateDataReadingModel.m in Sources */,
 				B14EC9C71A51498500027033 /* personInfoModel.m in Sources */,
 				B15611DA1A53BE2B00D54D70 /* SleepListViewController.m in Sources */,
 				B13D68FA1A5A8DA60083916B /* SportsScrollViewController.m in Sources */,
 				B1CD40771A4C05CE00A8CFA5 /* SceneArrayDeviceObject.m in Sources */,
 				B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */,
+				B13A7EBB1A5CD56C000C490B /* PersonDetaiInfo.m in Sources */,
 				B13D68F41A5A8CD00083916B /* SportsCircleViewController.m in Sources */,
 				B19A49741A52A51800507DE1 /* UnitSelectViewController.m in Sources */,
 				B114F5801A3EBC5B00A123A9 /* main.m in Sources */,
@@ -1332,14 +1388,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B1376E771A56937C00AEC110 /* smartWatchAppModel.xcdatamodeld */ = {
+		B13A7EA51A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B1376E781A56937C00AEC110 /* smartWatchAppModel.xcdatamodel */,
+				B13A7EA61A5CCB63000C490B /* smartWatchAppModel.xcdatamodel */,
 			);
-			currentVersion = B1376E781A56937C00AEC110 /* smartWatchAppModel.xcdatamodel */;
-			name = smartWatchAppModel.xcdatamodeld;
-			path = smartWatch/smartWatchAppModel.xcdatamodeld;
+			currentVersion = B13A7EA61A5CCB63000C490B /* smartWatchAppModel.xcdatamodel */;
+			path = smartWatchAppModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

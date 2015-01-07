@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +40,13 @@
 - (IBAction)rightButtonTouch:(UIButton *)sender {
 }
 - (IBAction)syncButtonTouch:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(syncButtonTouch)]) {
+        [self.delegate syncButtonTouch];
+    }
 }
 - (IBAction)pushMoreButtonTouch:(UIButton *)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pushMoreButtonTouch)]) {
+        [self.delegate pushMoreButtonTouch];
+    }
 }
 @end

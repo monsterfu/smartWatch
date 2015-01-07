@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GlobalHeader.h"
+#import "PersonDetaiInfo.h"
+#import "UIColor+getColor.h"
 
-@interface CommonTabbarViewController : UITabBarController
+//#import "SportsMainViewController.h"
+@class SportsMainViewController;
+
+@interface CommonTabbarViewController : UITabBarController<UITabBarControllerDelegate>
 {
-//    SceneSettingViewController* _sceneSettingViewController;
+    SportsMainViewController* _sportVContrl;
+    
 }
+
+@property(nonatomic, retain)PersonDetaiInfo* personDetailInfo;
+
 @end

@@ -36,6 +36,8 @@
 //    [self.tabBar setBackgroundColor:[UIColor getColor:@"AFE25B"]];
     [self.tabBar setTintColor:[UIColor getColor:@"46a719"]];
     [self.tabBar setSelectedImageTintColor:[UIColor getColor:@"46a719"]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +45,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - UITabbarViewControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"didSelectViewController:%@",viewController);
+}
 
 #pragma mark - Navigation
 

@@ -10,6 +10,7 @@
 #define bleLED_GlobalHeader_h
 
 
+#import <CoreData/CoreData.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "CorePlot-CocoaTouch.h"
@@ -20,15 +21,17 @@
 
 #import "ConnectionManager.h"
 #import "NSString+longTimeGapIndex.h"
+#import "NSDate+JBCommon.h"
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"
 #import "UITableView+emptyFootView.h"
 #import "CommonNavigationController.h"
+#import "CommonTabbarViewController.h"
 #import "thirdParty/MBProgressHUD.h"
 #import "ProgressHUD.h"
 
 //model
-#import "personInfoModel.h"
+#import "PersonDetaiInfo.h"
 #import "AlarmModel.h"
 #import "oneLedDeviceObject.h"
 #import "SceneArrayDeviceObject.h"

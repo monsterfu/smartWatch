@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 
 @interface SportsDetailViewController : UIViewController
+{
+    
+    CPTXYGraph *barChart;
+    CPTScatterPlot *dataSourceLinePlot;//线
+}
+
+
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 
 @end

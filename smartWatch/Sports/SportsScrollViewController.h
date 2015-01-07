@@ -11,13 +11,14 @@
 #import "SportsCircleViewController.h"
 #import "SportsDetailViewController.h"
 
-@interface SportsScrollViewController : UIViewController
+@interface SportsScrollViewController : UIViewController<UIScrollViewDelegate,ConnectionManagerDelegate,SportsCircleViewControllerDelegate>
 {
     SportsCircleViewController *_circleViewController;
     SportsDetailViewController *_detailViewController;
 }
 
-
+@property (nonatomic, retain)PersonDetaiInfo* personInfo;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, retain)sportOneDayInfoModel* sportModel;
 
 @end

@@ -20,6 +20,8 @@
     CPTBorderedLayer * _label;
     NSMutableArray  * _labelArray;
 }
+@property(nonatomic, retain)PersonDetaiInfo* personInfo;
+
 @property (retain, nonatomic) NSMutableArray *dataForPlot1;
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 

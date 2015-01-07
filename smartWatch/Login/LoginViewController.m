@@ -58,6 +58,10 @@
     if ([segue.identifier isEqualToString:@"registerPushIdentifier"]) {
         _registerVController = (registerViewController*)segue.destinationViewController;
         _registerVController.personModel = _personModel;
+    }else if([segue.identifier isEqualToString:@"replaceIdentifier"]){
+        UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
+        _tabbarViewCOntroller = (CommonTabbarViewController*)navigationController.topViewController;
+        _tabbarViewCOntroller.personDetailInfo = _personCoreDataInfo;
     }
 }
 
@@ -151,8 +155,13 @@
                 [USER_DEFAULT setObject:aDate forKey:KEY_UserModel_default];
                 [USER_DEFAULT setBool:YES forKey:KEY_Auto_Login];
                 [USER_DEFAULT synchronize];
+                if ([PersonDetaiInfo allPersonDetail].count == 0) {
+                    _personCoreDataInfo = [PersonDetaiInfo CreateWithPersonModel:_personModel];
+                }else{
+                    _personCoreDataInfo = [[PersonDetaiInfo allPersonDetail] objectAtIndex:0];
+                }
+                [self performSegueWithIdentifier:@"replaceIdentifier" sender:_personCoreDataInfo];
                 
-                [self performSegueWithIdentifier:@"replaceIdentifier" sender:nil];
             }else if (byteValue[2] == 0x06) {
                 [ProgressHUD showSuccess:@"用户名错误"];
             }else if (byteValue[2] == 0x07) {

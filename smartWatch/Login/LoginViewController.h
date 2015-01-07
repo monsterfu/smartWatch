@@ -14,9 +14,11 @@
 {
     NSUInteger _sendDataIdx;
     registerViewController* _registerVController;
+    CommonTabbarViewController* _tabbarViewCOntroller;
 }
 
 @property(nonatomic, retain)personInfoModel* personModel;
+@property(nonatomic, retain)PersonDetaiInfo* personCoreDataInfo;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordField;
