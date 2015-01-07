@@ -22,10 +22,15 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *passWordField;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
 - (IBAction)loginButtonTouch:(UIButton *)sender;
 - (IBAction)forgetButtonTouch:(UIButton *)sender;
-- (IBAction)registerButtonTouch:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
+- (IBAction)registerButtonTouch:(UIButton *)sender;
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender;
 
 @end

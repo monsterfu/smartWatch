@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6448C9DC1A5D7A330079125C /* login_height.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D41A5D7A330079125C /* login_height.png */; };
+		6448C9DD1A5D7A330079125C /* login_man.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D51A5D7A330079125C /* login_man.png */; };
+		6448C9DE1A5D7A330079125C /* login_manhl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D61A5D7A330079125C /* login_manhl.png */; };
+		6448C9DF1A5D7A330079125C /* login_scroll_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D71A5D7A330079125C /* login_scroll_1.png */; };
+		6448C9E01A5D7A330079125C /* login_scroll_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D81A5D7A330079125C /* login_scroll_2.png */; };
+		6448C9E11A5D7A330079125C /* login_weight.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D91A5D7A330079125C /* login_weight.png */; };
+		6448C9E21A5D7A330079125C /* login_women.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9DA1A5D7A330079125C /* login_women.png */; };
+		6448C9E31A5D7A330079125C /* login_womenhl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9DB1A5D7A330079125C /* login_womenhl.png */; };
 		644AAC521A56F24E00A93375 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 644AAC4F1A56F24E00A93375 /* ProgressHUD.bundle */; };
 		644AAC531A56F24E00A93375 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC511A56F24E00A93375 /* ProgressHUD.m */; };
 		644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */; };
@@ -136,6 +144,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6448C9D41A5D7A330079125C /* login_height.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_height.png; sourceTree = "<group>"; };
+		6448C9D51A5D7A330079125C /* login_man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_man.png; sourceTree = "<group>"; };
+		6448C9D61A5D7A330079125C /* login_manhl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_manhl.png; sourceTree = "<group>"; };
+		6448C9D71A5D7A330079125C /* login_scroll_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_scroll_1.png; sourceTree = "<group>"; };
+		6448C9D81A5D7A330079125C /* login_scroll_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_scroll_2.png; sourceTree = "<group>"; };
+		6448C9D91A5D7A330079125C /* login_weight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_weight.png; sourceTree = "<group>"; };
+		6448C9DA1A5D7A330079125C /* login_women.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_women.png; sourceTree = "<group>"; };
+		6448C9DB1A5D7A330079125C /* login_womenhl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_womenhl.png; sourceTree = "<group>"; };
 		644AAC4F1A56F24E00A93375 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		644AAC501A56F24E00A93375 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		644AAC511A56F24E00A93375 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -447,6 +463,14 @@
 			isa = PBXGroup;
 			children = (
 				6492BA351A5934EC002B10D5 /* login_22.png */,
+				6448C9D41A5D7A330079125C /* login_height.png */,
+				6448C9D51A5D7A330079125C /* login_man.png */,
+				6448C9D61A5D7A330079125C /* login_manhl.png */,
+				6448C9D71A5D7A330079125C /* login_scroll_1.png */,
+				6448C9D81A5D7A330079125C /* login_scroll_2.png */,
+				6448C9D91A5D7A330079125C /* login_weight.png */,
+				6448C9DA1A5D7A330079125C /* login_women.png */,
+				6448C9DB1A5D7A330079125C /* login_womenhl.png */,
 				6492BA361A5934EC002B10D5 /* login_22hl.png */,
 				6492BA371A5934EC002B10D5 /* login_close.png */,
 				6492BA381A5934EC002B10D5 /* login_logo.png */,
@@ -984,7 +1008,7 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = H6NR6KPK2Z;
+						DevelopmentTeam = 5PG8FSFRLG;
 					};
 					B114F5951A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1020,16 +1044,21 @@
 			files = (
 				B1FA32BE1A5A6A48006A4FA8 /* nav_share@2x.png in Resources */,
 				B15611FE1A53D23900D54D70 /* UMShareEditViewController.xib in Resources */,
+				6448C9E21A5D7A330079125C /* login_women.png in Resources */,
 				B1FA32BC1A5A6A48006A4FA8 /* nav_back@2x.png in Resources */,
 				6492BA3D1A5934EC002B10D5 /* login_logo.png in Resources */,
 				B1FA32A81A5A6671006A4FA8 /* sleep_icon@2x.png in Resources */,
 				B1FA32A31A5A6671006A4FA8 /* hr_icon_hl@2x.png in Resources */,
+				6448C9E31A5D7A330079125C /* login_womenhl.png in Resources */,
 				B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */,
 				B15611FC1A53D23900D54D70 /* UMSCommentInputController.xib in Resources */,
 				B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */,
 				B1FA32BB1A5A6A48006A4FA8 /* nav_back_hl@2x.png in Resources */,
 				B1FA32C21A5A6AB7006A4FA8 /* sp_bg@2x.png in Resources */,
+				6448C9DD1A5D7A330079125C /* login_man.png in Resources */,
+				6448C9DE1A5D7A330079125C /* login_manhl.png in Resources */,
 				6492BA3C1A5934EC002B10D5 /* login_close.png in Resources */,
+				6448C9DC1A5D7A330079125C /* login_height.png in Resources */,
 				B13D68EA1A5A799E0083916B /* stepNum@2x.png in Resources */,
 				B15611FB1A53D23900D54D70 /* UMSCommentDetailController.xib in Resources */,
 				B156121D1A53E28F00D54D70 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -1041,6 +1070,7 @@
 				B1FA32A41A5A6671006A4FA8 /* hr_icon@2x.png in Resources */,
 				B15612001A53D23900D54D70 /* UMSLoginViewController.xib in Resources */,
 				B1FA32A91A5A6671006A4FA8 /* sp_step_hl@2x.png in Resources */,
+				6448C9DF1A5D7A330079125C /* login_scroll_1.png in Resources */,
 				B15611FD1A53D23900D54D70 /* UMSCommentInputControlleriPad.xib in Resources */,
 				B13D68EB1A5A799E0083916B /* stepNumsmall@2x.png in Resources */,
 				B1FA32A51A5A6671006A4FA8 /* setting_hl@2x.png in Resources */,
@@ -1053,12 +1083,14 @@
 				B114F5911A3EBC5B00A123A9 /* LaunchScreen.xib in Resources */,
 				6492BA3E1A5934EC002B10D5 /* login_open.png in Resources */,
 				B1FA32B71A5A6A48006A4FA8 /* left@2x.png in Resources */,
+				6448C9E11A5D7A330079125C /* login_weight.png in Resources */,
 				B1FA32AA1A5A6671006A4FA8 /* sp_step@2x.png in Resources */,
 				B1FA327E1A5A62BB006A4FA8 /* down_icon.png in Resources */,
 				6492BA3B1A5934EC002B10D5 /* login_22hl.png in Resources */,
 				B1FA32B91A5A6A48006A4FA8 /* list_button@2x.png in Resources */,
 				B15611F91A53D23900D54D70 /* UMSocialLocalizable.strings in Resources */,
 				B114F58E1A3EBC5B00A123A9 /* Images.xcassets in Resources */,
+				6448C9E01A5D7A330079125C /* login_scroll_2.png in Resources */,
 				644AAC521A56F24E00A93375 /* ProgressHUD.bundle in Resources */,
 				B15612011A53D23900D54D70 /* UMSnsAccountViewController.xib in Resources */,
 				B15612021A53D23900D54D70 /* UMSShareListController.xib in Resources */,

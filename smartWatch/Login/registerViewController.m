@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _doneButton.layer.cornerRadius = 8;
+    _doneButton.layer.masksToBounds = YES;
+    
     [ProgressHUD dismiss];
     [ConnectionManager sharedInstance].delegate = self;
     _loginDataIdx = 0;

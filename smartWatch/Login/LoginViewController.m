@@ -26,6 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
+    _loginButton.layer.cornerRadius = 8;
+    _loginButton.layer.masksToBounds = YES;
+    _registerButton.layer.cornerRadius = 8;
+    _registerButton.layer.masksToBounds = YES;
     
     NSData* aData = [USER_DEFAULT objectForKey:KEY_UserModel_default];
     _personModel = [NSKeyedUnarchiver unarchiveObjectWithData:aData];
@@ -56,7 +61,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"registerPushIdentifier"]) {
-        _registerVController = (registerViewController*)segue.destinationViewController;
+        CommonNavigationController* comNavController = (CommonNavigationController*)segue.destinationViewController;
+        _registerVController = (registerViewController*)comNavController.topViewController;
         _registerVController.personModel = _personModel;
     }else if([segue.identifier isEqualToString:@"replaceIdentifier"]){
         UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
@@ -90,6 +96,7 @@
 }
 
 - (IBAction)registerButtonTouch:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"registerPushIdentifier" sender:_personModel];
 }
 
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender {
