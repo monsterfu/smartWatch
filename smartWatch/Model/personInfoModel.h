@@ -31,6 +31,7 @@ typedef enum : NSUInteger {
 
 @property(nonatomic, retain)NSString* userName;
 @property(nonatomic, retain)NSString* passWord;
+@property(nonatomic, retain)NSString* nickName;
 @property(nonatomic, assign)NSUInteger height;
 @property(nonatomic, assign)NSUInteger weight;
 @property(nonatomic, assign)NSUInteger age;

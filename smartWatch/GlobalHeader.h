@@ -73,6 +73,7 @@
 #define KEY_PersonInfoModel_age         @"KEY_PersonInfoModel_age"
 #define KEY_PersonInfoModel_sex         @"KEY_PersonInfoModel_sex"
 
+#define KEY_PersonDest_StepNum          @"KEY_PersonDest_StepNum"
 /**
  *  久坐提醒
  */

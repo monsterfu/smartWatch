@@ -43,6 +43,8 @@
 		B114F5AF1A3EBCF400A123A9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5AE1A3EBCF400A123A9 /* CoreTelephony.framework */; };
 		B114F5B11A3EBD5900A123A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5B01A3EBD5900A123A9 /* CoreLocation.framework */; };
 		B114F5B31A3EBD5F00A123A9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */; };
+		B12ADBEF1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */; };
+		B12ADBF01A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */; };
 		B1376E261A56772600AEC110 /* icon_feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E241A56772600AEC110 /* icon_feedback@2x.png */; };
 		B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E251A56772600AEC110 /* icon_info@2x.png */; };
 		B1376E7C1A569AD500AEC110 /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1376E7B1A569AD500AEC110 /* AlarmListViewController.m */; };
@@ -194,6 +196,8 @@
 		B114F5AE1A3EBCF400A123A9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B114F5B01A3EBD5900A123A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_custom_back_btn_hgihlight.png; sourceTree = "<group>"; };
+		B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_custom_back_btn_normal.png; sourceTree = "<group>"; };
 		B1376E241A56772600AEC110 /* icon_feedback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_feedback@2x.png"; sourceTree = "<group>"; };
 		B1376E251A56772600AEC110 /* icon_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_info@2x.png"; sourceTree = "<group>"; };
 		B1376E291A568D2900AEC110 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
@@ -927,6 +931,8 @@
 			isa = PBXGroup;
 			children = (
 				B13D68F01A5A8B340083916B /* downpull@2x.png */,
+				B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */,
+				B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */,
 				B1FA32C11A5A6AB7006A4FA8 /* sp_bg@2x.png */,
 				B1FA32AB1A5A6A48006A4FA8 /* left_hl@2x.png */,
 				B1FA32AC1A5A6A48006A4FA8 /* left@2x.png */,
@@ -1043,6 +1049,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FA32BE1A5A6A48006A4FA8 /* nav_share@2x.png in Resources */,
+				B12ADBF01A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png in Resources */,
 				B15611FE1A53D23900D54D70 /* UMShareEditViewController.xib in Resources */,
 				6448C9E21A5D7A330079125C /* login_women.png in Resources */,
 				B1FA32BC1A5A6A48006A4FA8 /* nav_back@2x.png in Resources */,
@@ -1073,6 +1080,7 @@
 				6448C9DF1A5D7A330079125C /* login_scroll_1.png in Resources */,
 				B15611FD1A53D23900D54D70 /* UMSCommentInputControlleriPad.xib in Resources */,
 				B13D68EB1A5A799E0083916B /* stepNumsmall@2x.png in Resources */,
+				B12ADBEF1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png in Resources */,
 				B1FA32A51A5A6671006A4FA8 /* setting_hl@2x.png in Resources */,
 				B13D68E91A5A799E0083916B /* kmsmall@2x.png in Resources */,
 				B1FA32BD1A5A6A48006A4FA8 /* nav_share_hl@2x.png in Resources */,

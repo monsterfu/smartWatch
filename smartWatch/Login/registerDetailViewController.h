@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
 
-@interface registerDetailViewController : UIViewController<UITextFieldDelegate,ConnectionManagerDelegate>
+@interface registerDetailViewController : UIViewController<UITextFieldDelegate,ConnectionManagerDelegate,UIScrollViewDelegate>
 {
     NSArray* nameCellArray;
     NSArray* ageCellArray;
@@ -22,6 +22,7 @@
     UIButton* _maleButton;
     UIButton* _femaleButton;
     
+    
     UILabel* _weightLabel;
     UILabel* _heightLabel;
     
@@ -30,7 +31,16 @@
     
     UIImageView* _weightImageView;
     UIImageView* _heightImageView;
+    
+    long _desStepNum;
+    
+    float _heightGap;
+    float _weightGap;
+    
+    UIButton* _doneButton;
 }
+
+@property(nonatomic, retain)personInfoModel* personModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender;

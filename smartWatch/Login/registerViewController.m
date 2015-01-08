@@ -32,15 +32,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"registerDetailIdentifier"]) {
+        _registerDetailViewController = (registerDetailViewController*)segue.destinationViewController;
+        _registerDetailViewController.personModel = _personModel;
+    }
 }
-*/
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -84,6 +88,9 @@
 }
 #pragma mark - button touch
 - (IBAction)doneButtonTouch:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"registerDetailIdentifier" sender:_personModel];
+    return;
     if (_userNameField.text.length < 8) {
         [ProgressHUD showError:@"用户名过短!"];
         return;
@@ -98,7 +105,6 @@
     _regisierDataIdx = 0;
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_sendRegisterInfoWithPerson:_personModel index:_regisierDataIdx cmd:ConnectionManagerCommadEnum_YHZC_csxx];
     [ProgressHUD show:@"设备注册中，请稍候"];
-    
 }
 - (void)seePswButtonTouch:(UIButton*)sender
 {
@@ -132,10 +138,8 @@
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
             if (byteValue[2] == 0x03) {
-                [ProgressHUD showSuccess:@"设备注册成功,请登陆"];
-                [self dismissViewControllerAnimated:YES completion:^{
-                    
-                }];
+                [ProgressHUD showSuccess:@"设备注册成功,请填写个人信息"];
+                [self performSegueWithIdentifier:@"registerDetailIdentifier" sender:_personModel];
 //                _loginDataIdx = 0;
 //                [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_loginDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
             }else{

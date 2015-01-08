@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
+#import "registerDetailViewController.h"
 
 @interface registerViewController : UIViewController<UITextFieldDelegate,ConnectionManagerDelegate>
 {
@@ -16,6 +17,7 @@
     UIButton* _seePswButton;
     NSUInteger _regisierDataIdx;
     NSUInteger _loginDataIdx;
+    registerDetailViewController* _registerDetailViewController;
 }
 
 @property(nonatomic, retain)personInfoModel* personModel;
