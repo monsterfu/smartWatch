@@ -8,11 +8,14 @@
 
 #import "registerViewController.h"
 
+
 @interface registerViewController ()
 
 @end
 
 @implementation registerViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +28,11 @@
     _loginDataIdx = 0;
     _regisierDataIdx = 0;
     [_tableView setEmptyFootView];
+    
+    _titleArray = @[@"你的小学老师姓什么?",@"你父亲的名字叫什么?",@"你最爱吃什么菜?",@"你高中是在几年几班?"];
+    
+    NSInteger idex = [USER_DEFAULT integerForKey:KEY_Register_Question];
+    _questionIdex = [NSNumber numberWithInteger:idex];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +50,11 @@
     if ([segue.identifier isEqualToString:@"registerDetailIdentifier"]) {
         _registerDetailViewController = (registerDetailViewController*)segue.destinationViewController;
         _registerDetailViewController.personModel = _personModel;
+    }
+    if ([segue.identifier isEqualToString:@"questionSelectIdentifier"]) {
+        _questionSelectViewController = (questionSelectViewController*)segue.destinationViewController;
+        _questionSelectViewController.questionIdex = _questionIdex;
+        _questionSelectViewController.delegate = self;
     }
 }
 
@@ -71,22 +84,49 @@
         if (indexPath.row == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:@"usernameCellIdentifier" forIndexPath:indexPath];
             _userNameField = (UITextField*)[cell viewWithTag:2];
+            _userNameField.delegate = self;
         }else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"passwordCellIdentifier" forIndexPath:indexPath];
             _passWordField = (UITextField*)[cell viewWithTag:2];
+            _passWordField.delegate = self;
             _seePswButton = (UIButton*)[cell viewWithTag:3];
             [_seePswButton addTarget:self action:@selector(seePswButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
         }
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"questionCellIdentifier" forIndexPath:indexPath];
+            _questionCell = [tableView dequeueReusableCellWithIdentifier:@"questionCellIdentifier" forIndexPath:indexPath];
+            NSInteger idex = [_questionIdex integerValue];
+            _questionLabel = (UILabel*)[_questionCell viewWithTag:2];
+            _questionLabel.text = [_titleArray objectAtIndex:idex];
+            return _questionCell;
         }else{
             cell = [tableView dequeueReusableCellWithIdentifier:@"answerCellIdentifier" forIndexPath:indexPath];
+            _answerField = (UITextField*)[cell viewWithTag:2];
+            _answerField.delegate = self;
         }
     }
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1&& indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"questionSelectIdentifier" sender:_questionIdex];
+    }else{
+        [self tapAction:nil];
+    }
+    
+}
+#pragma mark - questionSelectViewControllerDelegate
+
+-(void)questionSelect:(NSUInteger)row
+{
+    _questionIdex = [NSNumber numberWithInteger:row];
+    _questionLabel.text = [_titleArray objectAtIndex:row];
+}
+
 #pragma mark - button touch
+
 - (IBAction)doneButtonTouch:(UIButton *)sender {
     
     [self performSegueWithIdentifier:@"registerDetailIdentifier" sender:_personModel];
@@ -114,6 +154,7 @@
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender {
     [_userNameField resignFirstResponder];
     [_passWordField resignFirstResponder];
+    [_answerField resignFirstResponder];
 }
 #pragma mark -
 #pragma mark -ConnectionManagerDelegate

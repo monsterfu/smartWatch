@@ -61,6 +61,11 @@
 #define KEY_First_Use                  @"key_first_use"
 #define KEY_Auto_Login                 @"KEY_Auto_Login"
 
+/**
+ *  注册
+ */
+#define KEY_Register_Question           @"KEY_Register_Question"
+#define KEY_Register_Answer             @"KEY_Register_Answer"
 
 /**
  *  用户信息

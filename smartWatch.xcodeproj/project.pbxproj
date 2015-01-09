@@ -30,6 +30,7 @@
 		64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC831A501D7500BC2069 /* SportsMainViewController.m */; };
 		64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */; };
 		64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */; };
+		B10983BE1A5FD4CE00500C70 /* forgetPswViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B10983BD1A5FD4CE00500C70 /* forgetPswViewController.m */; };
 		B114F5801A3EBC5B00A123A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F57F1A3EBC5B00A123A9 /* main.m */; };
 		B114F5831A3EBC5B00A123A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B114F5821A3EBC5B00A123A9 /* AppDelegate.m */; };
 		B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B114F58A1A3EBC5B00A123A9 /* Main.storyboard */; };
@@ -45,8 +46,9 @@
 		B114F5B31A3EBD5F00A123A9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */; };
 		B12ADBEF1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */; };
 		B12ADBF01A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */; };
-		B1376E261A56772600AEC110 /* icon_feedback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E241A56772600AEC110 /* icon_feedback@2x.png */; };
-		B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1376E251A56772600AEC110 /* icon_info@2x.png */; };
+		B13342AE1A5F674800175304 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13342AD1A5F674800175304 /* QuartzCore.framework */; };
+		B13342CA1A5F754B00175304 /* questionSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13342C91A5F754B00175304 /* questionSelectViewController.m */; };
+		B13342CC1A5F9CE700175304 /* popup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B13342CB1A5F9CE700175304 /* popup@2x.png */; };
 		B1376E7C1A569AD500AEC110 /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1376E7B1A569AD500AEC110 /* AlarmListViewController.m */; };
 		B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B13A7EA51A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld */; };
 		B13A7EA91A5CD06A000C490B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13A7EA81A5CD06A000C490B /* CoreData.framework */; };
@@ -178,6 +180,8 @@
 		64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeartRateMainViewController.m; path = HeartRate/HeartRateMainViewController.m; sourceTree = "<group>"; };
 		64E8DC891A501E3500BC2069 /* SettingMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingMainViewController.h; path = Setting/SettingMainViewController.h; sourceTree = "<group>"; };
 		64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingMainViewController.m; path = Setting/SettingMainViewController.m; sourceTree = "<group>"; };
+		B10983BC1A5FD4CE00500C70 /* forgetPswViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = forgetPswViewController.h; path = Login/forgetPswViewController.h; sourceTree = "<group>"; };
+		B10983BD1A5FD4CE00500C70 /* forgetPswViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = forgetPswViewController.m; path = Login/forgetPswViewController.m; sourceTree = "<group>"; };
 		B114F57A1A3EBC5B00A123A9 /* smartWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B114F57E1A3EBC5B00A123A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B114F57F1A3EBC5B00A123A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -198,8 +202,10 @@
 		B114F5B21A3EBD5F00A123A9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_custom_back_btn_hgihlight.png; sourceTree = "<group>"; };
 		B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_custom_back_btn_normal.png; sourceTree = "<group>"; };
-		B1376E241A56772600AEC110 /* icon_feedback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_feedback@2x.png"; sourceTree = "<group>"; };
-		B1376E251A56772600AEC110 /* icon_info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_info@2x.png"; sourceTree = "<group>"; };
+		B13342AD1A5F674800175304 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B13342C81A5F754B00175304 /* questionSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = questionSelectViewController.h; path = Login/questionSelectViewController.h; sourceTree = "<group>"; };
+		B13342C91A5F754B00175304 /* questionSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = questionSelectViewController.m; path = Login/questionSelectViewController.m; sourceTree = "<group>"; };
+		B13342CB1A5F9CE700175304 /* popup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup@2x.png"; sourceTree = "<group>"; };
 		B1376E291A568D2900AEC110 /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		B1376E2A1A568D2900AEC110 /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		B1376E2B1A568D2900AEC110 /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -419,6 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B13342AE1A5F674800175304 /* QuartzCore.framework in Frameworks */,
 				B13A7EA91A5CD06A000C490B /* CoreData.framework in Frameworks */,
 				B156120F1A53D2FC00D54D70 /* libz.dylib in Frameworks */,
 				B156121C1A53E28F00D54D70 /* TencentOpenAPI.framework in Frameworks */,
@@ -490,8 +497,12 @@
 				6492BA411A59379A002B10D5 /* LoginViewController.m */,
 				6492BA431A594661002B10D5 /* registerViewController.h */,
 				6492BA441A594661002B10D5 /* registerViewController.m */,
+				B13342C81A5F754B00175304 /* questionSelectViewController.h */,
+				B13342C91A5F754B00175304 /* questionSelectViewController.m */,
 				B13A7EC61A5D251B000C490B /* registerDetailViewController.h */,
 				B13A7EC71A5D251B000C490B /* registerDetailViewController.m */,
+				B10983BC1A5FD4CE00500C70 /* forgetPswViewController.h */,
+				B10983BD1A5FD4CE00500C70 /* forgetPswViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -601,6 +612,7 @@
 		B114F57D1A3EBC5B00A123A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B13342AD1A5F674800175304 /* QuartzCore.framework */,
 				B13A7EA81A5CD06A000C490B /* CoreData.framework */,
 				B156120E1A53D2FC00D54D70 /* libz.dylib */,
 				B156120C1A53D2F400D54D70 /* libstdc++.dylib */,
@@ -642,10 +654,9 @@
 		B1376E231A56772600AEC110 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				B13342CB1A5F9CE700175304 /* popup@2x.png */,
 				B1FA32601A5A62BB006A4FA8 /* sport */,
 				6492BA341A5934EC002B10D5 /* login */,
-				B1376E241A56772600AEC110 /* icon_feedback@2x.png */,
-				B1376E251A56772600AEC110 /* icon_info@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1057,7 +1068,6 @@
 				B1FA32A81A5A6671006A4FA8 /* sleep_icon@2x.png in Resources */,
 				B1FA32A31A5A6671006A4FA8 /* hr_icon_hl@2x.png in Resources */,
 				6448C9E31A5D7A330079125C /* login_womenhl.png in Resources */,
-				B1376E271A56772600AEC110 /* icon_info@2x.png in Resources */,
 				B15611FC1A53D23900D54D70 /* UMSCommentInputController.xib in Resources */,
 				B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */,
 				B1FA32BB1A5A6A48006A4FA8 /* nav_back_hl@2x.png in Resources */,
@@ -1071,7 +1081,6 @@
 				B156121D1A53E28F00D54D70 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				B1FA32C01A5A6A48006A4FA8 /* right@2x.png in Resources */,
 				B1FA32981A5A62BB006A4FA8 /* spr_bg.png in Resources */,
-				B1376E261A56772600AEC110 /* icon_feedback@2x.png in Resources */,
 				B13D68E71A5A799E0083916B /* kcalsmall@2x.png in Resources */,
 				B1FA32A71A5A6671006A4FA8 /* sleep_icon_hl@2x.png in Resources */,
 				B1FA32A41A5A6671006A4FA8 /* hr_icon@2x.png in Resources */,
@@ -1087,6 +1096,7 @@
 				B15611FF1A53D23900D54D70 /* UMShareEditViewControlleriPad.xib in Resources */,
 				B1FA32B61A5A6A48006A4FA8 /* left_hl@2x.png in Resources */,
 				B13D68E61A5A799E0083916B /* kcal@2x.png in Resources */,
+				B13342CC1A5F9CE700175304 /* popup@2x.png in Resources */,
 				B1FA32B81A5A6A48006A4FA8 /* list_button_hl@2x.png in Resources */,
 				B114F5911A3EBC5B00A123A9 /* LaunchScreen.xib in Resources */,
 				6492BA3E1A5934EC002B10D5 /* login_open.png in Resources */,
@@ -1127,6 +1137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */,
+				B10983BE1A5FD4CE00500C70 /* forgetPswViewController.m in Sources */,
 				B15611D71A53BC2700D54D70 /* HeartRateListViewController.m in Sources */,
 				64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */,
 				B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */,
@@ -1138,6 +1149,7 @@
 				B1CD40761A4C05CE00A8CFA5 /* oneLedDeviceObject.m in Sources */,
 				B15611CE1A53898900D54D70 /* sleepOneDayInfoModel.m in Sources */,
 				6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */,
+				B13342CA1A5F754B00175304 /* questionSelectViewController.m in Sources */,
 				B13A7EC51A5CD98F000C490B /* NSDate+JBCommon.m in Sources */,
 				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
 				B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */,

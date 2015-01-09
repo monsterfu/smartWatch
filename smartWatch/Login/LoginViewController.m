@@ -27,10 +27,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
    
-    _loginButton.layer.cornerRadius = 8;
+    _loginButton.layer.cornerRadius = 4;
     _loginButton.layer.masksToBounds = YES;
-    _registerButton.layer.cornerRadius = 8;
+    _registerButton.layer.cornerRadius = 4;
     _registerButton.layer.masksToBounds = YES;
+    _userNameField.layer.cornerRadius = 4;
+    _userNameField.layer.masksToBounds = YES;
+    _passWordField.layer.cornerRadius = 4;
+    _passWordField.layer.masksToBounds = YES;
     
     NSData* aData = [USER_DEFAULT objectForKey:KEY_UserModel_default];
     _personModel = [NSKeyedUnarchiver unarchiveObjectWithData:aData];

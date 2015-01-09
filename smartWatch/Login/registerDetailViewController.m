@@ -267,6 +267,11 @@
 #pragma mark - UIScrollDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    [_nameTextField resignFirstResponder];
+    [_ageTextField resignFirstResponder];
+    [_destStepNumField resignFirstResponder];
+    
     if (scrollView == _heightScrollView) {
         float heightGap = (250.0f - 10.0f)/_heightScrollView.contentSize.height;
         _heightLabel.text = [NSString stringWithFormat:@"%.f",250.0f - scrollView.contentOffset.y* heightGap];

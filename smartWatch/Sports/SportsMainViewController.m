@@ -28,6 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    _customerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 73, 67)];
+    [_customerView setImage:[UIImage imageNamed:@"popup@2x.png"]];
+    
+    
     self.title = @"活动";
     _labelArray = [NSMutableArray array];
     // Do any additional setup after loading the view.
@@ -191,23 +195,33 @@
 }
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
 {
-    NSNumber* num=[[dataForPlot1 objectAtIndex:index] valueForKey:@"y"];
+//    NSNumber* num=[[dataForPlot1 objectAtIndex:index] valueForKey:@"y"];
     
-    _label = [[CPTBorderedLayer alloc]initWithFrame:CGRectMake(50, 10, 20, 50)];
+    NSLog(@"dataLabelForPlot  position: %f, %f",plot.position.x, plot.position.y);
     
-    UIImage *loadImage=[UIImage imageNamed:@"icon_info.png"];
-    CGImageRef cgimage=loadImage.CGImage;
+    _label = [[CPTBorderedLayer alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [_label setFill:[CPTFill fillWithColor:[CPTColor colorWithGenericGray:0.5]]];
+//    UIView* detailView = [[UIView alloc]initWithFrame:_label.frame];
+//    UIImage *loadImage=[UIImage imageNamed:@"popup@2x.png"];
+//    UIImageView* img = [[UIImageView alloc]initWithImage:loadImage];
+//    [detailView addSubview:img];
+//    [_label addSublayer:detailView.layer];
+//    CGImageRef cgimage=loadImage.CGImage;
 //    [_label setFill:[CPTFill fillWithImage:[CPTImage imageWithCGImage:cgimage]]];
-    [_labelArray addObject:_label];
+//    _label.anchorPoint = CGPointMake(0, 0);
+//    [_labelArray addObject:_label];
     return _label;
 }
 
 -(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx
 {
-    NSLog(@"%d idx was selected!",idx);
-    _label = [_labelArray objectAtIndex:idx];
-    BOOL hidden = (_label.hidden)?(NO):(YES);
-    [_label setHidden:hidden];
+    NSNumber* y=[[dataForPlot1 objectAtIndex:idx] valueForKey:@"y"];
+    NSNumber* x=[[dataForPlot1 objectAtIndex:idx] valueForKey:@"x"];
+    
+    NSLog(@"%lu dataLabelWasSelected!  position: %f, %f",(unsigned long)idx,[x floatValue]-r, [y floatValue]);
+    [_customerView removeFromSuperview];
+    [_customerView setFrame:CGRectMake([x floatValue]-r, [y floatValue], _customerView.frame.size.width, _customerView.frame.size.height)];
+//    [_graphHostingView addSubview:_customerView];
     
 }
 #endif

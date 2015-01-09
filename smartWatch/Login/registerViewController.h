@@ -9,17 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
 #import "registerDetailViewController.h"
+#import "questionSelectViewController.h"
 
-@interface registerViewController : UIViewController<UITextFieldDelegate,ConnectionManagerDelegate>
+@interface registerViewController : UIViewController<UITextFieldDelegate,ConnectionManagerDelegate,questionSelectViewControllerDelegate>
 {
     UITextField* _userNameField;
     UITextField* _passWordField;
+    UITextField* _answerField;
+    
+    NSArray* _titleArray;
     UIButton* _seePswButton;
     NSUInteger _regisierDataIdx;
     NSUInteger _loginDataIdx;
+    
+    UITableViewCell* _questionCell;
+    UILabel* _questionLabel;
+    
     registerDetailViewController* _registerDetailViewController;
+    questionSelectViewController* _questionSelectViewController;
 }
 
+@property (nonatomic, retain)NSNumber* questionIdex;
 @property(nonatomic, retain)personInfoModel* personModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

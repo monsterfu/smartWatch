@@ -19,6 +19,8 @@
     int                         r;
     CPTBorderedLayer * _label;
     NSMutableArray  * _labelArray;
+    
+    UIImageView* _customerView;
 }
 @property(nonatomic, retain)PersonDetaiInfo* personInfo;
 
