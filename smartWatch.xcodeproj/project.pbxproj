@@ -19,6 +19,7 @@
 		644AAC531A56F24E00A93375 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC511A56F24E00A93375 /* ProgressHUD.m */; };
 		644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */; };
 		647E08121A51A8CF00B8E308 /* longSitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 647E08111A51A8CF00B8E308 /* longSitModel.m */; };
+		648E30F61A6169FC006DAF9C /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 648E30F51A6169FC006DAF9C /* circle@2x.png */; };
 		6492BA3A1A5934EC002B10D5 /* login_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA351A5934EC002B10D5 /* login_22.png */; };
 		6492BA3B1A5934EC002B10D5 /* login_22hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA361A5934EC002B10D5 /* login_22hl.png */; };
 		6492BA3C1A5934EC002B10D5 /* login_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA371A5934EC002B10D5 /* login_close.png */; };
@@ -163,6 +164,7 @@
 		644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeekNumSelectViewController.m; path = Setting/WeekNumSelectViewController.m; sourceTree = "<group>"; };
 		647E08101A51A8CF00B8E308 /* longSitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = longSitModel.h; sourceTree = "<group>"; };
 		647E08111A51A8CF00B8E308 /* longSitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = longSitModel.m; sourceTree = "<group>"; };
+		648E30F51A6169FC006DAF9C /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		6492BA351A5934EC002B10D5 /* login_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_22.png; sourceTree = "<group>"; };
 		6492BA361A5934EC002B10D5 /* login_22hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_22hl.png; sourceTree = "<group>"; };
 		6492BA371A5934EC002B10D5 /* login_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_close.png; sourceTree = "<group>"; };
@@ -942,6 +944,7 @@
 			isa = PBXGroup;
 			children = (
 				B13D68F01A5A8B340083916B /* downpull@2x.png */,
+				648E30F51A6169FC006DAF9C /* circle@2x.png */,
 				B12ADBED1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png */,
 				B12ADBEE1A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png */,
 				B1FA32C11A5A6AB7006A4FA8 /* sp_bg@2x.png */,
@@ -1084,6 +1087,7 @@
 				B13D68E71A5A799E0083916B /* kcalsmall@2x.png in Resources */,
 				B1FA32A71A5A6671006A4FA8 /* sleep_icon_hl@2x.png in Resources */,
 				B1FA32A41A5A6671006A4FA8 /* hr_icon@2x.png in Resources */,
+				648E30F61A6169FC006DAF9C /* circle@2x.png in Resources */,
 				B15612001A53D23900D54D70 /* UMSLoginViewController.xib in Resources */,
 				B1FA32A91A5A6671006A4FA8 /* sp_step_hl@2x.png in Resources */,
 				6448C9DF1A5D7A330079125C /* login_scroll_1.png in Resources */,

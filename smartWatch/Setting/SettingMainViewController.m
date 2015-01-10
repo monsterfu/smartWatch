@@ -74,7 +74,10 @@
         [self performSegueWithIdentifier:@"longsitContrlPushIdentifier" sender:nil];
     }else if (indexPath.section == 0&&indexPath.row == 1) {
         [self performSegueWithIdentifier:@"unitSelectPushIdentifier" sender:nil];
+    }else if (indexPath.section == 0&&indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"personDetailIdentifier" sender:nil];
     }
+    
     
 //    if (![USER_DEFAULT boolForKey:KEY_ISLOGIN_INFO]) {
 //        [self.navigationController.tabBarController performSegueWithIdentifier:@"userLoginIdentifier" sender:nil];

@@ -33,5 +33,31 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return _titleArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"questionCellIdentifier" forIndexPath:indexPath];
+    
+    NSInteger idex = [_questionIdex integerValue];
+    if (indexPath.row == idex) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(questionSelect:)]) {
+        [self.delegate questionSelect:indexPath.row];
+    }
+    _questionIdex = [NSNumber numberWithInteger:indexPath.row];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
