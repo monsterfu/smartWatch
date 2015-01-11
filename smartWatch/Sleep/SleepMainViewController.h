@@ -17,6 +17,7 @@
     CPTScatterPlot *dataSourceLinePlot;//线
 }
 
+@property (weak, nonatomic) IBOutlet GradientView *graView;
 
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 - (IBAction)IsRegisterButtonTouch:(UIButton *)sender;

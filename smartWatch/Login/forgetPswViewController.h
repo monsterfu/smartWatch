@@ -11,5 +11,10 @@
 @interface forgetPswViewController : UIViewController
 {
     NSArray* _titleArray;
+    
+    UILabel* _questionLabel;
+    UITextField* _answerTextField;
+    UILabel* _passWordLabel;
+    UIButton* _confirmButton;
 }
 @end

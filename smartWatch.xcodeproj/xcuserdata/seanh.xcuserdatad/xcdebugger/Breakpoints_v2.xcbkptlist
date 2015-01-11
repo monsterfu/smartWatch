@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "smartWatch/Login/registerViewController.m"
-            timestampString = "442337780.899949"
+            timestampString = "442645992.0125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-didReciveCommandSuccessResponseWithCmd:"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-didReciveCommandResponseData:cmd:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "-didReciveCommandResponseData:cmd:"
+            landmarkName = "-doneButtonTouch:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

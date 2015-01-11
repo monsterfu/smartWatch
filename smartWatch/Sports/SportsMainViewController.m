@@ -15,11 +15,11 @@
 
 @implementation SportsMainViewController
 
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [self.navigationController.tabBarController.navigationController setNavigationBarHidden:YES];
-//    [self.navigationController setNavigationBarHidden:NO];
-//}
+- (void)viewDidAppear:(BOOL)animated
+{
+    CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
+    [_navigationController setNavigationBartintColor:[UIColor getColor:@"46a719"]];
+}
 //- (void)viewDidDisappear:(BOOL)animated
 //{
 //    [self.navigationController.tabBarController.navigationController setNavigationBarHidden:NO];

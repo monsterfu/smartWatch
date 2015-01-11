@@ -30,6 +30,8 @@
 #import "thirdParty/MBProgressHUD.h"
 #import "ProgressHUD.h"
 
+//views
+#import "GradientView.h"
 //model
 #import "PersonDetaiInfo.h"
 #import "AlarmModel.h"

@@ -23,6 +23,18 @@
     return self;
 }
 
+- (void)setNavigationBartintColor:(UIColor*)color
+{
+    if (![self.navigationBar respondsToSelector:@selector(setBarTintColor:)])
+    {
+        self.navigationBar.tintColor = color;
+        self.navigationBar.translucent = NO;
+    }else{
+        self.navigationBar.barTintColor = color;
+        self.navigationBar.translucent = NO;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -11,4 +11,6 @@
 
 @interface CommonNavigationController : UINavigationController
 
+
+- (void)setNavigationBartintColor:(UIColor*)color;
 @end

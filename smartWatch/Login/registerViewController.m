@@ -156,6 +156,10 @@
     [_passWordField resignFirstResponder];
     [_answerField resignFirstResponder];
 }
+
+- (IBAction)backButtonTouched:(UIBarButtonItem *)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark -
 #pragma mark -ConnectionManagerDelegate
 - (void) didDiscoverDevice:(oneLedDeviceObject*)device

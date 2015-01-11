@@ -39,6 +39,7 @@
 - (IBAction)doneButtonTouch:(UIButton *)sender;
 
 - (IBAction)tapAction:(UITapGestureRecognizer *)sender;
+- (IBAction)backButtonTouched:(UIBarButtonItem *)sender;
 
 
 

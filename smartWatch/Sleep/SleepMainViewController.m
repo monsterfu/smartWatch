@@ -14,23 +14,21 @@
 
 @implementation SleepMainViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
+    [_navigationController setNavigationBartintColor:[UIColor getColor:@"575AD1"]];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+//    CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
+//    [_navigationController setNavigationBartintColor:[UIColor getColor:@"46a719"]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    [self timerFired];
-}
-
--(void)timerFired
-{    
-    // Create barChart from theme
+    
     barChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
     [barChart applyTheme:theme];
@@ -79,7 +77,7 @@
         titleFont = [UIFont fontWithName:@"Helvetica" size:12.0];
         [graphTitle addAttribute:NSFontAttributeName value:titleFont range:NSMakeRange(lineOne.length + 1, lineTwo.length)];
         
-//        barChart.attributedTitle = graphTitle;
+        //        barChart.attributedTitle = graphTitle;
     }
     else {
         CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
@@ -111,7 +109,7 @@
     x.tickDirection = CPTSignNegative;
     x.majorGridLineStyle = majorGridLineStyle ;
     x.majorTickLength = 0;
-//    x.majorTickLineStyle = [CPTLineStyle lineStyle];
+    //    x.majorTickLineStyle = [CPTLineStyle lineStyle];
     
     x.axisLineStyle = [CPTLineStyle lineStyle];
     
@@ -122,8 +120,8 @@
     for ( NSNumber *tickLocation in customTickLocations ) {
         CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[xAxisLabels objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
         newLabel.tickLocation = [tickLocation decimalValue];
-//        newLabel.offset       = x.labelOffset + x.majorTickLength;
-//        newLabel.rotation     = M_PI / 4;
+        //        newLabel.offset       = x.labelOffset + x.majorTickLength;
+        //        newLabel.rotation     = M_PI / 4;
         [customLabels addObject:newLabel];
     }
     
@@ -162,6 +160,11 @@
     dataSourceLinePlot.opacity = 0.0f;
     
     [barChart addPlot:barPlot toPlotSpace:plotSpace];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*
