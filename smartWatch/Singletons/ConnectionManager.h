@@ -72,7 +72,7 @@ typedef enum : NSUInteger {
 - (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd;
 @end
 
-@interface ConnectionManager : NSObject<CBCentralManagerDelegate,CBPeripheralDelegate>
+@interface ConnectionManager : NSObject<CBCentralManagerDelegate,CBPeripheralDelegate,CBPeripheralManagerDelegate>
 {
     NSTimer* checkRssiTimer;
     CBUUID* _batteryUUID;

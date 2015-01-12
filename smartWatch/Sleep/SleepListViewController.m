@@ -53,6 +53,6 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"sleepDetailIdentifier" sender:nil];
 }
 @end

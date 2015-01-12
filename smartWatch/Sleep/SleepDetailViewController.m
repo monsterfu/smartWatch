@@ -1,40 +1,33 @@
 //
-//  SleepMainViewController.m
+//  SleepDetailViewController.m
 //  smartWatch
 //
-//  Created by Monster on 14/12/28.
-//  Copyright (c) 2014年 Monster. All rights reserved.
+//  Created by Monster on 15-1-12.
+//  Copyright (c) 2015年 Monster. All rights reserved.
 //
 
-#import "SleepMainViewController.h"
+#import "SleepDetailViewController.h"
 
-@interface SleepMainViewController ()
+@interface SleepDetailViewController ()
 
 @end
 
-@implementation SleepMainViewController
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
-    [_navigationController setNavigationBartintColor:[UIColor getColor:@"575AD1"]];
-}
-- (void)viewDidDisappear:(BOOL)animated
-{
-//    CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
-//    [_navigationController setNavigationBartintColor:[UIColor getColor:@"46a719"]];
-}
+@implementation SleepDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     barChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-    CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
+    CPTTheme *theme = [CPTTheme themeNamed:nil];
     [barChart applyTheme:theme];
     CPTGraphHostingView *hostingView = (CPTGraphHostingView *)_graphHostingView;
     hostingView.hostedGraph = barChart;
     
+    hostingView.layer.cornerRadius = 4;
+    hostingView.layer.masksToBounds = YES;
+    
+    CPTColor *endColor = [[CPTColor alloc]initWithComponentRed:146.0/255.0 green:89.0/255.0 blue:120.0/255.0 alpha:1.0f];
+    [barChart setFill:[CPTFill fillWithColor: endColor]];
     // Border
     barChart.plotAreaFrame.borderLineStyle = [CPTLineStyle lineStyle];
     CPTMutableLineStyle* LineStyle = [CPTMutableLineStyle lineStyle];
@@ -51,10 +44,10 @@
     barChart.paddingTop    = 0.0f;
     barChart.paddingBottom = 0.0f;
     
-    barChart.plotAreaFrame.paddingLeft   = 40.0;
-    barChart.plotAreaFrame.paddingTop    = 40.0;
-    barChart.plotAreaFrame.paddingRight  = 20.0;
-    barChart.plotAreaFrame.paddingBottom = 20.0;
+//    barChart.plotAreaFrame.paddingLeft   = 40.0;
+//    barChart.plotAreaFrame.paddingTop    = 40.0;
+//    barChart.plotAreaFrame.paddingRight  = 20.0;
+//    barChart.plotAreaFrame.paddingBottom = 20.0;
     
     
     // Graph title
@@ -166,7 +159,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - rega
 
+-( void )applyThemeToBackground:(CPTXYGraph *)graph
+{
+    CPTColor *endColor = [[CPTColor alloc]initWithComponentRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1.0f];
+    graph.fill = [CPTFill fillWithColor: endColor];
+}
 /*
 #pragma mark - Navigation
 
@@ -176,21 +175,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)IsRegisterButtonTouch:(UIButton *)sender {
-    [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_requestDeviceWhetherRegistered:ConnectionManagerCommadEnum_YHZC_sfzc];
-}
-
-- (IBAction)resetButtonTouch:(UIButton *)sender {
-    
-}
-
-#pragma mark - ConnectionManagerDelegate
-- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
-{
-    
-}
-
 #pragma mark -
 #pragma mark Plot Data Source Methods
 
@@ -220,5 +204,6 @@
     
     return num;
 }
-
+- (IBAction)syncButtonTouch:(UIButton *)sender {
+}
 @end

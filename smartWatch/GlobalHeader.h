@@ -32,6 +32,7 @@
 
 //views
 #import "GradientView.h"
+#import "circleView.h"
 //model
 #import "PersonDetaiInfo.h"
 #import "AlarmModel.h"

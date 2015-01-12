@@ -104,6 +104,16 @@
 		B156121D1A53E28F00D54D70 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B15612131A53E28F00D54D70 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		B156121E1A53E28F00D54D70 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B15612161A53E28F00D54D70 /* libSocialWechat.a */; };
 		B156121F1A53E28F00D54D70 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B15612171A53E28F00D54D70 /* libWeChatSDK.a */; };
+		B15FE0BB1A6368BA00629383 /* SleepDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15FE0BA1A6368BA00629383 /* SleepDetailViewController.m */; };
+		B15FE0CC1A63B24100629383 /* circleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B15FE0CB1A63B24100629383 /* circleView.m */; };
+		B15FE0D41A63B62700629383 /* hr_add_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0CD1A63B62700629383 /* hr_add_hl@2x.png */; };
+		B15FE0D51A63B62700629383 /* hr_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0CE1A63B62700629383 /* hr_add@2x.png */; };
+		B15FE0D61A63B62700629383 /* hr_button_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0CF1A63B62700629383 /* hr_button_hl@2x.png */; };
+		B15FE0D71A63B62700629383 /* hr_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D01A63B62700629383 /* hr_button@2x.png */; };
+		B15FE0D81A63B62700629383 /* hr_cell_selected_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D11A63B62700629383 /* hr_cell_selected_hl@2x.png */; };
+		B15FE0D91A63B62700629383 /* hr_cell_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D21A63B62700629383 /* hr_cell_selected@2x.png */; };
+		B15FE0DA1A63B62700629383 /* hr_person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D31A63B62700629383 /* hr_person@2x.png */; };
+		B15FE0DD1A63BA4A00629383 /* HeartRagteCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15FE0DC1A63BA4A00629383 /* HeartRagteCompareViewController.m */; };
 		B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A49691A528A7100507DE1 /* LongSitViewController.m */; };
 		B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */; };
 		B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */; };
@@ -379,6 +389,19 @@
 		B15612181A53E28F00D54D70 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		B15612191A53E28F00D54D70 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B156121A1A53E28F00D54D70 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B15FE0B91A6368BA00629383 /* SleepDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepDetailViewController.h; sourceTree = "<group>"; };
+		B15FE0BA1A6368BA00629383 /* SleepDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepDetailViewController.m; sourceTree = "<group>"; };
+		B15FE0CA1A63B24100629383 /* circleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = circleView.h; path = common/circleView.h; sourceTree = "<group>"; };
+		B15FE0CB1A63B24100629383 /* circleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = circleView.m; path = common/circleView.m; sourceTree = "<group>"; };
+		B15FE0CD1A63B62700629383 /* hr_add_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_add_hl@2x.png"; sourceTree = "<group>"; };
+		B15FE0CE1A63B62700629383 /* hr_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_add@2x.png"; sourceTree = "<group>"; };
+		B15FE0CF1A63B62700629383 /* hr_button_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_button_hl@2x.png"; sourceTree = "<group>"; };
+		B15FE0D01A63B62700629383 /* hr_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_button@2x.png"; sourceTree = "<group>"; };
+		B15FE0D11A63B62700629383 /* hr_cell_selected_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_cell_selected_hl@2x.png"; sourceTree = "<group>"; };
+		B15FE0D21A63B62700629383 /* hr_cell_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_cell_selected@2x.png"; sourceTree = "<group>"; };
+		B15FE0D31A63B62700629383 /* hr_person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_person@2x.png"; sourceTree = "<group>"; };
+		B15FE0DB1A63BA4A00629383 /* HeartRagteCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeartRagteCompareViewController.h; path = HeartRate/HeartRagteCompareViewController.h; sourceTree = "<group>"; };
+		B15FE0DC1A63BA4A00629383 /* HeartRagteCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeartRagteCompareViewController.m; path = HeartRate/HeartRagteCompareViewController.m; sourceTree = "<group>"; };
 		B19A49681A528A7100507DE1 /* LongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitViewController.h; path = Setting/LongSitViewController.h; sourceTree = "<group>"; };
 		B19A49691A528A7100507DE1 /* LongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongSitViewController.m; path = Setting/LongSitViewController.m; sourceTree = "<group>"; };
 		B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitGapSelectViewController.h; path = Setting/LongSitGapSelectViewController.h; sourceTree = "<group>"; };
@@ -549,6 +572,8 @@
 				64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */,
 				B15611D81A53BE2B00D54D70 /* SleepListViewController.h */,
 				B15611D91A53BE2B00D54D70 /* SleepListViewController.m */,
+				B15FE0B91A6368BA00629383 /* SleepDetailViewController.h */,
+				B15FE0BA1A6368BA00629383 /* SleepDetailViewController.m */,
 				64357D421A6243100095343D /* GradientView.h */,
 				64357D431A6243100095343D /* GradientView.m */,
 			);
@@ -562,6 +587,8 @@
 				64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */,
 				B15611D51A53BC2700D54D70 /* HeartRateListViewController.h */,
 				B15611D61A53BC2700D54D70 /* HeartRateListViewController.m */,
+				B15FE0DB1A63BA4A00629383 /* HeartRagteCompareViewController.h */,
+				B15FE0DC1A63BA4A00629383 /* HeartRagteCompareViewController.m */,
 			);
 			name = HeartRate;
 			sourceTree = "<group>";
@@ -606,6 +633,7 @@
 		B114F57C1A3EBC5B00A123A9 /* smartWatch */ = {
 			isa = PBXGroup;
 			children = (
+				B15FE0C91A63B22000629383 /* common */,
 				B13A7EA41A5CCB63000C490B /* Data storage */,
 				B1376E231A56772600AEC110 /* Image */,
 				6492BA3F1A593776002B10D5 /* Login */,
@@ -674,6 +702,7 @@
 		B1376E231A56772600AEC110 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				B15FE0BC1A63A5A300629383 /* heartRate */,
 				64357D451A624E380095343D /* sleep */,
 				B13342CB1A5F9CE700175304 /* popup@2x.png */,
 				B1FA32601A5A62BB006A4FA8 /* sport */,
@@ -867,6 +896,29 @@
 				B156121A1A53E28F00D54D70 /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		B15FE0BC1A63A5A300629383 /* heartRate */ = {
+			isa = PBXGroup;
+			children = (
+				B15FE0CD1A63B62700629383 /* hr_add_hl@2x.png */,
+				B15FE0CE1A63B62700629383 /* hr_add@2x.png */,
+				B15FE0CF1A63B62700629383 /* hr_button_hl@2x.png */,
+				B15FE0D01A63B62700629383 /* hr_button@2x.png */,
+				B15FE0D11A63B62700629383 /* hr_cell_selected_hl@2x.png */,
+				B15FE0D21A63B62700629383 /* hr_cell_selected@2x.png */,
+				B15FE0D31A63B62700629383 /* hr_person@2x.png */,
+			);
+			path = heartRate;
+			sourceTree = "<group>";
+		};
+		B15FE0C91A63B22000629383 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				B15FE0CA1A63B24100629383 /* circleView.h */,
+				B15FE0CB1A63B24100629383 /* circleView.m */,
+			);
+			name = common;
 			sourceTree = "<group>";
 		};
 		B19A49711A52A05F00507DE1 /* NSString+longTimeGapIndex */ = {
@@ -1082,15 +1134,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FA32BE1A5A6A48006A4FA8 /* nav_share@2x.png in Resources */,
+				B15FE0D51A63B62700629383 /* hr_add@2x.png in Resources */,
 				B12ADBF01A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png in Resources */,
+				B15FE0D41A63B62700629383 /* hr_add_hl@2x.png in Resources */,
 				B15611FE1A53D23900D54D70 /* UMShareEditViewController.xib in Resources */,
 				6448C9E21A5D7A330079125C /* login_women.png in Resources */,
 				B1FA32BC1A5A6A48006A4FA8 /* nav_back@2x.png in Resources */,
+				B15FE0D81A63B62700629383 /* hr_cell_selected_hl@2x.png in Resources */,
 				6492BA3D1A5934EC002B10D5 /* login_logo.png in Resources */,
 				B1FA32A81A5A6671006A4FA8 /* sleep_icon@2x.png in Resources */,
+				B15FE0D91A63B62700629383 /* hr_cell_selected@2x.png in Resources */,
 				B1FA32A31A5A6671006A4FA8 /* hr_icon_hl@2x.png in Resources */,
+				B15FE0D61A63B62700629383 /* hr_button_hl@2x.png in Resources */,
 				6448C9E31A5D7A330079125C /* login_womenhl.png in Resources */,
 				B15611FC1A53D23900D54D70 /* UMSCommentInputController.xib in Resources */,
+				B15FE0DA1A63B62700629383 /* hr_person@2x.png in Resources */,
 				B114F58C1A3EBC5B00A123A9 /* Main.storyboard in Resources */,
 				B1FA32BB1A5A6A48006A4FA8 /* nav_back_hl@2x.png in Resources */,
 				64357D481A624E380095343D /* sp_person@2x.png in Resources */,
@@ -1114,6 +1172,7 @@
 				B15611FD1A53D23900D54D70 /* UMSCommentInputControlleriPad.xib in Resources */,
 				B13D68EB1A5A799E0083916B /* stepNumsmall@2x.png in Resources */,
 				B12ADBEF1A5E86ED00FCEDD8 /* navi_custom_back_btn_hgihlight.png in Resources */,
+				B15FE0D71A63B62700629383 /* hr_button@2x.png in Resources */,
 				B1FA32A51A5A6671006A4FA8 /* setting_hl@2x.png in Resources */,
 				B13D68E91A5A799E0083916B /* kmsmall@2x.png in Resources */,
 				B1FA32BD1A5A6A48006A4FA8 /* nav_share_hl@2x.png in Resources */,
@@ -1197,6 +1256,7 @@
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
 				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
 				B13A7EC11A5CD56C000C490B /* HeartRateDataReadingModel.m in Sources */,
+				B15FE0CC1A63B24100629383 /* circleView.m in Sources */,
 				B14EC9C71A51498500027033 /* personInfoModel.m in Sources */,
 				B15611DA1A53BE2B00D54D70 /* SleepListViewController.m in Sources */,
 				B13D68FA1A5A8DA60083916B /* SportsScrollViewController.m in Sources */,
@@ -1205,6 +1265,8 @@
 				B13A7EBB1A5CD56C000C490B /* PersonDetaiInfo.m in Sources */,
 				B13D68F41A5A8CD00083916B /* SportsCircleViewController.m in Sources */,
 				B19A49741A52A51800507DE1 /* UnitSelectViewController.m in Sources */,
+				B15FE0BB1A6368BA00629383 /* SleepDetailViewController.m in Sources */,
+				B15FE0DD1A63BA4A00629383 /* HeartRagteCompareViewController.m in Sources */,
 				B114F5801A3EBC5B00A123A9 /* main.m in Sources */,
 				B1CD406D1A4C056300A8CFA5 /* CommonTabbarViewController.m in Sources */,
 			);
