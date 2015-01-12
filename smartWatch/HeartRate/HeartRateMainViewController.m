@@ -212,4 +212,10 @@
     
 }
 #endif
+- (IBAction)saveButtonTouch:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"heartRateListIdentifier" sender:nil];
+}
+
+- (IBAction)compareButtonTouch:(UIButton *)sender {
+}
 @end

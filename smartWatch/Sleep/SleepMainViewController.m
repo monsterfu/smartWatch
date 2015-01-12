@@ -52,7 +52,7 @@
     barChart.paddingBottom = 0.0f;
     
     barChart.plotAreaFrame.paddingLeft   = 40.0;
-    barChart.plotAreaFrame.paddingTop    = 40.0;
+    barChart.plotAreaFrame.paddingTop    = 80.0;
     barChart.plotAreaFrame.paddingRight  = 20.0;
     barChart.plotAreaFrame.paddingBottom = 20.0;
     

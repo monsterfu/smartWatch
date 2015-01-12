@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
+#import "alarmTableViewCell.h"
 
-@interface AlarmListViewController : UIViewController
-
+@interface AlarmListViewController : UIViewController<alarmTableViewCellDelegate>
+{
+    alarmTableViewCell* _alarmCell;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -1,18 +1,18 @@
 //
-//  AlarmListViewController.m
+//  AlarmEditViewController.m
 //  smartWatch
 //
-//  Created by Monster on 15-1-2.
+//  Created by Monster on 15-1-12.
 //  Copyright (c) 2015年 Monster. All rights reserved.
 //
 
-#import "AlarmListViewController.h"
+#import "AlarmEditViewController.h"
 
-@interface AlarmListViewController ()
+@interface AlarmEditViewController ()
 
 @end
 
-@implementation AlarmListViewController
+@implementation AlarmEditViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,21 +33,35 @@
     // Pass the selected object to the new view controller.
 }
 */
-//alarmListCellIdentifier
+
+- (IBAction)doneButtonTouch:(UIBarButtonItem *)sender {
+}
+- (IBAction)datePickerChanged:(UIDatePicker *)sender {
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    _alarmCell = [tableView dequeueReusableCellWithIdentifier:@"alarmListCellIdentifier" forIndexPath:indexPath];
-    return _alarmCell;
+    if (indexPath.row == 0) {
+        _cell = [tableView dequeueReusableCellWithIdentifier:@"editAlarmRepeatCell" forIndexPath:indexPath];
+    }else{
+        _cell = [tableView dequeueReusableCellWithIdentifier:@"editAlarmDateCell" forIndexPath:indexPath];
+    }
+    return _cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"alarmSelectIdentiifer" sender:nil];
+    if (indexPath.row == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [_datePicker setDate:[NSDate date] animated:YES];
+    }
+    
 }
 
 @end

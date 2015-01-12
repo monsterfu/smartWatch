@@ -769,12 +769,20 @@
                                 <state key="selected">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTouch:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ybs-t7-8gY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1I-Z9-LVK">
                                 <rect key="frame" x="160" y="457" width="160" height="61"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="特征曲线对比">
+                                    <color key="titleColor" red="0.38431372549999998" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="compareButtonTouch:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="iu9-Ft-gSL"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-ne-HqD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
@@ -841,7 +849,9 @@
                     <tabBarItem key="tabBarItem" title="心率" image="hr_icon.png" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="graphHostingView" destination="vOO-eh-z4b" id="1RJ-cZ-1te"/>
-                        <segue destination="tNH-qb-lUi" kind="push" id="bPD-Ob-jmI"/>
+                        <outlet property="maxLabel" destination="pGX-cx-RRc" id="C4k-B3-MKH"/>
+                        <outlet property="mixLabel" destination="tJ8-ju-coR" id="fUj-ZZ-1V6"/>
+                        <segue destination="tNH-qb-lUi" kind="push" identifier="heartRateListIdentifier" id="bPD-Ob-jmI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -916,7 +926,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="PBG-g5-ztZ" id="hzE-J9-hWI"/>
-                        <segue destination="U7s-dg-v1Y" kind="push" id="fJZ-F6-y41"/>
+                        <segue destination="U7s-dg-v1Y" kind="push" identifier="comparePerformIdentifier" id="fJZ-F6-y41"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aay-2u-SHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -939,7 +949,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXg-vE-pdd">
-                                <rect key="frame" x="16" y="115" width="20" height="20"/>
+                                <rect key="frame" x="16" y="119" width="12" height="12"/>
                                 <color key="backgroundColor" red="0.38431372549999998" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="颜色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioW-fp-Qxr">
@@ -990,7 +1000,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uJ-mV-ZFh">
-                                <rect key="frame" x="244" y="115" width="20" height="20"/>
+                                <rect key="frame" x="244" y="119" width="12" height="12"/>
                                 <color key="backgroundColor" red="0.87450980392156863" green="0.36862745098039218" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -1197,7 +1207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6L-KY-rKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319" y="187"/>
+            <point key="canvasLocation" x="1194" y="1283"/>
         </scene>
         <!--久坐提醒-->
         <scene sceneID="xLc-CN-twc">
@@ -1359,7 +1369,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="alarmListCellIdentifier" rowHeight="66" id="47X-B6-dMT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="alarmListCellIdentifier" rowHeight="66" id="47X-B6-dMT" customClass="alarmTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="47X-B6-dMT" id="ELP-71-k5U">
@@ -1369,13 +1379,30 @@
                                                     <rect key="frame" x="334" y="17" width="51" height="31"/>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpK-n3-lwY">
-                                                    <rect key="frame" x="100" y="23" width="79" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <rect key="frame" x="25" y="9" width="164" height="35"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="每天" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZi-Sw-AGF">
+                                                    <rect key="frame" x="65" y="44" width="214" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Znq-Ui-zSw">
+                                                    <rect key="frame" x="230" y="17" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchOpenChange:" destination="47X-B6-dMT" eventType="valueChanged" id="gIp-n1-J4m"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="periodLabel" destination="EZi-Sw-AGF" id="xnc-ec-MAl"/>
+                                            <outlet property="switchOpen" destination="Znq-Ui-zSw" id="ugp-D7-vb1"/>
+                                            <outlet property="timeLabel" destination="TpK-n3-lwY" id="hkN-au-Lru"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1390,16 +1417,114 @@
                             <constraint firstItem="EhP-VF-Wqg" firstAttribute="leading" secondItem="8yI-Fp-tou" secondAttribute="leading" id="9T8-Nt-QKo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jll-9m-PFq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Uv4-lb-ZAS"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="jll-9m-PFq"/>
                     <connections>
                         <outlet property="tableView" destination="EhP-VF-Wqg" id="Q5E-7u-lEg"/>
+                        <segue destination="yDg-vR-p32" kind="push" identifier="alarmSelectIdentiifer" id="HNe-5e-rYz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYA-iI-caZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408" y="1294.9999999999998"/>
+            <point key="canvasLocation" x="308" y="1283"/>
+        </scene>
+        <!--编辑闹钟-->
+        <scene sceneID="fsc-0s-nAR">
+            <objects>
+                <viewController id="yDg-vR-p32" customClass="AlarmEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wXk-aJ-kZJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8DC-7C-vGR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7y9-vP-jpm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="SSL-tw-6x7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="406"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="editAlarmRepeatCell" textLabel="v1v-Rd-N9H" detailTextLabel="p2T-FT-w9O" rowHeight="51" style="IBUITableViewCellStyleValue1" id="aKB-xO-MMy">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aKB-xO-MMy" id="Kh0-kV-zZQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="重复" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v1v-Rd-N9H">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="每天" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p2T-FT-w9O">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FIL-BN-PXE" kind="push" identifier="alarmEditRepeatIdentifier" id="RVh-uH-avg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="editAlarmDateCell" textLabel="tmd-cw-wue" style="IBUITableViewCellStyleDefault" id="ELP-E9-yPb">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ELP-E9-yPb" id="NbD-jH-zGr">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="21:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tmd-cw-wue">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yDg-vR-p32" id="ODL-JP-YJQ"/>
+                                    <outlet property="delegate" destination="yDg-vR-p32" id="AXh-Ip-JbX"/>
+                                </connections>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="B0v-nE-OSJ">
+                                <rect key="frame" x="0.0" y="406" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="442747204.683357">
+                                    <!--2015-01-12 09:20:04 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="yDg-vR-p32" eventType="valueChanged" id="VEJ-ch-gXQ"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B0v-nE-OSJ" firstAttribute="top" secondItem="SSL-tw-6x7" secondAttribute="bottom" id="18U-yI-lp7"/>
+                            <constraint firstAttribute="bottom" secondItem="B0v-nE-OSJ" secondAttribute="bottom" id="JYx-j2-MUY"/>
+                            <constraint firstItem="SSL-tw-6x7" firstAttribute="top" secondItem="7y9-vP-jpm" secondAttribute="top" id="MZB-O8-8aL"/>
+                            <constraint firstAttribute="trailing" secondItem="B0v-nE-OSJ" secondAttribute="trailing" id="pCQ-TF-hcK"/>
+                            <constraint firstItem="B0v-nE-OSJ" firstAttribute="leading" secondItem="7y9-vP-jpm" secondAttribute="leading" id="raN-0U-dk0"/>
+                            <constraint firstItem="SSL-tw-6x7" firstAttribute="leading" secondItem="7y9-vP-jpm" secondAttribute="leading" id="v6m-b9-smp"/>
+                            <constraint firstAttribute="trailing" secondItem="SSL-tw-6x7" secondAttribute="trailing" id="zGy-2X-H8c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="编辑闹钟" id="5wl-cN-tSG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LlS-f8-1Xk">
+                            <connections>
+                                <action selector="doneButtonTouch:" destination="yDg-vR-p32" id="iOL-uB-mEh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="B0v-nE-OSJ" id="LO4-1H-nfa"/>
+                        <outlet property="tableView" destination="SSL-tw-6x7" id="mid-cI-cjX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPv-hB-qcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="1283"/>
         </scene>
         <!--时间间隔-->
         <scene sceneID="jbN-Ub-PQZ">
@@ -2223,5 +2348,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3aZ-a8-37v"/>
+        <segue reference="RVh-uH-avg"/>
     </inferredMetricsTieBreakers>
 </document>

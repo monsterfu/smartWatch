@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [_tableView setEmptyFootView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +55,6 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"comparePerformIdentifier" sender:nil];
 }
 @end

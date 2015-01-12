@@ -118,6 +118,8 @@
 		B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */; };
 		B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */; };
 		B19A49741A52A51800507DE1 /* UnitSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A49731A52A51800507DE1 /* UnitSelectViewController.m */; };
+		B1B55AD31A63C67C00C8EA8B /* alarmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B55AD21A63C67C00C8EA8B /* alarmTableViewCell.m */; };
+		B1B55AD61A63CA8800C8EA8B /* AlarmEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B55AD51A63CA8800C8EA8B /* AlarmEditViewController.m */; };
 		B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CD40571A4C024900A8CFA5 /* ConnectionManager.m */; };
 		B1CD405B1A4C047100A8CFA5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CD405A1A4C047100A8CFA5 /* CoreBluetooth.framework */; };
 		B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CD405F1A4C04BA00A8CFA5 /* MBProgressHUD.m */; };
@@ -410,6 +412,10 @@
 		B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+longTimeGapIndex.m"; path = "../NSString+longTimeGapIndex/NSString+longTimeGapIndex.m"; sourceTree = "<group>"; };
 		B19A49721A52A51800507DE1 /* UnitSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnitSelectViewController.h; path = Setting/UnitSelectViewController.h; sourceTree = "<group>"; };
 		B19A49731A52A51800507DE1 /* UnitSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UnitSelectViewController.m; path = Setting/UnitSelectViewController.m; sourceTree = "<group>"; };
+		B1B55AD11A63C67C00C8EA8B /* alarmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alarmTableViewCell.h; path = Setting/alarmTableViewCell.h; sourceTree = "<group>"; };
+		B1B55AD21A63C67C00C8EA8B /* alarmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = alarmTableViewCell.m; path = Setting/alarmTableViewCell.m; sourceTree = "<group>"; };
+		B1B55AD41A63CA8800C8EA8B /* AlarmEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmEditViewController.h; path = Setting/AlarmEditViewController.h; sourceTree = "<group>"; };
+		B1B55AD51A63CA8800C8EA8B /* AlarmEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmEditViewController.m; path = Setting/AlarmEditViewController.m; sourceTree = "<group>"; };
 		B1CD40561A4C024900A8CFA5 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		B1CD40571A4C024900A8CFA5 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		B1CD40591A4C02A300A8CFA5 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
@@ -602,6 +608,10 @@
 				B19A49731A52A51800507DE1 /* UnitSelectViewController.m */,
 				B1376E7A1A569AD500AEC110 /* AlarmListViewController.h */,
 				B1376E7B1A569AD500AEC110 /* AlarmListViewController.m */,
+				B1B55AD41A63CA8800C8EA8B /* AlarmEditViewController.h */,
+				B1B55AD51A63CA8800C8EA8B /* AlarmEditViewController.m */,
+				B1B55AD11A63C67C00C8EA8B /* alarmTableViewCell.h */,
+				B1B55AD21A63C67C00C8EA8B /* alarmTableViewCell.m */,
 				B19A49681A528A7100507DE1 /* LongSitViewController.h */,
 				B19A49691A528A7100507DE1 /* LongSitViewController.m */,
 				B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */,
@@ -1222,6 +1232,7 @@
 			files = (
 				64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */,
 				B10983BE1A5FD4CE00500C70 /* forgetPswViewController.m in Sources */,
+				B1B55AD61A63CA8800C8EA8B /* AlarmEditViewController.m in Sources */,
 				B15611D71A53BC2700D54D70 /* HeartRateListViewController.m in Sources */,
 				64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */,
 				B1CD40611A4C04BA00A8CFA5 /* MBProgressHUD.m in Sources */,
@@ -1235,6 +1246,7 @@
 				6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */,
 				B13342CA1A5F754B00175304 /* questionSelectViewController.m in Sources */,
 				B13A7EC51A5CD98F000C490B /* NSDate+JBCommon.m in Sources */,
+				B1B55AD31A63C67C00C8EA8B /* alarmTableViewCell.m in Sources */,
 				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
 				B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */,
 				B14EC9CA1A5162F000027033 /* AlarmModel.m in Sources */,

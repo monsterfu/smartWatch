@@ -18,10 +18,14 @@
     CPTBorderedLayer * _label;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *maxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mixLabel;
 
 
 @property (retain, nonatomic) NSMutableArray *dataForPlot1;
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 
+- (IBAction)saveButtonTouch:(UIButton *)sender;
+- (IBAction)compareButtonTouch:(UIButton *)sender;
 
 @end
