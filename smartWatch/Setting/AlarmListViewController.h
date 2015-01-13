@@ -10,7 +10,7 @@
 #import "GlobalHeader.h"
 #import "alarmTableViewCell.h"
 
-@interface AlarmListViewController : UIViewController<alarmTableViewCellDelegate>
+@interface AlarmListViewController : UIViewController<alarmTableViewCellDelegate, ConnectionManagerDelegate>
 {
     alarmTableViewCell* _alarmCell;
 }

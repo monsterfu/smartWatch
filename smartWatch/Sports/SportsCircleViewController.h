@@ -13,6 +13,8 @@
 
 -(void)pushMoreButtonTouch;
 -(void)syncButtonTouch;
+-(void)leftButtonTouch;
+-(void)rightButtonTouch;
 @end
 
 
@@ -40,6 +42,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *kcalLabel;
 
 //同步
+@property (weak, nonatomic) IBOutlet UIButton *syncButton;
+
 - (IBAction)syncButtonTouch:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *syncTimeLabel;

@@ -51,6 +51,7 @@
 
 
 #define BCD_CO(x)    (x/10)*16 + (x%10)
+#define BCD_TO_TEN(x)      ((x/16)*10+x%16)
 
 #define KEY_DEVICELIST_INFO   @"key_devicelist_info"         //设备列表
 #define KEY_SCENELIST_INFO    @"key_scenelist_info"         //情景列表

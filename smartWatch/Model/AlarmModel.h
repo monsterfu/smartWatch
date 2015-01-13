@@ -14,16 +14,8 @@
 @property(nonatomic,assign)NSUInteger min;
 @property(nonatomic,assign)char selectWeek;
 
-/**
- *  monday星期一=忙day，tuesday星期二=求死day，wednesday星期三=未死day，thursday星期四=受死day，friday星期五=福来day，saturday星期六=洒脱day，sunday星期天=伤day
- */
-@property(nonatomic,assign)BOOL monday;
-@property(nonatomic,assign)BOOL tuesday;
-@property(nonatomic,assign)BOOL wednesday;
-@property(nonatomic,assign)BOOL thursday;
-@property(nonatomic,assign)BOOL friday;
-@property(nonatomic,assign)BOOL saturday;
-@property(nonatomic,assign)BOOL sunday;
+
+@property(nonatomic, retain)NSMutableArray* valueArray;//周一至周日的值
 
 @property(nonatomic,assign)BOOL enable;
 
@@ -34,4 +26,5 @@
  */
 -(char)createInfo;
 
+- (AlarmModel*)initWithData:(NSData*)data;
 @end

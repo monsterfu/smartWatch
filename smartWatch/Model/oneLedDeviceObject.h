@@ -30,7 +30,6 @@ struct user_info
     unsigned char unit_set[3]; /* 单位设置, 分别对应身高、体重、长度 */
 };
 
-
 @interface oneLedDeviceObject : NSObject
 
 @property(nonatomic, retain)CBPeripheral *peripheral;
@@ -119,9 +118,9 @@ struct user_info
 -(void)sendCommandSetting_sendUnitWithHeightUnit:(EnumHeightUnit_Enum)heightUnit weightUnit:(EnumWeightUnit_Enum)weightUnit lengthUnit:(EnumLengthUnit_Enum)lengthUnit cmd:(ConnectionManagerCommadEnum)cmd;
 
 //闹钟查询
--(void)sendCommandSetting_requestAlarmInfo:(ConnectionManagerCommadEnum)cmd;;
+-(void)sendCommandSetting_requestAlarmInfo:(ConnectionManagerCommadEnum)cmd;
 //闹钟设置
--(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm cmd:(ConnectionManagerCommadEnum)cmd;;
+-(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm cmd:(ConnectionManagerCommadEnum)cmd;
 
 //久坐提醒使能
 -(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able cmd:(ConnectionManagerCommadEnum)cmd;;

@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _syncButton.layer.cornerRadius = 8.0f;
+    _syncButton.layer.masksToBounds = YES;
     
 }
 
@@ -34,11 +36,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - protocol interface
 
 - (IBAction)leftButtonTouch:(UIButton *)sender {
+    [UIView transitionWithView:self.view
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        
+                    }
+                    completion:^(BOOL finished){
+                        if (self.delegate&&[self.delegate respondsToSelector:@selector(leftButtonTouch)]) {
+                            [self.delegate leftButtonTouch];
+                        }
+                    }];
 }
 - (IBAction)rightButtonTouch:(UIButton *)sender {
+    [UIView transitionWithView:self.view
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    animations:^{
+                        
+                    }
+                    completion:^(BOOL finished){
+                        if (self.delegate&&[self.delegate respondsToSelector:@selector(rightButtonTouch)]) {
+                            [self.delegate rightButtonTouch];
+                        }
+                    }];
 }
+
 - (IBAction)syncButtonTouch:(UIButton *)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(syncButtonTouch)]) {
         [self.delegate syncButtonTouch];

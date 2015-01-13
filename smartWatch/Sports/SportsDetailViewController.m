@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _titleArray = @[@"活动时间",@"活动量少",@"活动量中等",@"活动量多"];
+    
+    _lessView.layer.cornerRadius = _lessView.frame.size.width/2;
+    _lessView.layer.masksToBounds = YES;
+    
+    _midView.layer.cornerRadius = _midView.frame.size.width/2;
+    _midView.layer.masksToBounds = YES;
+    
+    _highView.layer.cornerRadius = _highView.frame.size.width/2;
+    _highView.layer.masksToBounds = YES;
+    
     [self timerFired];
 }
 
@@ -60,9 +72,9 @@
     barChart.paddingBottom = 0.0f;
     
     barChart.plotAreaFrame.paddingLeft   = 40.0;
-    barChart.plotAreaFrame.paddingTop    = 20.0;
-    barChart.plotAreaFrame.paddingRight  = 40.0;
-    barChart.plotAreaFrame.paddingBottom = 80.0;
+    barChart.plotAreaFrame.paddingTop    = 40.0;
+    barChart.plotAreaFrame.paddingRight  = 10.0;
+    barChart.plotAreaFrame.paddingBottom = 40.0;
     
     
     // Graph title
@@ -215,5 +227,22 @@
     }
     
     return num;
+}
+
+#pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 33;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sportDetailCell" forIndexPath:indexPath];
+    cell.textLabel.text = [_titleArray objectAtIndex:indexPath.row];
+    return cell;
 }
 @end

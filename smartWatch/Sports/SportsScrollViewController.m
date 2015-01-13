@@ -33,10 +33,10 @@
     
     float total = STATUS_BAR_HEIGHT + NAV_HEIGHT;
     
-    [_circleViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height - total), 0, TABController_Height)];
-    [_detailViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height - total), 0, TABController_Height + DEVICE_HEIGHT)];
+    [_circleViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height), 0, TABController_Height)];
+    [_detailViewController.view setFrame:CGRectOffset(CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height), 0, TABController_Height + DEVICE_HEIGHT- total)];
     
-    [_scrollView setContentSize:CGSizeMake(0, DEVICE_HEIGHT*2)];
+    [_scrollView setContentSize:CGSizeMake(0, DEVICE_HEIGHT*2- total*2)];
     
     [_scrollView addSubview:_circleViewController.view];
     [_scrollView addSubview:_detailViewController.view];
@@ -58,10 +58,18 @@
 }
 */
 #pragma mark - SportsCircleViewControllerDelegate <NSObject>
-
+-(void)leftButtonTouch
+{
+    
+}
+-(void)rightButtonTouch
+{
+    
+}
 -(void)pushMoreButtonTouch
 {
-    [_scrollView setContentOffset:CGPointMake(0, TABController_Height + DEVICE_HEIGHT) animated:YES];
+    NSUInteger total = STATUS_BAR_HEIGHT + NAV_HEIGHT;
+    [_scrollView setContentOffset:CGPointMake(0, TABController_Height + DEVICE_HEIGHT- total) animated:YES];
 }
 
 -(void)syncButtonTouch

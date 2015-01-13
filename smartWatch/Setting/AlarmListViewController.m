@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [ProgressHUD show:@"查询闹钟中"];
+    [[ConnectionManager sharedInstance] setDelegate:self];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandSetting_requestAlarmInfo:ConnectionManagerCommadEnum_SZ_nzcx];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +51,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"alarmSelectIdentiifer" sender:nil];
+}
+#pragma mark - ConnectionManager Delegate
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    if (cmd == ConnectionManagerCommadEnum_SZ_nzcx) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe5&&byteValue[1] == 0x0b){
+            [ProgressHUD dismiss];
+        }
+        
+    }
+
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd
+{
+    
 }
 
 @end
