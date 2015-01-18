@@ -31,7 +31,7 @@ static ConnectionManager *sharedConnectionManager;
     {
         _delegate = delegate;
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+//        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
         
         _addedDeviceArray = [NSMutableArray array];
         
@@ -147,7 +147,7 @@ static ConnectionManager *sharedConnectionManager;
         {
             if ([central state] == CBCentralManagerStatePoweredOn)
             {
-//                [_delegate isBluetoothEnabled:YES];
+                [self startScanForDevice];
             }
             else
             {

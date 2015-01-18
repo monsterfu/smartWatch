@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 
 @interface forgetPswViewController : UIViewController
 {
@@ -16,5 +17,11 @@
     UITextField* _answerTextField;
     UILabel* _passWordLabel;
     UIButton* _confirmButton;
+    
+    UITapGestureRecognizer* _tapGestureRecognizer;
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 @end

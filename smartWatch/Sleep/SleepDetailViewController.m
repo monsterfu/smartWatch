@@ -16,6 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    _personInfo = [PersonDetaiInfo sharedInstance];
+    
+    [[ConnectionManager sharedInstance]setDelegate:self];
+    
     // Do any additional setup after loading the view.
     barChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:nil];
@@ -205,5 +211,38 @@
     return num;
 }
 - (IBAction)syncButtonTouch:(UIButton *)sender {
+    [ProgressHUD show:@"同步中"];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestHistoryInfo:ConnectionManagerCommadEnum_SM_lsjl];
+}
+
+#pragma mark -ConnectionManagerDelegate
+- (void) didDiscoverDevice:(oneLedDeviceObject*)device
+{
+    [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"发现设备:",device.name]];
+}
+- (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
+{
+    [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"断开连接:",device.name]];
+}
+- (void) didConnectWithDevice:(oneLedDeviceObject*)device
+{
+    
+}
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    if (cmd == ConnectionManagerCommadEnum_SM_lsjl) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe3&&byteValue[1] == 0x12){
+            _sleepModel = [[sleepOneDayInfoModel alloc]initWithData:data];
+            [_personInfo addSleepReadingWithModel:_sleepModel];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestPerAck:ConnectionManagerCommadEnum_ACK];
+        }else if (byteValue[0] == 0xe3&&byteValue[1] == 0x02) {
+            [ProgressHUD showSuccess:@"同步完成"];
+        }
+        
+    }
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd{
+    
 }
 @end

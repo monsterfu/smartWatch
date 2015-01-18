@@ -15,7 +15,7 @@
     NSMutableArray* _valueArray;
 }
 
-@property(nonatomic, retain)longSitModel* longsitModelData;
+@property(nonatomic, retain)NSMutableArray* valueArray;//周一至周日的值
 
 - (IBAction)saveButtonTouched:(UIBarButtonItem *)sender;
 

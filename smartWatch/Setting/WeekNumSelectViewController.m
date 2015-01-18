@@ -21,7 +21,6 @@
     
     _titleArray = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
     
-    _valueArray = _longsitModelData.valueArray;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +72,7 @@
 }
 
 - (IBAction)saveButtonTouched:(UIBarButtonItem *)sender {
-    _longsitModelData.valueArray = _valueArray;
-    [self.navigationController popViewControllerAnimated:YES];
+//    _longsitModelData.valueArray = _valueArray;
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

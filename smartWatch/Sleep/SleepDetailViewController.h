@@ -14,8 +14,11 @@
     
     CPTXYGraph *barChart;
     CPTScatterPlot *dataSourceLinePlot;//线
+    
+    sleepOneDayInfoModel* _sleepModel;
 }
 
+@property (nonatomic, retain)PersonDetaiInfo* personInfo;
 @property (weak, nonatomic) IBOutlet GradientView *graView;
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 @property (weak, nonatomic) IBOutlet UIButton *syncButton;

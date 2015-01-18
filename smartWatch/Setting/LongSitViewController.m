@@ -13,6 +13,7 @@
 @end
 
 @implementation LongSitViewController
+
 -(void)viewDidAppear:(BOOL)animated
 {
     _gapCell.detailTextLabel.text = [NSString longTimeGapIndex:_longsitModelData.remindGap];
@@ -68,7 +69,14 @@
         _gapSelectViewController.longsitModelData = _longsitModelData;
     }else if ([segue.identifier isEqualToString:@"weekNumSelectIdentifier"]) {
         _weekSelectViewController = [segue destinationViewController];
-        _weekSelectViewController.longsitModelData = _longsitModelData;
+        _weekSelectViewController.valueArray = _longsitModelData.valueArray;
+    }
+}
+- (IBAction)unwindToYellowViewController:(UIStoryboardSegue *)segue {
+    UIViewController *sourceViewController = segue.sourceViewController;
+    
+    if ([sourceViewController isKindOfClass:[WeekNumSelectViewController class]]) {
+        
     }
 }
 

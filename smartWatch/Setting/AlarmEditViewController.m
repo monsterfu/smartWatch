@@ -57,7 +57,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self performSegueWithIdentifier:@"weekNumSelectIdentifier" sender:nil];
     }else{
         [_datePicker setDate:[NSDate date] animated:YES];
     }

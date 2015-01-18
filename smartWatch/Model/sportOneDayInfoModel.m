@@ -24,12 +24,12 @@
 {
     if (self = [super init])
     {
-        NSUInteger index = 0;
+        NSUInteger index = 2;
         if (data == nil) {
             return self;
         }
         Byte* byteValue = (Byte*)data.bytes;
-        if (byteValue[index] == 0xf1&&data.length == 16) {
+        if (byteValue[index] == 0xf1&&data.length == 20) {
             index +=1;
             NSUInteger year = 2000 + byteValue[index];
             NSUInteger month = byteValue[index+1];

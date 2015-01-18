@@ -200,7 +200,7 @@
     NSLog(@"dataLabelForPlot  position: %f, %f",plot.position.x, plot.position.y);
     
     _label = [[CPTBorderedLayer alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [_label setFill:[CPTFill fillWithColor:[CPTColor colorWithGenericGray:0.5]]];
+//    [_label setFill:[CPTFill fillWithColor:[CPTColor colorWithGenericGray:0.5]]];
 //    UIView* detailView = [[UIView alloc]initWithFrame:_label.frame];
 //    UIImage *loadImage=[UIImage imageNamed:@"popup@2x.png"];
 //    UIImageView* img = [[UIImageView alloc]initWithImage:loadImage];

@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_tableView setEmptyFootView];
+    
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
+    [self.view addGestureRecognizer:_tapGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +37,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - tap
+- (void)tapAction
+{
+    [_answerTextField resignFirstResponder];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

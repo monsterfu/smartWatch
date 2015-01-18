@@ -48,7 +48,7 @@
     _sendDataIdx = 0;
     
     [ConnectionManager sharedInstance].delegate = self;
-    
+    [[ConnectionManager sharedInstance]startScanForDevice];
     
 }
 
@@ -89,6 +89,7 @@
     }
     _personModel.userName = _userNameField.text;
     _personModel.passWord = _passWordField.text;
+    [ProgressHUD show:@"登陆中"];
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_sendDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
 #else
     [self performSegueWithIdentifier:@"replaceIdentifier" sender:nil];
@@ -178,6 +179,8 @@
             }else if (byteValue[2] == 0x07) {
                 [ProgressHUD showSuccess:@"密码错误"];
             }
+        }else{
+            [ProgressHUD showError:@"未知错误"];
         }
         
     }
