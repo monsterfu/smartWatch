@@ -48,7 +48,9 @@
     _sendDataIdx = 0;
     
     [ConnectionManager sharedInstance].delegate = self;
+#ifdef Debug_JumpToMain
     [[ConnectionManager sharedInstance]startScanForDevice];
+#endif
     
 }
 
