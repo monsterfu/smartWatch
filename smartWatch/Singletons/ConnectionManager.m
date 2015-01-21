@@ -22,6 +22,7 @@ static ConnectionManager *sharedConnectionManager;
     if (sharedConnectionManager == nil)
     {
         sharedConnectionManager = [[ConnectionManager alloc]initWithDelegate:nil];
+        sharedConnectionManager.connectState = ConnectionManagerState_PowerOff;
     }
     return sharedConnectionManager;
 }
@@ -92,6 +93,7 @@ static ConnectionManager *sharedConnectionManager;
     // We're in CBPeripheralManagerStatePoweredOn state...
     NSLog(@"self.peripheralManager powered on.");
     
+    
     // Start with the CBMutableCharacteristic
     self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_RESPONSE_UUID] properties:CBCharacteristicPropertyWriteWithoutResponse
                                                                           value:nil
@@ -148,6 +150,7 @@ static ConnectionManager *sharedConnectionManager;
             if ([central state] == CBCentralManagerStatePoweredOn)
             {
                 [self startScanForDevice];
+                self.connectState = ConnectionManagerState_NoDeviceConnect;
             }
             else
             {
@@ -187,11 +190,11 @@ static ConnectionManager *sharedConnectionManager;
     if (!connectable) {
         return;
     }
-    if ([[args_peripheral name] hasPrefix:@"SmartAM"]) {
-        NSLog(@"Discovered unknown device, %@,%@", [args_peripheral name],[args_peripheral.identifier UUIDString]);
-//        return;
+    if (![[args_peripheral name] hasPrefix:@"SmartAM"]) {
+        return;
     }
     
+    NSLog(@"Discovered unknown device, %@,%@", [args_peripheral name],[args_peripheral.identifier UUIDString]);
 //    NSDictionary *serviceData = [advertisementData objectForKey:@"kCBAdvDataServiceData"];
 //    if (!serviceData ||
 //        (![serviceData objectForKey:[TemperatureFob thermometerServiceUUID]] ||
@@ -241,7 +244,7 @@ static ConnectionManager *sharedConnectionManager;
     NSData* aDate = [NSKeyedArchiver archivedDataWithRootObject:[ConnectionManager sharedInstance].addedDeviceArray];
     [USER_DEFAULT setObject:aDate forKey:KEY_DEVICELIST_INFO];
     [USER_DEFAULT synchronize];
-    
+    self.connectState = ConnectionManagerState_Disconnect;
     [manager connectPeripheral:persipheral options:nil];
 }
 
@@ -289,6 +292,7 @@ static ConnectionManager *sharedConnectionManager;
             _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
             _deviceObject.characteristic = aChar;
             _deviceObject.connected = YES;
+            self.connectState = ConnectionManagerState_Connected;
             if (self.delegate&&[self.delegate respondsToSelector:@selector(didConnectWithDevice:)]) {
                 [self.delegate didConnectWithDevice:_deviceObject];
             }

@@ -1109,7 +1109,12 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 5PG8FSFRLG;
+						DevelopmentTeam = H6NR6KPK2Z;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B114F5951A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;

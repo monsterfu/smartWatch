@@ -19,5 +19,6 @@
 
 - (IBAction)saveButtonTouched:(UIBarButtonItem *)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

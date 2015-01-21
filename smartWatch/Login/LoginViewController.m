@@ -79,6 +79,9 @@
 
 
 - (IBAction)loginButtonTouch:(UIButton *)sender {
+    [_userNameField resignFirstResponder];
+    [_passWordField resignFirstResponder];
+    
 #ifdef Debug_JumpToMain
     if (_userNameField.text.length < 8) {
         [ProgressHUD showError:@"用户名过短!"];
@@ -87,6 +90,19 @@
     if (_passWordField.text.length <=7)
     {
         [ProgressHUD showError:@"密码长度不得少于8位！"];
+        return;
+    }
+    if ([ConnectionManager sharedInstance].connectState == ConnectionManagerState_PowerOff) {
+//        [ProgressHUD showError:@"蓝牙未打开！"];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"蓝牙未打开!" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alertView show];
+        return;
+    }
+    if ([ConnectionManager sharedInstance].connectState == ConnectionManagerState_NoDeviceConnect||
+        [ConnectionManager sharedInstance].connectState == ConnectionManagerState_Disconnect) {
+        [ProgressHUD showError:@"设备未连接!"];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"蓝牙未打开!" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alertView show];
         return;
     }
     _personModel.userName = _userNameField.text;
@@ -203,7 +219,7 @@
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[0] == 0xe1&&byteValue[1] == 0x03){
             if (byteValue[2] == 0x01) {
-                [ProgressHUD show:@"设备已激活，可进行登录"];
+                [ProgressHUD showSuccess:@"设备已激活，可进行登录"];
                 if ([USER_DEFAULT boolForKey:KEY_Auto_Login]) {
                     [[ConnectionManager sharedInstance].deviceObject sendCommandyhdl_sendUserInfoWithPerson:_personModel index:_sendDataIdx cmd:ConnectionManagerCommadEnum_YHDL_fsxx];
                 }else{

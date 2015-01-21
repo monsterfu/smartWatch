@@ -72,13 +72,6 @@
         _weekSelectViewController.valueArray = _longsitModelData.valueArray;
     }
 }
-- (IBAction)unwindToYellowViewController:(UIStoryboardSegue *)segue {
-    UIViewController *sourceViewController = segue.sourceViewController;
-    
-    if ([sourceViewController isKindOfClass:[WeekNumSelectViewController class]]) {
-        
-    }
-}
 
 #pragma mark - Table view data source
 

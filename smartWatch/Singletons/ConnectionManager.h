@@ -60,6 +60,13 @@ typedef enum : NSUInteger {
     
 } ConnectionManagerCommadEnum;
 
+typedef enum : NSUInteger {
+    ConnectionManagerState_PowerOff,
+    ConnectionManagerState_NoDeviceConnect,
+    ConnectionManagerState_Disconnect,
+    ConnectionManagerState_Connected,
+} ConnectionManagerState_StateEnum;
+
 
 #import "GlobalHeader.h"
 @class oneLedDeviceObject;
@@ -78,6 +85,7 @@ typedef enum : NSUInteger {
     CBUUID* _batteryUUID;
     NSUInteger _indexRSSI;
 }
+@property(nonatomic,assign)ConnectionManagerState_StateEnum connectState;
 @property(nonatomic, assign)ConnectionManagerCommadEnum command;
 @property(nonatomic,retain)oneLedDeviceObject* deviceObject;
 @property(nonatomic,assign)id<ConnectionManagerDelegate> delegate;

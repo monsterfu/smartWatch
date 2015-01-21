@@ -410,20 +410,24 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     [[ConnectionManager sharedInstance]setCommand:cmd];
 }
 //闹钟设置
--(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm cmd:(ConnectionManagerCommadEnum)cmd
+-(void)sendCommandSetting_sendAlarmInfo:(NSMutableArray*)alarmArray cmd:(ConnectionManagerCommadEnum)cmd
 {
-    //CC 05 WM AH AM CRC16
-    unsigned char wmChar = [alarm createInfo];
-    
-    NSUInteger hour = BCD_CO(alarm.hour);
-    NSUInteger min = BCD_CO(alarm.min);
-    
-    unsigned char command[7] = {0xcc,0x05,wmChar,hour,min};
+    //CC 0b WM0 AH AM WM1 AH AM WM2 AH AM CRC16
+    unsigned char command[13] = {0xcc,0x0b};
+    for (NSUInteger idx = 0; idx < 3; idx ++) {
+        AlarmModel* alarm = [alarmArray objectAtIndex:idx];
+        unsigned char wmChar = [alarm createInfo];
+        NSUInteger hour = BCD_CO(alarm.hour);
+        NSUInteger min = BCD_CO(alarm.min);
+        command[2+ idx*3] = wmChar;
+        command[2+ idx*3 + 1] = hour;
+        command[2+ idx*3 + 2] = min;
+    }
     unsigned char crc1, crc2;
-    CRC16(command,5,&crc1,&crc2);
-    command[5] = crc1;
-    command[6] = crc2;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:7];
+    CRC16(command,11,&crc1,&crc2);
+    command[11] = crc1;
+    command[12] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:13];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
     [[ConnectionManager sharedInstance]setCommand:cmd];
 }

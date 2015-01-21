@@ -128,9 +128,15 @@
 #pragma mark - button touch
 
 - (IBAction)doneButtonTouch:(UIButton *)sender {
-    
+
+#ifndef Debug_JumpToMain
     [self performSegueWithIdentifier:@"registerDetailIdentifier" sender:_personModel];
     return;
+#endif
+    [_userNameField resignFirstResponder];
+    [_passWordField resignFirstResponder];
+    [_answerField resignFirstResponder];
+    
     if (_userNameField.text.length < 8) {
         [ProgressHUD showError:@"用户名过短!"];
         return;
@@ -140,11 +146,21 @@
         [ProgressHUD showError:@"密码长度不得少于8位！"];
         return;
     }
+    if (_answerField.text.length <= 2) {
+        [ProgressHUD showError:@"未完成忘记密码问题答案"];
+        return;
+    }
     _personModel.userName = _userNameField.text;
     _personModel.passWord = _passWordField.text;
     _regisierDataIdx = 0;
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_sendRegisterInfoWithPerson:_personModel index:_regisierDataIdx cmd:ConnectionManagerCommadEnum_YHZC_csxx];
     [ProgressHUD show:@"设备注册中，请稍候"];
+    
+    [USER_DEFAULT removeObjectForKey:KEY_Register_Question];
+    [USER_DEFAULT removeObjectForKey:KEY_Register_Answer];
+    [USER_DEFAULT setObject:_questionIdex forKey:KEY_Register_Question];
+    [USER_DEFAULT setObject:_answerField.text forKey:KEY_Register_Answer];
+    [USER_DEFAULT synchronize];
 }
 - (void)seePswButtonTouch:(UIButton*)sender
 {

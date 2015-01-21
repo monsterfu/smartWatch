@@ -27,4 +27,7 @@
 -(char)createInfo;
 
 - (AlarmModel*)initWithData:(NSData*)data;
+
+-(NSString*)repeatDetailString;
+-(NSString*)timeDetailString;
 @end

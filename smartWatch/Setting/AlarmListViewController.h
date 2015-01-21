@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
 #import "alarmTableViewCell.h"
+#import "AlarmEditViewController.h"
 
-@interface AlarmListViewController : UIViewController<alarmTableViewCellDelegate, ConnectionManagerDelegate>
+
+@interface AlarmListViewController : UIViewController<alarmTableViewCellDelegate, ConnectionManagerDelegate, alarmTableViewCellDelegate>
 {
     alarmTableViewCell* _alarmCell;
+    AlarmModel* _alarmModel;
+    NSMutableArray* _alarmArray;
+    AlarmEditViewController* _alarmEditViewController;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

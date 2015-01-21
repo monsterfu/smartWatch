@@ -21,6 +21,7 @@
  ****************************************************/
 +(NSDate*)currentMonthFirstDay:(NSDate*)date;
 +(NSDate*)dateWithYear:(NSUInteger)year Month:(NSUInteger)month;
++(NSDate*)dateWithHour:(NSUInteger)hour Min:(NSUInteger)min;
 /****************************************************
  *@Description:获得NSDate对应的年份
  *@Params:nil

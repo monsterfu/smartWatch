@@ -120,7 +120,7 @@ struct user_info
 //闹钟查询
 -(void)sendCommandSetting_requestAlarmInfo:(ConnectionManagerCommadEnum)cmd;
 //闹钟设置
--(void)sendCommandSetting_sendAlarmInfo:(AlarmModel*)alarm cmd:(ConnectionManagerCommadEnum)cmd;
+-(void)sendCommandSetting_sendAlarmInfo:(NSMutableArray*)alarmArray cmd:(ConnectionManagerCommadEnum)cmd;
 
 //久坐提醒使能
 -(void)sendCommandSetting_sendLongTimeSitRemindEnable:(BOOL)able cmd:(ConnectionManagerCommadEnum)cmd;;

@@ -19,7 +19,60 @@
             val |= (1<< index);
         }
     }
+    if (_enable) {
+        val |= (1<< 7);
+    }
     return val;
+}
+
+-(NSString*)repeatDetailString
+{
+    NSString* str = @" ";
+    BOOL one,two,three,four,five,six,seven;
+    one = two = three = four = five = six = seven = NO;
+    
+    if ([[_valueArray objectAtIndex:0] boolValue]) {
+        str = [str stringByAppendingString:@"周一"];
+        one = YES;
+    }
+    if ([[_valueArray objectAtIndex:1] boolValue]) {
+        str = [str stringByAppendingString:@"周二"];
+        two = YES;
+    }
+    if ([[_valueArray objectAtIndex:2] boolValue]) {
+        str = [str stringByAppendingString:@"周三"];
+        three = YES;
+    }
+    if ([[_valueArray objectAtIndex:3] boolValue]) {
+        str = [str stringByAppendingString:@"周四"];
+        four = YES;
+    }
+    if ([[_valueArray objectAtIndex:4] boolValue]) {
+        str = [str stringByAppendingString:@"周五"];
+        five = YES;
+    }
+    if ([[_valueArray objectAtIndex:5] boolValue]) {
+        str = [str stringByAppendingString:@"周六"];
+        six = YES;
+    }
+    if ([[_valueArray objectAtIndex:6] boolValue]) {
+        str = [str stringByAppendingString:@"周日"];
+        seven = YES;
+    }
+    if (one&&two&&three&&four&&five&&six&&seven) {
+        return @"每天";
+    }
+    if (one&&two&&three&&four&&five&&!six&&!seven) {
+        return @"工作日";
+    }
+    if (!one&&!two&&!three&&!four&&!five&&six&&seven) {
+        str = @"周末";
+    }
+    return str;
+}
+-(NSString*)timeDetailString
+{
+    return [NSString stringWithFormat:@"%02d:%02d",_hour,_min];
 }
 //int a=10;
 //int b=a;
@@ -32,6 +85,9 @@
         NSUInteger index = 0;
         _valueArray = [NSMutableArray array];
         if (data == nil) {
+            for (NSUInteger x = 0; x < 8; x++) {
+                [_valueArray addObject:[NSNumber numberWithBool:NO]];
+            }
             return self;
         }
         Byte* byteValue = (Byte*)data.bytes;

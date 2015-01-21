@@ -21,5 +21,8 @@
 }
 
 - (IBAction)switchOpenChange:(UISwitch *)sender {
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(alarmTableViewCell_SwitchOpen:tag:)]) {
+        [self.delegate alarmTableViewCell_SwitchOpen:sender.on tag:self.tag];
+    }
 }
 @end

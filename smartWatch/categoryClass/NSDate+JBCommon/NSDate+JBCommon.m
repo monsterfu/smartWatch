@@ -107,7 +107,20 @@
     [toTimeComponents setSecond:0];
     return [cal dateFromComponents:toTimeComponents];
 }
-
++(NSDate*)dateWithHour:(NSUInteger)hour Min:(NSUInteger)min
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    [cal setTimeZone:[NSTimeZone localTimeZone]];
+    [cal setLocale:[NSLocale currentLocale]];
+    
+    NSDateComponents *toTimeComponents = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit ) fromDate:[NSDate date]];
+    [toTimeComponents setYear:[NSDate date].year];
+    [toTimeComponents setMonth:[NSDate date].month];
+    [toTimeComponents setHour:hour];
+    [toTimeComponents setMinute:min];
+    [toTimeComponents setSecond:0];
+    return [cal dateFromComponents:toTimeComponents];
+}
 /**********************************************************
  *@Description:获取当天的包括“年”，“月”，“日”，“周”，“时”，“分”，“秒”的NSDateComponents
  *@Params:nil

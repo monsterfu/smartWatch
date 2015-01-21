@@ -7,6 +7,7 @@
 //
 
 #import "sportOneDayInfoModel.h"
+#import "GlobalHeader.h"
 
 /**
  *  格式: F1 + 日期 + 总步数 + 运动距离 + 卡路里总消耗 + 运动卡路里消耗 
@@ -27,13 +28,15 @@
         NSUInteger index = 2;
         if (data == nil) {
             return self;
-        }
+        }//<e212f120 01212001 00e50000 48001000 f05bdce3>
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[index] == 0xf1&&data.length == 20) {
             index +=1;
-            NSUInteger year = 2000 + byteValue[index];
-            NSUInteger month = byteValue[index+1];
-            NSUInteger day = byteValue[index+2];
+            NSLog(@"byteValue[index]:%d, %d",byteValue[index+2],BCD_TO_TEN(byteValue[index+2]));
+            
+            NSUInteger year = 2000 + BCD_TO_TEN(BCD_TO_TEN(byteValue[index]));
+            NSUInteger month = BCD_TO_TEN(BCD_TO_TEN(byteValue[index+1]));
+            NSUInteger day = BCD_TO_TEN(BCD_TO_TEN(byteValue[index+2]));
             
             NSDateComponents *comps = [[NSDateComponents alloc]init];
             [comps setMonth:month];
