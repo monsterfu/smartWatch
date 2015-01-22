@@ -13,8 +13,11 @@
 #import "sportOneDayInfoModel.h"
 #import "sleepOneDayInfoModel.h"
 #import "heartRateOneDayInfoModel.h"
+#import "SportDataReadingModel.h"
+#import "SleepDataReadingModel.h"
+#import "HeartRateDataReadingModel.h"
 
-@class HeartRateDataReadingModel, SleepDataReadingModel, SportDataReadingModel;
+
 
 @interface PersonDetaiInfo : NSManagedObject
 

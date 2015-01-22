@@ -10,8 +10,10 @@
 #import "GlobalHeader.h"
 
 @interface SleepListViewController : UIViewController
-
+{
+    SleepDataReadingModel* _sleepCoreDataModel;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property(nonatomic, retain)NSArray* allsleepsArray;
 @end

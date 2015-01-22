@@ -10,6 +10,11 @@
 #import "GlobalHeader.h"
 
 @interface SportsListViewController : UIViewController
+{
+    SportDataReadingModel* _sportCoreDataModel;
+}
+
+@property(nonatomic, retain)NSArray* allsportsArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

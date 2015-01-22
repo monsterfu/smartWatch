@@ -8,14 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
-
+#import "SleepListViewController.h"
 
 @interface SleepMainViewController : UIViewController<ConnectionManagerDelegate,CPTPlotDataSource>
 {
     
     CPTXYGraph *barChart;
     CPTScatterPlot *dataSourceLinePlot;//线
+    
+    sleepOneDayInfoModel* _sleepModel;
+    SleepDataReadingModel* _sleepCoreDataModel;
+    NSArray* _allsleepsArray;
+    SleepListViewController* _sleepListViewController;
 }
+
+@property(nonatomic, retain)PersonDetaiInfo* personInfo;
 
 @property (weak, nonatomic) IBOutlet GradientView *graView;
 

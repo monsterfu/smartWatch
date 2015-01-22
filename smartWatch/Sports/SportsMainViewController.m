@@ -19,6 +19,7 @@
 {
     CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
     [_navigationController setNavigationBartintColor:[UIColor getColor:@"46a719"]];
+    [ConnectionManager sharedInstance].delegate = self;
 }
 //- (void)viewDidDisappear:(BOOL)animated
 //{
@@ -26,8 +27,14 @@
 //    [self.navigationController setNavigationBarHidden:YES];
 //}
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-   
+    
+    [ProgressHUD show:@"同步中..."];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestHistoryInfo:ConnectionManagerCommadEnum_YD_lsjl];
+    [ConnectionManager sharedInstance].delegate = self;
+    _personInfo = [PersonDetaiInfo sharedInstance];
+    
     _customerView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 73, 67)];
     [_customerView setImage:[UIImage imageNamed:@"popup@2x.png"]];
     
@@ -157,15 +164,19 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"sportListIdentifier"]) {
+        _sportsListViewController = (SportsListViewController*)segue.destinationViewController;
+        _sportsListViewController.allsportsArray = _allsportsArray;
+    }
 }
-*/
+
 #pragma mark - dataSourceOpt
 #if 1
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
@@ -245,5 +256,35 @@
         //得到分享到的微博平台名
         NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
     }
+}
+
+#pragma mark -ConnectionManagerDelegate
+- (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
+{
+    [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"断开连接:",device.name]];
+}
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    if (cmd == ConnectionManagerCommadEnum_YD_lsjl) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe2&&byteValue[1] == 0x12){
+            _sportModel = [[sportOneDayInfoModel alloc]initWithData:data];
+            [_personInfo addSportReadingWithModel:_sportModel];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
+        }else if (byteValue[0] == 0xe2&&byteValue[1] == 0x02) {
+            [ProgressHUD showSuccess:@"同步完成"];
+            _allsportsArray = [NSArray array];
+            _allsportsArray = [_personInfo allSports];
+            _sportCoreDataModel = [_allsportsArray objectAtIndex:0];
+            _dateLabel.text = [_sportCoreDataModel.date formatString:NSDateFormatString_2];
+            _stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
+            _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+            _kcalLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalKcal.longValue];
+        }
+        
+    }
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd{
+    
 }
 @end

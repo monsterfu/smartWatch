@@ -97,7 +97,7 @@
         if (byteValue[0] == 0xe2&&byteValue[1] == 0x12){
             _sportModel = [[sportOneDayInfoModel alloc]initWithData:data];
             [_personInfo addSportReadingWithModel:_sportModel];
-            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_ACK];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
         }else if (byteValue[0] == 0xe2&&byteValue[1] == 0x02) {
             [ProgressHUD showSuccess:@"同步完成"];
         }

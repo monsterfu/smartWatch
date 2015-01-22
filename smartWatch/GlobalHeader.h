@@ -21,6 +21,7 @@
 
 #import "ConnectionManager.h"
 #import "NSString+longTimeGapIndex.h"
+#import "NSDate+formatString.h"
 #import "NSDate+JBCommon.h"
 #import "colorSetObject.h"
 #import "UIColor+getColor.h"

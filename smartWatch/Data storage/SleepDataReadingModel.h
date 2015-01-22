@@ -20,4 +20,7 @@
 @property (nonatomic, retain) NSNumber * wakeUpNum;
 @property (nonatomic, retain) PersonDetaiInfo *personSleep;
 
+-(NSString*)sleepTotalStr;
+-(NSString*)sleepInPercentStr;
+-(NSString*)activePercentStr;
 @end

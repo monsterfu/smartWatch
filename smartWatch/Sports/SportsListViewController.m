@@ -38,16 +38,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 8;
+    return _allsportsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sportsListCellIdentiifier" forIndexPath:indexPath];
+    _sportCoreDataModel = [_allsportsArray objectAtIndex:indexPath.row];
     UILabel* stepNumLabel = (UILabel*)[cell viewWithTag:1];
     UILabel* distanceLabel = (UILabel*)[cell viewWithTag:2];
     UILabel* kcalLabel = (UILabel*)[cell viewWithTag:3];
     UILabel* dateLabel = (UILabel*)[cell viewWithTag:4];
+    
+    dateLabel.text = [_sportCoreDataModel.date formatString:NSDateFormatString_1];
+    stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
+    distanceLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+    kcalLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalKcal.longValue];
     
     return cell;
 }

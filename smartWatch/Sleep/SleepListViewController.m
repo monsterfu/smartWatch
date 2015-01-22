@@ -39,15 +39,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 8;
+    return _allsleepsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sleepListCellIdentiifier" forIndexPath:indexPath];
+    _sleepCoreDataModel = [_allsleepsArray objectAtIndex:indexPath.row];
     UILabel* sleepTimeLabel = (UILabel*)[cell viewWithTag:1];
     UILabel* xiaolvLabel = (UILabel*)[cell viewWithTag:2];
     UILabel* dateLabel = (UILabel*)[cell viewWithTag:3];
+    
+    sleepTimeLabel.text = [_sleepCoreDataModel sleepTotalStr];
     
     return cell;
 }

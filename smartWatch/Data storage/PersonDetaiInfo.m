@@ -183,8 +183,10 @@ static PersonDetaiInfo *sharedConnectionManager = nil;
 #pragma mark - fine all
 - (NSArray *) allSports
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"sportFetchRequest"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SportDataReadingModel"];
     NSError *error;
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"personSport.userName LIKE %@", self.userName]];
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (error)
@@ -197,6 +199,8 @@ static PersonDetaiInfo *sharedConnectionManager = nil;
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"sleepFetchRequest"];
     NSError *error;
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"personSleep.userName LIKE %@", self.userName]];
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (error)
@@ -209,6 +213,8 @@ static PersonDetaiInfo *sharedConnectionManager = nil;
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"heartFetchRequest"];
     NSError *error;
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"personHeartRate.userName LIKE %@", self.userName]];
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (error)

@@ -18,6 +18,9 @@
 {
     CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
     [_navigationController setNavigationBartintColor:[UIColor getColor:@"575AD1"]];
+    
+    
+    [ConnectionManager sharedInstance].delegate = self;
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -28,6 +31,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [ProgressHUD show:@"同步中..."];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestHistoryInfo:ConnectionManagerCommadEnum_SM_lsjl];
+    [ConnectionManager sharedInstance].delegate = self;
+    _personInfo = [PersonDetaiInfo sharedInstance];
+    
     
     barChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
@@ -167,27 +175,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"sleepListIdentifier"]) {
+        _sleepListViewController = (SleepListViewController*)segue.destinationViewController;
+        _sleepListViewController.allsleepsArray = _allsleepsArray;
+    }
 }
-*/
+
 
 - (IBAction)IsRegisterButtonTouch:(UIButton *)sender {
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_requestDeviceWhetherRegistered:ConnectionManagerCommadEnum_YHZC_sfzc];
 }
 
 - (IBAction)resetButtonTouch:(UIButton *)sender {
-    
-}
-
-#pragma mark - ConnectionManagerDelegate
-- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
-{
     
 }
 
@@ -221,4 +227,34 @@
     return num;
 }
 
+
+#pragma mark -ConnectionManagerDelegate
+- (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
+{
+    [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"断开连接:",device.name]];
+}
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    if (cmd == ConnectionManagerCommadEnum_SM_lsjl) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe3&&byteValue[1] == 0x12){
+            _sleepModel = [[sleepOneDayInfoModel alloc]initWithData:data];
+            [_personInfo addSleepReadingWithModel:_sleepModel];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_SM_lsjl];
+        }else if (byteValue[0] == 0xe3&&byteValue[1] == 0x02) {
+            [ProgressHUD showSuccess:@"同步完成"];
+            _allsleepsArray = [NSArray array];
+            _allsleepsArray = [_personInfo allSports];
+            _sleepCoreDataModel = [_allsleepsArray objectAtIndex:0];
+//            _dateLabel.text = [_sleepCoreDataModel.date formatString:NSDateFormatString_2];
+//            _stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
+//            _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+//            _kcalLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalKcal.longValue];
+        }
+        
+    }
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd{
+    
+}
 @end

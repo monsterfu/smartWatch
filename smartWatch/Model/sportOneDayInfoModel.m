@@ -29,14 +29,15 @@
         if (data == nil) {
             return self;
         }//<e212f120 01212001 00e50000 48001000 f05bdce3>
+         //<e212f120 01213818 000a1600 4f03af01 0f07782e>
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[index] == 0xf1&&data.length == 20) {
             index +=1;
             NSLog(@"byteValue[index]:%d, %d",byteValue[index+2],BCD_TO_TEN(byteValue[index+2]));
             
-            NSUInteger year = 2000 + BCD_TO_TEN(BCD_TO_TEN(byteValue[index]));
-            NSUInteger month = BCD_TO_TEN(BCD_TO_TEN(byteValue[index+1]));
-            NSUInteger day = BCD_TO_TEN(BCD_TO_TEN(byteValue[index+2]));
+            NSUInteger year = 2000 + BCD_TO_TEN(byteValue[index]);
+            NSUInteger month = BCD_TO_TEN(byteValue[index+1]);
+            NSUInteger day = BCD_TO_TEN(byteValue[index+2]);
             
             NSDateComponents *comps = [[NSDateComponents alloc]init];
             [comps setMonth:month];

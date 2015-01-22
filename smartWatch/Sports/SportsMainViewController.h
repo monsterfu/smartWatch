@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
+#import "SportsListViewController.h"
 
-@interface SportsMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate,CPTBarPlotDelegate>
+@interface SportsMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate,CPTBarPlotDelegate,ConnectionManagerDelegate>
 {
     CPTXYGraph                  *graph;             //画板
     CPTScatterPlot              *dataSourceLinePlot;//线
@@ -21,6 +22,11 @@
     NSMutableArray  * _labelArray;
     
     UIImageView* _customerView;
+    
+    sportOneDayInfoModel* _sportModel;
+    SportDataReadingModel* _sportCoreDataModel;
+    NSArray* _allsportsArray;
+    SportsListViewController* _sportsListViewController;
 }
 @property(nonatomic, retain)PersonDetaiInfo* personInfo;
 
@@ -28,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *graphHostingView;
 
 //
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stepNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *kmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *kcalLabel;

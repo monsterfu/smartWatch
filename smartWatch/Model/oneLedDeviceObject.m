@@ -114,13 +114,13 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     }
     
     long day= BCD_CO([comps day]);
-    long year= BCD_CO([comps year]);
+    long year= [comps year];
     long month= BCD_CO([comps month]);
     long hour= BCD_CO([comps hour]);
     long minute= BCD_CO([comps minute]);
     long second = BCD_CO([comps second]);
     
-    unsigned char command[12] = {0xc0,0x0a,year/100,year%100,month,day,weekNumber,hour,minute,second};
+    unsigned char command[12] = {0xc0,0x0a,BCD_CO(year/100),BCD_CO(year%100),month,day,weekNumber,hour,minute,second};
     unsigned char crc1, crc2;
     CRC16(command,10,&crc1,&crc2);
     command[10] = crc1;

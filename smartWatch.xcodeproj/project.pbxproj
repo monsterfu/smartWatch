@@ -114,6 +114,7 @@
 		B15FE0D91A63B62700629383 /* hr_cell_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D21A63B62700629383 /* hr_cell_selected@2x.png */; };
 		B15FE0DA1A63B62700629383 /* hr_person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B15FE0D31A63B62700629383 /* hr_person@2x.png */; };
 		B15FE0DD1A63BA4A00629383 /* HeartRagteCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15FE0DC1A63BA4A00629383 /* HeartRagteCompareViewController.m */; };
+		B160D8711A70A951003FADA3 /* NSDate+formatString.m in Sources */ = {isa = PBXBuildFile; fileRef = B160D8701A70A951003FADA3 /* NSDate+formatString.m */; };
 		B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A49691A528A7100507DE1 /* LongSitViewController.m */; };
 		B19A496D1A529C6700507DE1 /* LongSitGapSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */; };
 		B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = B19A496F1A52A05700507DE1 /* NSString+longTimeGapIndex.m */; };
@@ -404,6 +405,8 @@
 		B15FE0D31A63B62700629383 /* hr_person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hr_person@2x.png"; sourceTree = "<group>"; };
 		B15FE0DB1A63BA4A00629383 /* HeartRagteCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeartRagteCompareViewController.h; path = HeartRate/HeartRagteCompareViewController.h; sourceTree = "<group>"; };
 		B15FE0DC1A63BA4A00629383 /* HeartRagteCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeartRagteCompareViewController.m; path = HeartRate/HeartRagteCompareViewController.m; sourceTree = "<group>"; };
+		B160D86F1A70A951003FADA3 /* NSDate+formatString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+formatString.h"; sourceTree = "<group>"; };
+		B160D8701A70A951003FADA3 /* NSDate+formatString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+formatString.m"; sourceTree = "<group>"; };
 		B19A49681A528A7100507DE1 /* LongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitViewController.h; path = Setting/LongSitViewController.h; sourceTree = "<group>"; };
 		B19A49691A528A7100507DE1 /* LongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongSitViewController.m; path = Setting/LongSitViewController.m; sourceTree = "<group>"; };
 		B19A496B1A529C6700507DE1 /* LongSitGapSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongSitGapSelectViewController.h; path = Setting/LongSitGapSelectViewController.h; sourceTree = "<group>"; };
@@ -825,6 +828,8 @@
 		B13A7EC21A5CD98F000C490B /* NSDate+JBCommon */ = {
 			isa = PBXGroup;
 			children = (
+				B160D86F1A70A951003FADA3 /* NSDate+formatString.h */,
+				B160D8701A70A951003FADA3 /* NSDate+formatString.m */,
 				B13A7EC31A5CD98F000C490B /* NSDate+JBCommon.h */,
 				B13A7EC41A5CD98F000C490B /* NSDate+JBCommon.m */,
 			);
@@ -1277,6 +1282,7 @@
 				B14EC9C71A51498500027033 /* personInfoModel.m in Sources */,
 				B15611DA1A53BE2B00D54D70 /* SleepListViewController.m in Sources */,
 				B13D68FA1A5A8DA60083916B /* SportsScrollViewController.m in Sources */,
+				B160D8711A70A951003FADA3 /* NSDate+formatString.m in Sources */,
 				B1CD40771A4C05CE00A8CFA5 /* SceneArrayDeviceObject.m in Sources */,
 				B1CD40581A4C024900A8CFA5 /* ConnectionManager.m in Sources */,
 				B13A7EBB1A5CD56C000C490B /* PersonDetaiInfo.m in Sources */,
@@ -1434,14 +1440,14 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/TencentOpenAPI",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/Wechat",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "armv7s armv7";
 			};
 			name = Debug;
 		};
@@ -1467,14 +1473,14 @@
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/TencentOpenAPI",
 					"$(PROJECT_DIR)/smartWatch/ThirdParty/Wechat",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "armv7s armv7";
 			};
 			name = Release;
 		};

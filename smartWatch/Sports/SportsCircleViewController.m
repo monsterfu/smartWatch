@@ -14,12 +14,16 @@
 
 @implementation SportsCircleViewController
 
+-(void)viewDidLayoutSubviews
+{
+    CGRect oldFrame = _circleImgView.frame;
+    _circleImgView.frame = CGRectMake(oldFrame.origin.x, oldFrame.origin.y, oldFrame.size.width, oldFrame.size.width);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _syncButton.layer.cornerRadius = 8.0f;
     _syncButton.layer.masksToBounds = YES;
-    
 }
 
 - (void)didReceiveMemoryWarning {
