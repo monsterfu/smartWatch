@@ -10,6 +10,8 @@
 		64357D441A6243100095343D /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64357D431A6243100095343D /* GradientView.m */; };
 		64357D481A624E380095343D /* sp_person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357D461A624E380095343D /* sp_person@2x.png */; };
 		64357D491A624E380095343D /* sp_sp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64357D471A624E380095343D /* sp_sp@2x.png */; };
+		643CCADD1A7B473700874C8A /* binary_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 643CCADB1A7B473700874C8A /* binary_list.json */; };
+		643CCADE1A7B473700874C8A /* 1.03.bin in Resources */ = {isa = PBXBuildFile; fileRef = 643CCADC1A7B473700874C8A /* 1.03.bin */; };
 		6448C9DC1A5D7A330079125C /* login_height.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D41A5D7A330079125C /* login_height.png */; };
 		6448C9DD1A5D7A330079125C /* login_man.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D51A5D7A330079125C /* login_man.png */; };
 		6448C9DE1A5D7A330079125C /* login_manhl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6448C9D61A5D7A330079125C /* login_manhl.png */; };
@@ -30,6 +32,9 @@
 		6492BA3E1A5934EC002B10D5 /* login_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 6492BA391A5934EC002B10D5 /* login_open.png */; };
 		6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492BA411A59379A002B10D5 /* LoginViewController.m */; };
 		6492BA451A594661002B10D5 /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6492BA441A594661002B10D5 /* registerViewController.m */; };
+		64C04C581A79DA030033BDE1 /* AntiLostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C571A79DA030033BDE1 /* AntiLostViewController.m */; };
+		64C04C5B1A79FAA30033BDE1 /* HardWareUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C5A1A79FAA30033BDE1 /* HardWareUpdateViewController.m */; };
+		64C04C611A79FB7C0033BDE1 /* visionUpdateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C601A79FB7C0033BDE1 /* visionUpdateCell.m */; };
 		64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */; };
 		64E8DC841A501D7500BC2069 /* SportsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC831A501D7500BC2069 /* SportsMainViewController.m */; };
 		64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E8DC861A501DA700BC2069 /* HeartRateMainViewController.m */; };
@@ -169,6 +174,8 @@
 		64357D431A6243100095343D /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		64357D461A624E380095343D /* sp_person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp_person@2x.png"; sourceTree = "<group>"; };
 		64357D471A624E380095343D /* sp_sp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sp_sp@2x.png"; sourceTree = "<group>"; };
+		643CCADB1A7B473700874C8A /* binary_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = binary_list.json; path = Setting/hardwareUpdateBin/binary_list.json; sourceTree = "<group>"; };
+		643CCADC1A7B473700874C8A /* 1.03.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = 1.03.bin; path = Setting/hardwareUpdateBin/1.03.bin; sourceTree = "<group>"; };
 		6448C9D41A5D7A330079125C /* login_height.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_height.png; sourceTree = "<group>"; };
 		6448C9D51A5D7A330079125C /* login_man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_man.png; sourceTree = "<group>"; };
 		6448C9D61A5D7A330079125C /* login_manhl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_manhl.png; sourceTree = "<group>"; };
@@ -194,6 +201,12 @@
 		6492BA411A59379A002B10D5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Login/LoginViewController.m; sourceTree = "<group>"; };
 		6492BA431A594661002B10D5 /* registerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = registerViewController.h; path = Login/registerViewController.h; sourceTree = "<group>"; };
 		6492BA441A594661002B10D5 /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = registerViewController.m; path = Login/registerViewController.m; sourceTree = "<group>"; };
+		64C04C561A79DA030033BDE1 /* AntiLostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AntiLostViewController.h; path = Setting/AntiLostViewController.h; sourceTree = "<group>"; };
+		64C04C571A79DA030033BDE1 /* AntiLostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AntiLostViewController.m; path = Setting/AntiLostViewController.m; sourceTree = "<group>"; };
+		64C04C591A79FAA30033BDE1 /* HardWareUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HardWareUpdateViewController.h; path = Setting/HardWareUpdateViewController.h; sourceTree = "<group>"; };
+		64C04C5A1A79FAA30033BDE1 /* HardWareUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HardWareUpdateViewController.m; path = Setting/HardWareUpdateViewController.m; sourceTree = "<group>"; };
+		64C04C5F1A79FB7C0033BDE1 /* visionUpdateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visionUpdateCell.h; path = Setting/visionUpdateCell.h; sourceTree = "<group>"; };
+		64C04C601A79FB7C0033BDE1 /* visionUpdateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = visionUpdateCell.m; path = Setting/visionUpdateCell.m; sourceTree = "<group>"; };
 		64E8DC7F1A501D4B00BC2069 /* SleepMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepMainViewController.h; sourceTree = "<group>"; };
 		64E8DC801A501D4B00BC2069 /* SleepMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepMainViewController.m; sourceTree = "<group>"; };
 		64E8DC821A501D7500BC2069 /* SportsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportsMainViewController.h; path = Sports/SportsMainViewController.h; sourceTree = "<group>"; };
@@ -510,6 +523,15 @@
 			path = sleep;
 			sourceTree = "<group>";
 		};
+		643CCADA1A7B46D500874C8A /* hardwareUpdateBin */ = {
+			isa = PBXGroup;
+			children = (
+				643CCADB1A7B473700874C8A /* binary_list.json */,
+				643CCADC1A7B473700874C8A /* 1.03.bin */,
+			);
+			name = hardwareUpdateBin;
+			sourceTree = "<group>";
+		};
 		644AAC4E1A56F24E00A93375 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +627,7 @@
 		64E8DC8C1A501E4100BC2069 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				643CCADA1A7B46D500874C8A /* hardwareUpdateBin */,
 				64E8DC891A501E3500BC2069 /* SettingMainViewController.h */,
 				64E8DC8A1A501E3500BC2069 /* SettingMainViewController.m */,
 				B19A49721A52A51800507DE1 /* UnitSelectViewController.h */,
@@ -621,6 +644,12 @@
 				B19A496C1A529C6700507DE1 /* LongSitGapSelectViewController.m */,
 				644AAC541A56F9DF00A93375 /* WeekNumSelectViewController.h */,
 				644AAC551A56F9DF00A93375 /* WeekNumSelectViewController.m */,
+				64C04C561A79DA030033BDE1 /* AntiLostViewController.h */,
+				64C04C571A79DA030033BDE1 /* AntiLostViewController.m */,
+				64C04C591A79FAA30033BDE1 /* HardWareUpdateViewController.h */,
+				64C04C5A1A79FAA30033BDE1 /* HardWareUpdateViewController.m */,
+				64C04C5F1A79FB7C0033BDE1 /* visionUpdateCell.h */,
+				64C04C601A79FB7C0033BDE1 /* visionUpdateCell.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -1114,7 +1143,7 @@
 				TargetAttributes = {
 					B114F5791A3EBC5B00A123A9 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = H6NR6KPK2Z;
+						DevelopmentTeam = 5PG8FSFRLG;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1156,7 +1185,9 @@
 				B1FA32BE1A5A6A48006A4FA8 /* nav_share@2x.png in Resources */,
 				B15FE0D51A63B62700629383 /* hr_add@2x.png in Resources */,
 				B12ADBF01A5E86ED00FCEDD8 /* navi_custom_back_btn_normal.png in Resources */,
+				643CCADD1A7B473700874C8A /* binary_list.json in Resources */,
 				B15FE0D41A63B62700629383 /* hr_add_hl@2x.png in Resources */,
+				643CCADE1A7B473700874C8A /* 1.03.bin in Resources */,
 				B15611FE1A53D23900D54D70 /* UMShareEditViewController.xib in Resources */,
 				6448C9E21A5D7A330079125C /* login_women.png in Resources */,
 				B1FA32BC1A5A6A48006A4FA8 /* nav_back@2x.png in Resources */,
@@ -1240,6 +1271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C04C581A79DA030033BDE1 /* AntiLostViewController.m in Sources */,
 				64E8DC811A501D4B00BC2069 /* SleepMainViewController.m in Sources */,
 				B10983BE1A5FD4CE00500C70 /* forgetPswViewController.m in Sources */,
 				B1B55AD61A63CA8800C8EA8B /* AlarmEditViewController.m in Sources */,
@@ -1256,6 +1288,7 @@
 				6492BA421A59379A002B10D5 /* LoginViewController.m in Sources */,
 				B13342CA1A5F754B00175304 /* questionSelectViewController.m in Sources */,
 				B13A7EC51A5CD98F000C490B /* NSDate+JBCommon.m in Sources */,
+				64C04C5B1A79FAA30033BDE1 /* HardWareUpdateViewController.m in Sources */,
 				B1B55AD31A63C67C00C8EA8B /* alarmTableViewCell.m in Sources */,
 				B19A496A1A528A7100507DE1 /* LongSitViewController.m in Sources */,
 				B13A7EA71A5CCB63000C490B /* smartWatchAppModel.xcdatamodeld in Sources */,
@@ -1274,6 +1307,7 @@
 				64E8DC8B1A501E3500BC2069 /* SettingMainViewController.m in Sources */,
 				B13D68EF1A5A82EC0083916B /* UITableView+emptyFootView.m in Sources */,
 				B19A49701A52A05700507DE1 /* NSString+longTimeGapIndex.m in Sources */,
+				64C04C611A79FB7C0033BDE1 /* visionUpdateCell.m in Sources */,
 				644AAC561A56F9DF00A93375 /* WeekNumSelectViewController.m in Sources */,
 				B1CD40751A4C05CE00A8CFA5 /* colorSetObject.m in Sources */,
 				64E8DC871A501DA700BC2069 /* HeartRateMainViewController.m in Sources */,
@@ -1447,6 +1481,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 			};
 			name = Debug;
@@ -1480,6 +1515,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7s armv7";
 			};
 			name = Release;

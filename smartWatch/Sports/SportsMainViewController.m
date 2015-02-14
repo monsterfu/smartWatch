@@ -259,6 +259,10 @@
 }
 
 #pragma mark -ConnectionManagerDelegate
+- (void) didDiscoverDevice:(oneLedDeviceObject*)device
+{
+    
+}
 - (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
 {
     [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"断开连接:",device.name]];
@@ -273,12 +277,18 @@
             [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
         }else if (byteValue[0] == 0xe2&&byteValue[1] == 0x02) {
             [ProgressHUD showSuccess:@"同步完成"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
+            [[NSNotificationCenter defaultCenter]postNotificationName:NSNotificationCenter_SaveSyncData object:nil];
             _allsportsArray = [NSArray array];
             _allsportsArray = [_personInfo allSports];
-            _sportCoreDataModel = [_allsportsArray objectAtIndex:0];
+            _sportCoreDataModel = [_allsportsArray lastObject];
             _dateLabel.text = [_sportCoreDataModel.date formatString:NSDateFormatString_2];
             _stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
-            _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+            if (_sportCoreDataModel.distance.longValue < 1000) {
+                _kmLabel.text = [NSString stringWithFormat:@"%.3f",_sportCoreDataModel.distance.longValue/1000.0f];
+            }else{
+                _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+            }
             _kcalLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalKcal.longValue];
         }
         

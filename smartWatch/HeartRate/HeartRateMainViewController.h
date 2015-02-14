@@ -8,15 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "GlobalHeader.h"
+#import "HeartRateListViewController.h"
 
-@interface HeartRateMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate,CPTBarPlotDelegate>
+@interface HeartRateMainViewController : UIViewController<CPTPlotDataSource,UMSocialUIDelegate,CPTBarPlotDelegate,ConnectionManagerDelegate>
 {
     CPTXYGraph                  *graph;             //画板
     CPTScatterPlot              *dataSourceLinePlot;//线
     int                         j;
     int                         r;
     CPTBorderedLayer * _label;
+    
+    heartRateOneDayInfoModel* _heartRateOneDayModel;
+    HeartRateDataReadingModel* _heartRateCoreDataModel;
+    NSArray* _allheartRateArray;
+    HeartRateListViewController* _heartRateListViewController;
 }
+@property(nonatomic, retain)PersonDetaiInfo* personInfo;
 
 @property (weak, nonatomic) IBOutlet UILabel *maxLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mixLabel;
@@ -27,5 +34,9 @@
 
 - (IBAction)saveButtonTouch:(UIButton *)sender;
 - (IBAction)compareButtonTouch:(UIButton *)sender;
+
+
+- (IBAction)monitorButtonTouch:(UIButton *)sender;
+
 
 @end

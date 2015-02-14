@@ -97,7 +97,7 @@
         _nameTextField.keyboardType = UIKeyboardTypeNamePhonePad;
         _nameTextField.delegate = self;
         
-        _nameTextField.text = _personModel.nickName;
+        _nameTextField.text = [USER_DEFAULT objectForKey:KEY_PersonInfoModel_NickName];
         
         titleLabel.text = [nameCellArray objectAtIndex:0];
         tLabel.text = [nameCellArray objectAtIndex:1];
@@ -273,11 +273,17 @@
     [_destStepNumField resignFirstResponder];
     
     if (scrollView == _heightScrollView) {
+        if (_heightScrollView.contentSize.height == 0) {
+            return;
+        }
         float heightGap = (250.0f - 10.0f)/_heightScrollView.contentSize.height;
         _heightLabel.text = [NSString stringWithFormat:@"%.f",250.0f - scrollView.contentOffset.y* heightGap];
         _personModel.height = 250.0f - scrollView.contentOffset.y* heightGap;
         
     }else if(scrollView == _weightScrollView){
+        if (_weightScrollView.contentSize.width == 0) {
+            return;
+        }
         float weightGap = (210.0f - 10.0f)/_weightScrollView.contentSize.width;
         _weightLabel.text = [NSString stringWithFormat:@"%.fkg",10.0f + scrollView.contentOffset.x* weightGap];
         _personModel.weight = 10.0f + scrollView.contentOffset.x* weightGap;
@@ -309,6 +315,7 @@
         [ProgressHUD showSuccess:@"个人信息提交成功"];
         [USER_DEFAULT removeObjectForKey:KEY_PersonDest_StepNum];
         [USER_DEFAULT setInteger:_desStepNum forKey:KEY_PersonDest_StepNum];
+        [USER_DEFAULT setObject:_personModel.nickName forKey:KEY_PersonInfoModel_NickName];
         [USER_DEFAULT synchronize];
         [self.navigationController dismissViewControllerAnimated:YES completion:^{}];
     }

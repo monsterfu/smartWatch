@@ -78,7 +78,6 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
         uchCRCHi = uchCRCLo ^ auchCRCHi[uIndex];
         uchCRCLo = auchCRCLo[uIndex];
     }
-    NSLog(@"%d -- %d", uchCRCHi << 8,uchCRCLo);
     *first = uchCRCHi;
     *second = uchCRCLo;
     return (uchCRCHi << 8 | uchCRCLo) ;
@@ -106,10 +105,14 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     comps = [calendar components:unitFlags fromDate:currentDate];
-    long weekNumber = 0;
+    NSUInteger weekNumber = 0;
+    NSUInteger num2 = 0;
     if ([comps weekday] == 1) {
         weekNumber = BCD_CO(6);
     }else{
+        NSUInteger num = [comps weekday];
+        NSUInteger num1 = num -2;
+        num2 = BCD_CO(num1);
         weekNumber = BCD_CO([comps weekday]-2);
     }
     
@@ -120,7 +123,7 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     long minute= BCD_CO([comps minute]);
     long second = BCD_CO([comps second]);
     
-    unsigned char command[12] = {0xc0,0x0a,BCD_CO(year/100),BCD_CO(year%100),month,day,weekNumber,hour,minute,second};
+    unsigned char command[12] = {0xc0,0x0a,BCD_CO(year%100),BCD_CO(year/100),month,day,num2,hour,minute,second};
     unsigned char crc1, crc2;
     CRC16(command,10,&crc1,&crc2);
     command[10] = crc1;
@@ -143,17 +146,65 @@ unsigned short CRC16(unsigned char* puchMsg, unsigned short usDataLen,unsigned c
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
     [[ConnectionManager sharedInstance]setCommand:cmd];
 }
--(void)sendCommandgjgx_sendVisionInfo:(ConnectionManagerCommadEnum)cmd
+-(void)sendCommandgjgx_sendVisionNumMainVision:(NSUInteger)mainVison MinorVision:(NSUInteger)minorVision totalBytesNum:(NSUInteger)totalBytes packageNum:(NSUInteger)packNum cmd:(ConnectionManagerCommadEnum)cmd
 {
     unsigned char command[12] = {0xc1,0x0a};
     
+    command[3] = mainVison;
+    command[2] = minorVision;
+    
+    command[4] = totalBytes%0x100;
+    command[5] = (totalBytes%(0x10000)- totalBytes%0x100)/0x100;
+    command[6] = totalBytes/(0x10000);
+    command[7] = 0;
+    
+    if (packNum <= 255) {
+        command[9] = 0;
+        command [8] = packNum;
+    }else{
+        command[9] = packNum/0x100;
+        command[8] = packNum%0x100;
+    }
     
     unsigned char crc1, crc2;
-    CRC16(command,2,&crc1,&crc2);
-    command[2] = crc1;
-    command[3] = crc2;
-    NSData* lookdata = [[NSData alloc]initWithBytes:command length:4];
+    CRC16(command,10,&crc1,&crc2);
+    command[10] = crc1;
+    command[11] = crc2;
+    NSData* lookdata = [[NSData alloc]initWithBytes:command length:12];
     [_peripheral writeValue:lookdata forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
+    [[ConnectionManager sharedInstance]setCommand:cmd];
+}
+-(void)sendCommandgjgx_sendData:(NSData*)data num:(NSUInteger)num cmd:(ConnectionManagerCommadEnum)cmd
+{
+    NSUInteger lenth = data.length;
+    unsigned char command[4] = {0xc2};
+    command[1] = lenth + 4;
+    
+    if (num <= 255) {
+        command[3] = 0;
+        command [2] = num;
+    }else{
+        command[3] = num/0x100;
+        command[2] = num%0x100;
+    }
+    
+    NSData* midData = [[NSData alloc]initWithBytes:command length:4];
+    
+    NSMutableData* desData = [NSMutableData dataWithData:midData];
+    [desData appendData:data];
+    
+    
+    unsigned char crc1, crc2;
+    CRC16((unsigned char*)desData.bytes,desData.length,&crc1,&crc2);
+    
+    NSData* crc1Data = [[NSData alloc]initWithBytes:&crc1 length:1];
+    NSData* crc2Data = [[NSData alloc]initWithBytes:&crc2 length:1];
+    
+    [desData appendData:crc1Data];
+    [desData appendData:crc2Data];
+    
+    NSLog(@"writeValue:%@",desData);
+    [_peripheral writeValue:desData forCharacteristic:_characteristic type:CBCharacteristicWriteWithResponse];
     [[ConnectionManager sharedInstance]setCommand:cmd];
 }
 

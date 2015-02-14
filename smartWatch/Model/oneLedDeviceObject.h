@@ -56,7 +56,9 @@ struct user_info
 //查询固件更新历史断点续传信息
 -(void)sendCommandgjgx_requestVisionHistoryInfo:(ConnectionManagerCommadEnum)cmd;
 //传送固件信息
--(void)sendCommandgjgx_sendVisionInfo:(ConnectionManagerCommadEnum)cmd;
+-(void)sendCommandgjgx_sendVisionNumMainVision:(NSUInteger)mainVison MinorVision:(NSUInteger)minorVision totalBytesNum:(NSUInteger)totalBytes packageNum:(NSUInteger)packNum cmd:(ConnectionManagerCommadEnum)cmd;
+//传送数据包
+-(void)sendCommandgjgx_sendData:(NSData*)data num:(NSUInteger)num cmd:(ConnectionManagerCommadEnum)cmd;
 //传送完成
 -(void)sendCommandgjgx_requestVisionSendFinished:(ConnectionManagerCommadEnum)cmd;
 

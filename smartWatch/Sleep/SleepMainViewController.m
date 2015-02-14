@@ -243,9 +243,15 @@
             [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_SM_lsjl];
         }else if (byteValue[0] == 0xe3&&byteValue[1] == 0x02) {
             [ProgressHUD showSuccess:@"同步完成"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestPerAck:ConnectionManagerCommadEnum_SM_lsjl];
+            [[NSNotificationCenter defaultCenter]postNotificationName:NSNotificationCenter_SaveSyncData object:nil];
             _allsleepsArray = [NSArray array];
-            _allsleepsArray = [_personInfo allSports];
-            _sleepCoreDataModel = [_allsleepsArray objectAtIndex:0];
+            _allsleepsArray = [_personInfo allSleeps];
+            if ([_allsleepsArray count]) {
+                _sleepCoreDataModel = [_allsleepsArray objectAtIndex:0];
+            }else{
+                _sleepCoreDataModel = nil;
+            }
 //            _dateLabel.text = [_sleepCoreDataModel.date formatString:NSDateFormatString_2];
 //            _stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
 //            _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];

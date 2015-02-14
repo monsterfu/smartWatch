@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"设置";
-    _titleArray = @[@"个人信息",@"单位设置",@"闹钟",@"久坐提醒",@"防丢卫士",@"工作模式",@"信息推送"];
+    _titleArray = @[@"个人信息",@"单位设置",@"闹钟",@"久坐提醒",@"防丢卫士",@"工作模式",@"信息推送",@"固件升级"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +49,7 @@
     }else if(section == 1){
         return 4;
     }else{
-        return 1;
+        return 2;
     }
 }
 
@@ -72,17 +72,15 @@
         [self performSegueWithIdentifier:@"alarmListPushIdentifier" sender:nil];
     }else if (indexPath.section == 1&&indexPath.row == 1) {
         [self performSegueWithIdentifier:@"longsitContrlPushIdentifier" sender:nil];
+    }else if (indexPath.section == 1&&indexPath.row == 2) {
+        [self performSegueWithIdentifier:@"antiLostPushIdentifier" sender:nil];
     }else if (indexPath.section == 0&&indexPath.row == 1) {
         [self performSegueWithIdentifier:@"unitSelectPushIdentifier" sender:nil];
     }else if (indexPath.section == 0&&indexPath.row == 0) {
         [self performSegueWithIdentifier:@"personDetailIdentifier" sender:nil];
+    }else if (indexPath.section == 2&&indexPath.row == 1){
+        [self performSegueWithIdentifier:@"hardWareUpdatePushIdentifier" sender:nil];
     }
     
-    
-//    if (![USER_DEFAULT boolForKey:KEY_ISLOGIN_INFO]) {
-//        [self.navigationController.tabBarController performSegueWithIdentifier:@"userLoginIdentifier" sender:nil];
-//    }else{
-//        [self.navigationController.tabBarController performSegueWithIdentifier:@"searchDetailIdentifier" sender:[_dataArray objectAtIndex:indexPath.row]];
-//    }
 }
 @end

@@ -30,6 +30,7 @@ static ConnectionManager *sharedConnectionManager;
 {
     if (self = [super init])
     {
+        _hasConnectOneDevice = NO;
         _delegate = delegate;
         manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 //        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
@@ -193,7 +194,9 @@ static ConnectionManager *sharedConnectionManager;
     if (![[args_peripheral name] hasPrefix:@"SmartAM"]) {
         return;
     }
-    
+    if (_hasConnectOneDevice == YES) {
+        return;
+    }
     NSLog(@"Discovered unknown device, %@,%@", [args_peripheral name],[args_peripheral.identifier UUIDString]);
 //    NSDictionary *serviceData = [advertisementData objectForKey:@"kCBAdvDataServiceData"];
 //    if (!serviceData ||
@@ -208,6 +211,7 @@ static ConnectionManager *sharedConnectionManager;
         _deviceObject = [_deviceManagerDictionary objectForKey:[args_peripheral.identifier UUIDString]];
         _deviceObject.peripheral = args_peripheral;
         if (!_deviceObject.isConnecting) {
+            _hasConnectOneDevice = YES;
             [manager connectPeripheral:args_peripheral options:nil];
             _deviceObject.isConnecting = YES;
             [_existDeviceArray addObject:_deviceObject];
@@ -274,7 +278,11 @@ static ConnectionManager *sharedConnectionManager;
     }
     
 }
-
+-(void)setDeviceObject:(oneLedDeviceObject *)deviceObject
+{
+    NSLog(@"deviceObject:%@",deviceObject);
+    _deviceObject = deviceObject;
+}
 -(void)peripheral:(CBPeripheral *)args_peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error{
     
     if (error) {

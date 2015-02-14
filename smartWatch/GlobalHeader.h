@@ -84,6 +84,7 @@
 #define KEY_PersonInfoModel_sex         @"KEY_PersonInfoModel_sex"
 
 #define KEY_PersonDest_StepNum          @"KEY_PersonDest_StepNum"
+#define KEY_PersonInfoModel_NickName    @"KEY_PersonInfoModel_NickName"
 /**
  *  久坐提醒
  */
@@ -105,4 +106,5 @@
 
 #define NSNotificationCenter_AppWillDetemin                 @"NSNotificationCenter_AppWillDetemin" //APP退出
 
+#define NSNotificationCenter_SaveSyncData                 @"NSNotificationCenter_SaveSyncData" 
 #endif

@@ -22,7 +22,10 @@
 {
     [self.navigationController setNavigationBarHidden:NO];
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [ConnectionManager sharedInstance].delegate = self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -101,7 +104,7 @@
     if ([ConnectionManager sharedInstance].connectState == ConnectionManagerState_NoDeviceConnect||
         [ConnectionManager sharedInstance].connectState == ConnectionManagerState_Disconnect) {
         [ProgressHUD showError:@"设备未连接!"];
-        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"蓝牙未打开!" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"设备未连接!" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         [alertView show];
         return;
     }
@@ -169,7 +172,6 @@
 - (void) didConnectWithDevice:(oneLedDeviceObject*)device
 {
     [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"已连接至:",device.name]];
-    
     [[ConnectionManager sharedInstance].deviceObject syncCurrentTime:ConnectionManagerCommadEnum_TBSJ];
 }
 - (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
@@ -198,7 +200,9 @@
                 [ProgressHUD showSuccess:@"密码错误"];
             }
         }else{
-            [ProgressHUD showError:@"未知错误"];
+            [ProgressHUD showError:@"未知错误,重置设备后，请重新注册！"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandSetting_sendDeviceReset:ConnectionManagerCommadEnum_ZZSZ_sbcz];
+            
         }
         
     }

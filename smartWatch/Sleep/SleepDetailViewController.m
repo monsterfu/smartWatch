@@ -238,6 +238,7 @@
             [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestPerAck:ConnectionManagerCommadEnum_ACK];
         }else if (byteValue[0] == 0xe3&&byteValue[1] == 0x02) {
             [ProgressHUD showSuccess:@"同步完成"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandsmxx_requestPerAck:ConnectionManagerCommadEnum_SM_lsjl];
         }
         
     }

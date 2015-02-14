@@ -18,11 +18,16 @@
 {
     CommonNavigationController* _navigationController = (CommonNavigationController*)self.tabBarController.navigationController;
     [_navigationController setNavigationBartintColor:[UIColor getColor:@"46a719"]];
+    
+    [ConnectionManager sharedInstance].delegate = self;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [ProgressHUD show:@"同步中..."];
+    [[ConnectionManager sharedInstance].deviceObject sendCommandxlxx_requestHistoryInfo:ConnectionManagerCommadEnum_SL_lsjl];
+    [ConnectionManager sharedInstance].delegate = self;
+    _personInfo = [PersonDetaiInfo sharedInstance];
     
     graph  = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     
@@ -217,5 +222,44 @@
 }
 
 - (IBAction)compareButtonTouch:(UIButton *)sender {
+}
+
+- (IBAction)monitorButtonTouch:(UIButton *)sender {
+}
+
+#pragma mark -ConnectionManagerDelegate
+- (void) didDisconnectWithDevice:(oneLedDeviceObject*)device
+{
+    [ProgressHUD showSuccess:[NSString stringWithFormat:@"%@%@",@"断开连接:",device.name]];
+}
+- (void) didReciveCommandResponseData:(NSData*)data cmd:(ConnectionManagerCommadEnum)cmd
+{
+    if (cmd == ConnectionManagerCommadEnum_SL_lsjl) {
+        Byte* byteValue = (Byte*)data.bytes;
+        if (byteValue[0] == 0xe4&&byteValue[1] == 0x12){
+            _heartRateOneDayModel = [[heartRateOneDayInfoModel alloc]initWithData:data];
+            [_personInfo addHeartRateReadingWithModel:_heartRateOneDayModel];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandxlxx_requestPerAck:ConnectionManagerCommadEnum_SL_lsjl];
+        }else if (byteValue[0] == 0xe4&&byteValue[1] == 0x02) {
+            [ProgressHUD showSuccess:@"同步完成"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandxlxx_requestPerAck:ConnectionManagerCommadEnum_SL_lsjl];
+            [[NSNotificationCenter defaultCenter]postNotificationName:NSNotificationCenter_SaveSyncData object:nil];
+            _allheartRateArray = [NSArray array];
+            _allheartRateArray = [_personInfo allHeartRates];
+            if ([_allheartRateArray count]) {
+                _heartRateCoreDataModel = [_allheartRateArray objectAtIndex:0];
+            }else{
+                _heartRateCoreDataModel = nil;
+            }
+            //            _dateLabel.text = [_sleepCoreDataModel.date formatString:NSDateFormatString_2];
+            //            _stepNumLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalStepNum.longValue];
+            //            _kmLabel.text = [NSString stringWithFormat:@"%.1f",_sportCoreDataModel.distance.longValue/1000.0f];
+            //            _kcalLabel.text = [NSString stringWithFormat:@"%ld",_sportCoreDataModel.totalKcal.longValue];
+        }
+        
+    }
+}
+- (void) didReciveCommandSuccessResponseWithCmd:(ConnectionManagerCommadEnum)cmd{
+    
 }
 @end

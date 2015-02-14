@@ -197,11 +197,11 @@ static PersonDetaiInfo *sharedConnectionManager = nil;
 }
 - (NSArray *) allSleeps
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"sleepFetchRequest"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SleepDataReadingModel"];
     NSError *error;
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"personSleep.userName LIKE %@", self.userName]];
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+//    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+//    [request setPredicate:[NSPredicate predicateWithFormat:@"personSleep.userName LIKE %@", self.userName]];
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (error)
     {
@@ -211,11 +211,11 @@ static PersonDetaiInfo *sharedConnectionManager = nil;
 }
 - (NSArray *) allHeartRates
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"heartFetchRequest"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"HeartRateDataReadingModel"];
     NSError *error;
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"personHeartRate.userName LIKE %@", self.userName]];
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+//    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+//    [request setPredicate:[NSPredicate predicateWithFormat:@"personHeartRate.userName LIKE %@", self.userName]];
     NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
     if (error)
     {

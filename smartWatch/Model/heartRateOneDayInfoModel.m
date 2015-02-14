@@ -38,7 +38,7 @@
                 _mode = heartRateOneDayModeEnum_Minitor;
             }
             index +=1;
-            _secTotal = byteValue[index]* 1000 + byteValue[index+1]*100 + byteValue[index+2]*10 + byteValue[index+3];
+            _secTotal = byteValue[index] + byteValue[index+1]*10 + byteValue[index+2]*100 + byteValue[index+3]* 1000;
             index += 4;
             _rateVale = byteValue[index];
         }

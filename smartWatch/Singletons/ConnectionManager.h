@@ -84,6 +84,7 @@ typedef enum : NSUInteger {
     NSTimer* checkRssiTimer;
     CBUUID* _batteryUUID;
     NSUInteger _indexRSSI;
+    BOOL _hasConnectOneDevice;
 }
 @property(nonatomic,assign)ConnectionManagerState_StateEnum connectState;
 @property(nonatomic, assign)ConnectionManagerCommadEnum command;
@@ -99,7 +100,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,retain)NSMutableDictionary* deviceManagerDictionary;
 
 
-
+-(void)setDeviceObject:(oneLedDeviceObject *)deviceObject;
 + (ConnectionManager*) sharedInstance;
 - (void) startScanForDevice;
 - (void) stopScanForDevice;

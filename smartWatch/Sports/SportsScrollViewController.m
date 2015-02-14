@@ -100,6 +100,7 @@
             [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
         }else if (byteValue[0] == 0xe2&&byteValue[1] == 0x02) {
             [ProgressHUD showSuccess:@"同步完成"];
+            [[ConnectionManager sharedInstance].deviceObject sendCommandydxx_requestPerAck:ConnectionManagerCommadEnum_YD_lsjl];
         }
         
     }

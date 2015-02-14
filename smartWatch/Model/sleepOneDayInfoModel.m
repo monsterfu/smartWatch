@@ -27,15 +27,15 @@
         Byte* byteValue = (Byte*)data.bytes;
         if (byteValue[index] == 0xf2&&data.length == 16) {
             index ++;
-            _sec = byteValue[index]* 1000 + byteValue[index+1]*100 + byteValue[index+2]*10 + byteValue[index+3];
+            _sec = byteValue[index] + byteValue[index+1]*10 + byteValue[index+2]*100 + byteValue[index+3]* 1000;
             index += 4;
-            _totalTime = byteValue[index]*100 + byteValue[index+1]*10 + byteValue[index+2];
+            _totalTime = byteValue[index] + byteValue[index+1]*10 + byteValue[index+2]*100;
             index += 3;
-            _inSleepTime = byteValue[index]*10 + byteValue[index+1];
+            _inSleepTime = byteValue[index] + byteValue[index+1]*10;
             index += 2;
-            _moveTime = byteValue[index]*10 + byteValue[index+1];
+            _moveTime = byteValue[index] + byteValue[index+1]*10;
             index += 2;
-            _wakeUpTime = byteValue[index]*10 + byteValue[index+1];
+            _wakeUpTime = byteValue[index] + byteValue[index+1]*10;
         }
     }
     return self;

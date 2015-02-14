@@ -46,13 +46,13 @@
             NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
             _date = [calendar dateFromComponents:comps];
             index += 3;
-            _stepCount = byteValue[index]*100 + byteValue[index+1]*10 + byteValue[index+2];
+            _stepCount = byteValue[index] + byteValue[index+1]*10 + byteValue[index+2]*100;
             index += 3;
-            _distance = byteValue[index]*100 + byteValue[index+1]*10 + byteValue[index+2];
+            _distance = byteValue[index] + byteValue[index+1]*10 + byteValue[index+2]*100;
             index += 3;
-            _totalCalories = byteValue[index]*10 + byteValue[index+1];
+            _totalCalories = byteValue[index] + byteValue[index+1]*10;
             index += 2;
-            _sportCalories = byteValue[index]*10 + byteValue[index+1];
+            _sportCalories = byteValue[index] + byteValue[index+1]*10;
             
         }
     }

@@ -152,6 +152,8 @@
     }
     _personModel.userName = _userNameField.text;
     _personModel.passWord = _passWordField.text;
+    _personModel.weight = 60;
+    _personModel.height = 160;
     _regisierDataIdx = 0;
     [[ConnectionManager sharedInstance].deviceObject sendCommandyhzc_sendRegisterInfoWithPerson:_personModel index:_regisierDataIdx cmd:ConnectionManagerCommadEnum_YHZC_csxx];
     [ProgressHUD show:@"设备注册中，请稍候"];
